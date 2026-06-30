@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Premium hand-rolled cigars crafted with decades of tradition." />
+  <title>Casa del Habano | Premium Hand-Rolled Cigars</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <header class="site-header" role="banner">
+    <nav class="nav-primary" aria-label="Main navigation">
+      <a href="#" class="nav-logo" aria-label="Casa del Habano home">
+        Casa del Habano
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        &#9776;
+      </button>
+      <ul class="nav-menu" id="nav-menu" role="list">
+        <li><a href="#about"        class="nav-link">About</a></li>
+        <li><a href="#products"     class="nav-link">Collection</a></li>
+        <li><a href="#benefits"     class="nav-link">Our Promise</a></li>
+        <li><a href="#testimonials" class="nav-link">Stories</a></li>
+        <li><a href="#newsletter"   class="nav-link">Contact</a></li>
+      </ul>
+      <a href="#products" class="btn btn--primary nav-cta">Shop Now</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ============================================================
+         SECTION 1: HERO
+    ============================================================ -->
+    <section class="section hero" id="hero" aria-label="Hero banner">
+      <div class="hero__bg-media">
+        <!-- Background image: assets/images/hero.jpg -->
+      </div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="container hero__content">
+        <p class="eyebrow hero__eyebrow">Est. 1967</p>
+        <h1 class="hero__headline">Crafted for the<br>Discerning Few</h1>
+        <p class="hero__subheadline">
+          Hand-rolled excellence from the finest tobacco leaves in the world.
+        </p>
+        <div class="hero__actions">
+          <a href="#products" class="btn btn--primary">Explore Our Collection</a>
+          <a href="#about"    class="btn btn--ghost">Our Story</a>
+        </div>
+      </div>
+      <div class="hero__scroll-indicator" aria-hidden="true">&#8595;</div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 2: ABOUT / BRAND STORY
+    ============================================================ -->
+    <section class="section about" id="about" aria-labelledby="about-heading">
+      <div class="container about__grid">
+        <figure class="about__media">
+          <img
+            src="assets/images/about.jpg"
+            alt="Master cigar roller at work"
+            class="about__image"
+            loading="lazy"
+            width="480"
+            height="600"
+          />
+        </figure>
+        <div class="about__content">
+          <p class="eyebrow">Our Heritage</p>
+          <h2 class="section-heading about__heading" id="about-heading">
+            A Legacy of Masterful Craft
+          </h2>
+          <div class="about__body">
+            <p>
+              <!-- Body copy paragraph one: founding story, family history, region -->
+            </p>
+            <p>
+              <!-- Body copy paragraph two: commitment to craft, process, philosophy -->
+            </p>
+          </div>
+          <div class="about__divider" role="presentation"></div>
+          <div class="about__stats" role="list">
+            <div class="about__stat" role="listitem">
+              <span class="about__stat-number">50+</span>
+              <span class="about__stat-label">Years of Craft</span>
+            </div>
+            <div class="about__stat" role="listitem">
+              <span class="about__stat-number">18</span>
+              <span class="about__stat-label">Signature Blends</span>
+            </div>
+            <div class="about__stat" role="listitem">
+              <span class="about__stat-number">12</span>
+              <span class="about__stat-label">Countries Sourced</span>
+            </div>
+          </div>
+          <a href="#" class="btn btn--outline">Read Our Full Story</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 3: FEATURED PRODUCTS
+    ============================================================ -->
+    <section class="section products" id="products" aria-labelledby="products-heading">
+      <div class="container">
+        <div class="section-header section-header--centered">
+          <p class="eyebrow">The Collection</p>
+          <h2 class="section-heading" id="products-heading">
+            Our Most Celebrated Cigars
+          </h2>
+        </div>
+        <ul class="products__grid" role="list">
+
+          <!-- Product Card 1 -->
+          <li class="product-card" role="listitem">
+            <figure class="product-card__media">
+              <img src="assets/images/product-1.jpg" alt="The Reserva Oscura cigar" class="product-card__image" loading="lazy" />
+            </figure>
+            <div class="product-card__body">
+              <h3 class="product-card__name">Reserva Oscura</h3>
+              <p class="product-card__blend">Nicaraguan Maduro</p>
+              <div class="product-card__strength" aria-label="Strength: 4 of 5">
+                <!-- JS or CSS dot indicators -->
+              </div>
+              <p class="product-card__price">$24.00</p>
+              <a href="#" class="btn btn--primary product-card__cta">View Details</a>
+            </div>
+          </li>
+
+          <!-- Product Card 2 -->
+          <li class="product-card" role="listitem">
+            <figure class="product-card__media">
+              <img src="assets/images/product-2.jpg" alt="The Gran Habano cigar" class="product-card__image" loading="lazy" />
+            </figure>
+            <div class="product-card__body">
+              <h3 class="product-card__name">Gran Habano</h3>
+              <p class="product-card__blend">Dominican Connecticut</p>
+              <div class="product-card__strength" aria-label="Strength: 2 of 5">
+                <!-- Strength dots -->
+              </div>
+              <p class="product-card__price">$19.00</p>
+              <a href="#" class="btn btn--primary product-card__cta">View Details</a>
+            </div>
+          </li>
+
+          <!-- Product Card 3 -->
+          <li class="product-card" role="listitem">
+            <figure class="product-card__media">
+              <img src="assets/images/product-3.jpg" alt="The Anejo Vintage cigar" class="product-card__image" loading="lazy" />
+            </figure>
+            <div class="product-card__body">
+              <h3 class="product-card__name">Añejo Vintage</h3>
+              <p class="product-card__blend">Cuban Seed Habano</p>
+              <div class="product-card__strength" aria-label="Strength: 3 of 5">
+                <!-- Strength dots -->
+              </div>
+              <p class="product-card__price">$32.00</p>
+              <a href="#" class="btn btn--primary product-card__cta">View Details</a>
+            </div>
+          </li>
+
+        </ul>
+        <div class="products__footer">
+          <a href="#" class="link-underline">View Full Collection &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 4: BENEFITS / WHY CHOOSE US
+    ============================================================ -->
+    <section class="section benefits" id="benefits" aria-labelledby="benefits-heading">
+      <div class="container">
+        <div class="section-header section-header--centered">
+          <h2 class="section-heading" id="benefits-heading">The Distinction of Excellence</h2>
+        </div>
+        <ul class="benefits__grid" role="list">
+
+          <li class="benefit-item" role="listitem">
+            <div class="benefit-item__icon" aria-hidden="true">&#127807;</div>
+            <h3 class="benefit-item__title">Hand-Selected Tobacco</h3>
+            <p class="benefit-item__body">Every leaf personally inspected by our master blenders before entering the aging room.</p>
+          </li>
+          <li class="benefit-item" role="listitem">
+            <div class="benefit-item__icon" aria-hidden="true">&#127941;</div>
+            <h3 class="benefit-item__title">Award-Winning Blends</h3>
+            <p class="benefit-item__body">Recognized globally with over 40 ratings of 93+ points from leading cigar publications.</p>
+          </li>
+          <li class="benefit-item" role="listitem">
+            <div class="benefit-item__icon" aria-hidden="true">&#127758;</div>
+            <h3 class="benefit-item__title">World-Sourced Tobaccos</h3>
+            <p class="benefit-item__body">Wrapper, binder, and filler sourced from the finest growing regions across 12 countries.</p>
+          </li>
+          <li class="benefit-item" role="listitem">
+            <div class="benefit-item__icon" aria-hidden="true">&#128293;</div>
+            <h3 class="benefit-item__title">Slow Cured Wrappers</h3>
+            <p class="benefit-item__body">Wrapper leaves fermented for a minimum of 18 months to achieve a smooth, even burn.</p>
+          </li>
+          <li class="benefit-item" role="listitem">
+            <div class="benefit-item__icon" aria-hidden="true">&#8987;</div>
+            <h3 class="benefit-item__title">Aged to Perfection</h3>
+            <p class="benefit-item__body">All blends rest in Spanish cedar humidors for a minimum of three years before release.</p>
+          </li>
+          <li class="benefit-item" role="listitem">
+            <div class="benefit-item__icon" aria-hidden="true">&#127941;</div>
+            <h3 class="benefit-item__title">Master Blenders Only</h3>
+            <p class="benefit-item__body">No production shortcuts. Every cigar passes through the hands of a certified master roller.</p>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 5: TESTIMONIALS
+    ============================================================ -->
+    <section class="section testimonials" id="testimonials" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <div class="section-header section-header--centered">
+          <p class="eyebrow">What Connoisseurs Say</p>
+          <h2 class="section-heading" id="testimonials-heading">Words from Our Aficionados</h2>
+        </div>
+        <div class="testimonials__carousel" role="region" aria-label="Customer testimonials" aria-live="polite">
+          <ul class="testimonials__track" role="list">
+
+            <li class="testimonial-card" role="listitem">
+              <blockquote class="testimonial-card__quote">
+                <p>
+                  "The Reserva Oscura is without question one of the finest Nicaraguan Maduros
+                  I've had the pleasure of smoking. Complex, balanced, and consistently excellent."
+                </p>
+              </blockquote>
+              <figure class="testimonial-card__author">
+                <img src="assets/images/testimonial-1.jpg" alt="" class="testimonial-card__avatar" loading="lazy" />
+                <figcaption>
+                  <strong class="testimonial-card__name">Roberto M.</strong>
+                  <span class="testimonial-card__title">Cigar Aficionado, New York</span>
+                </figcaption>
+              </figure>
+            </li>
+
+            <li class="testimonial-card" role="listitem">
+              <blockquote class="testimonial-card__quote">
+                <p>
+                  "Casa del Habano has restored my faith in the craft. Each stick burns perfectly
+                  and delivers a smoking experience that rivals anything I've found in Havana."
+                </p>
+              </blockquote>
+              <figure class="testimonial-card__author">
+                <img src="assets/images/testimonial-2.jpg" alt="" class="testimonial-card__avatar" loading="lazy" />
+                <figcaption>
+                  <strong class="testimonial-card__name">James T.</strong>
+                  <span class="testimonial-card__title">Editor, Smoke &amp; Oak Magazine</span>
+                </figcaption>
+              </figure>
+            </li>
+
+            <li class="testimonial-card" role="listitem">
+              <blockquote class="testimonial-card__quote">
+                <p>
+                  "I've been a subscriber for three years. The curation, the aging, the quality
+                  control — everything signals a brand that genuinely cares about the end result."
+                </p>
+              </blockquote>
+              <figure class="testimonial-card__author">
+                <img src="assets/images/testimonial-3.jpg" alt="" class="testimonial-card__avatar" loading="lazy" />
+                <figcaption>
+                  <strong class="testimonial-card__name">Sandra L.</strong>
+                  <span class="testimonial-card__title">Collector, Miami FL</span>
+                </figcaption>
+              </figure>
+            </li>
+
+          </ul>
+        </div>
+        <div class="testimonials__controls" aria-label="Carousel controls">
+          <button class="testimonials__btn testimonials__btn--prev" aria-label="Previous testimonial">&larr;</button>
+          <div class="testimonials__dots" role="tablist" aria-label="Testimonial slides"></div>
+          <button class="testimonials__btn testimonials__btn--next" aria-label="Next testimonial">&rarr;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 6: NEWSLETTER / CTA
+    ============================================================ -->
+    <section class="section newsletter" id="newsletter" aria-labelledby="newsletter-heading">
+      <div class="container newsletter__content">
+        <div class="newsletter__icon" aria-hidden="true" style="font-size:2.5rem;margin-bottom:1rem;">&#9993;</div>
+        <h2 class="section-heading newsletter__heading" id="newsletter-heading">
+          Join the Inner Circle
+        </h2>
+        <p class="newsletter__subtext">
+          Be first to know about new releases, exclusive events, and members-only offers.
+        </p>
+        <form class="newsletter__form" action="#" method="post" novalidate aria-label="Newsletter signup">
+          <div class="newsletter__input-group">
+            <label for="newsletter-email" class="sr-only">Email address</label>
+            <input
+              type="email"
+              id="newsletter-email"
+              name="email"
+              class="newsletter__input"
+              placeholder="Enter your email address"
+              autocomplete="email"
+              required
+              aria-required="true"
+            />
+            <button type="submit" class="btn btn--primary newsletter__submit">Subscribe</button>
+          </div>
+          <p class="newsletter__disclaimer" aria-live="polite">
+            No spam. Unsubscribe anytime. Must be 21+ to join.
+          </p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="#" class="footer__logo" aria-label="Casa del Habano home">Casa del Habano</a>
+        <p class="footer__tagline">
+          Hand-rolled excellence since 1967.<br>Where tradition meets the art of the perfect smoke.
+        </p>
+      </div>
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <div class="footer__nav-col">
+          <h4 class="footer__nav-heading">Navigate</h4>
+          <ul role="list">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+        <div class="footer__nav-col">
+          <h4 class="footer__nav-heading">Products</h4>
+          <ul role="list">
+            <li><a href="#">Full Collection</a></li>
+            <li><a href="#">Accessories</a></li>
+            <li><a href="#">Gift Sets</a></li>
+            <li><a href="#">Subscriptions</a></li>
+          </ul>
+        </div>
+        <div class="footer__nav-col">
+          <h4 class="footer__nav-heading">Connect</h4>
+          <ul class="footer__social" role="list">
+            <li><a href="#" aria-label="Facebook"   rel="noopener noreferrer">&#128100;</a></li>
+            <li><a href="#" aria-label="Instagram"  rel="noopener noreferrer">&#128247;</a></li>
+            <li><a href="#" aria-label="X / Twitter" rel="noopener noreferrer">&#10005;</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <hr class="footer__divider" />
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p class="footer__copyright">&copy; <span id="footer-year"></span> Casa del Habano. All Rights Reserved.</p>
+        <ul class="footer__legal" role="list">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+        </ul>
+        <p class="footer__age-disclaimer">Must be 21 or older to purchase tobacco products.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
