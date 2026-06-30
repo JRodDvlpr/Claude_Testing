@@ -1,36 +1,36 @@
 /* tokens.css — design system custom properties */
 :root {
-  /* ── Dark Backgrounds (near-black, not brown) ── */
-  --color-black:       #080808;   /* footer, deepest */
-  --color-bg-deepest:  #0C0C0C;   /* hero, testimonials */
-  --color-bg-dark:     #141414;   /* products section */
-  --color-bg-card:     #1E1E1E;   /* card surfaces */
-  --color-bg-surface:  #252525;   /* elevated elements */
-  --color-border:      #2E2E2E;   /* subtle borders */
+  /* ── Dark Backgrounds (Pita Cigars navy — matched from brand screenshot) ── */
+  --color-black:       #06111F;   /* footer, deepest */
+  --color-bg-deepest:  #0B1828;   /* hero, testimonials */
+  --color-bg-dark:     #0F2035;   /* products section */
+  --color-bg-card:     #152840;   /* card surfaces */
+  --color-bg-surface:  #1C3250;   /* elevated elements */
+  --color-border:      #1E3550;   /* subtle borders */
 
   /* ── Light Backgrounds (clean, high contrast) ── */
   --color-white:       #FAFAF8;   /* about section */
-  --color-off-white:   #F4F0E8;   /* benefits section */
+  --color-off-white:   #F2F5FA;   /* benefits section — cool white to match navy brand */
 
-  /* ── Gold (classic luxury — Davidoff / Arturo Fuente inspired) ── */
+  /* ── Gold (Pita Cigars accent — warm gold on navy) ── */
   --color-gold:        #C9A84C;   /* primary accent */
   --color-gold-light:  #E2C46D;   /* hover / lighter variant */
   --color-gold-dim:    #7A6330;   /* borders, decorative */
   --color-gold-subtle: rgba(201, 168, 76, 0.12); /* bg tints */
 
-  /* ── Claret / Maroon (Cohiba-inspired secondary accent) ── */
+  /* ── Claret / Maroon (secondary accent) ── */
   --color-claret:      #7A1B2E;
   --color-claret-light:#9B2438;
 
   /* ── Text ── */
-  --color-text-primary:   #111111;   /* body text on light */
-  --color-text-secondary: #555555;   /* secondary on light */
-  --color-text-muted:     #888888;   /* muted on dark */
-  --color-text-light:     #F2EDE4;   /* primary text on dark */
-  --color-text-dim:       #A0A0A0;   /* secondary text on dark */
+  --color-text-primary:   #0F2035;   /* body text on light */
+  --color-text-secondary: #4A6080;   /* secondary on light */
+  --color-text-muted:     #7A96B0;   /* muted on dark */
+  --color-text-light:     #EEF2F7;   /* primary text on dark */
+  --color-text-dim:       #8AAAC8;   /* secondary text on dark */
 
   /* ── Newsletter section ── */
-  --color-cta-bg:      #0F1A2E;   /* deep navy — Davidoff inspired */
+  --color-cta-bg:      #081420;   /* deepest navy for CTA band */
 
   /* ── Typography ── */
   --font-serif: 'Cormorant Garamond', 'Georgia', serif;
