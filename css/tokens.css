@@ -36,41 +36,43 @@
   --font-serif: 'Cormorant Garamond', 'Georgia', serif;
   --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
 
-  /* ── Type scale ── */
-  --text-eyebrow: 0.6875rem;   /* 11px */
-  --text-sm:      0.875rem;    /* 14px */
+  /* ── Type scale (fluid, Apple/Tesla-style clamp scaling) ── */
+  --text-eyebrow: 0.75rem;     /* 12px */
+  --text-sm:      0.9375rem;   /* 15px */
   --text-body:    1.0625rem;   /* 17px */
-  --text-lg:      1.1875rem;   /* 19px */
+  --text-lg:      1.25rem;     /* 20px */
   --text-h3:      1.5rem;      /* 24px */
-  --text-h2:      3rem;        /* 48px */
-  --text-h1:      5rem;        /* 80px */
+  --text-h2:      clamp(2.25rem, 4vw, 3.25rem);
+  --text-h1:      clamp(3.25rem, 7vw, 6.5rem);
 
   /* ── Letter spacing ── */
-  --tracking-tight:   -0.04em;
+  --tracking-tight:   -0.045em;
   --tracking-snug:    -0.02em;
   --tracking-normal:   0em;
   --tracking-wide:     0.08em;
   --tracking-widest:   0.18em;
 
-  /* ── Spacing (8px base unit) ── */
+  /* ── Spacing (8px base unit, generous Apple/Tesla whitespace) ── */
   --space-xs:  0.5rem;
   --space-sm:  1rem;
   --space-md:  1.5rem;
-  --space-lg:  2rem;
-  --space-xl:  3rem;
-  --space-2xl: 5rem;
-  --space-3xl: 8rem;
+  --space-lg:  2.5rem;
+  --space-xl:  4rem;
+  --space-2xl: 7rem;
+  --space-3xl: 10rem;
 
   /* ── Layout ── */
-  --container-max: 1200px;
+  --container-max: 1280px;
   --container-pad: 1.5rem;
-  --nav-height:    80px;
+  --nav-height:    72px;
 
   /* ── Effects ── */
-  --radius:       3px;
-  --radius-md:    6px;
-  --transition:   0.28s ease;
+  --radius:       12px;
+  --radius-md:    20px;
+  --radius-pill:  980px;
+  --transition:   0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
   --shadow-card:  0 8px 40px rgba(0, 0, 0, 0.55);
+  --shadow-card-lift: 0 24px 56px rgba(0, 0, 0, 0.4);
   --shadow-gold:  0 0 24px rgba(201, 168, 76, 0.18);
 
   /* ── Gold gradient (used on primary buttons & accents) ── */
