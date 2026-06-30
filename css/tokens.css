@@ -1,16 +1,36 @@
 /* tokens.css — design system custom properties */
 :root {
-  /* ── Colors ── */
-  --color-bg-deepest:  #0D0704;
-  --color-bg-dark:     #1A0F0A;
-  --color-bg-mid:      #2B1810;
-  --color-gold:        #C8973A;
-  --color-gold-light:  #E8C97A;
-  --color-cream:       #F5EFE0;
-  --color-parchment:   #FAF6ED;
-  --color-ash:         #C9BFB0;
-  --color-green:       #1B3A2A;
-  --color-rust:        #6B2D1A;
+  /* ── Dark Backgrounds (near-black, not brown) ── */
+  --color-black:       #080808;   /* footer, deepest */
+  --color-bg-deepest:  #0C0C0C;   /* hero, testimonials */
+  --color-bg-dark:     #141414;   /* products section */
+  --color-bg-card:     #1E1E1E;   /* card surfaces */
+  --color-bg-surface:  #252525;   /* elevated elements */
+  --color-border:      #2E2E2E;   /* subtle borders */
+
+  /* ── Light Backgrounds (clean, high contrast) ── */
+  --color-white:       #FAFAF8;   /* about section */
+  --color-off-white:   #F4F0E8;   /* benefits section */
+
+  /* ── Gold (classic luxury — Davidoff / Arturo Fuente inspired) ── */
+  --color-gold:        #C9A84C;   /* primary accent */
+  --color-gold-light:  #E2C46D;   /* hover / lighter variant */
+  --color-gold-dim:    #7A6330;   /* borders, decorative */
+  --color-gold-subtle: rgba(201, 168, 76, 0.12); /* bg tints */
+
+  /* ── Claret / Maroon (Cohiba-inspired secondary accent) ── */
+  --color-claret:      #7A1B2E;
+  --color-claret-light:#9B2438;
+
+  /* ── Text ── */
+  --color-text-primary:   #111111;   /* body text on light */
+  --color-text-secondary: #555555;   /* secondary on light */
+  --color-text-muted:     #888888;   /* muted on dark */
+  --color-text-light:     #F2EDE4;   /* primary text on dark */
+  --color-text-dim:       #A0A0A0;   /* secondary text on dark */
+
+  /* ── Newsletter section ── */
+  --color-cta-bg:      #0F1A2E;   /* deep navy — Davidoff inspired */
 
   /* ── Typography ── */
   --font-serif: 'Cormorant Garamond', 'Georgia', serif;
@@ -19,36 +39,41 @@
   /* ── Type scale ── */
   --text-eyebrow: 0.6875rem;   /* 11px */
   --text-sm:      0.875rem;    /* 14px */
-  --text-body:    1.0625rem;   /* 17px — Apple's default body size */
+  --text-body:    1.0625rem;   /* 17px */
   --text-lg:      1.1875rem;   /* 19px */
   --text-h3:      1.5rem;      /* 24px */
   --text-h2:      3rem;        /* 48px */
   --text-h1:      5rem;        /* 80px */
 
-  /* ── Letter spacing (Apple-style: tight on large, normal on small) ── */
-  --tracking-tight:  -0.04em;
-  --tracking-snug:   -0.02em;
-  --tracking-normal:  0em;
-  --tracking-wide:    0.08em;
-  --tracking-widest:  0.18em;
+  /* ── Letter spacing ── */
+  --tracking-tight:   -0.04em;
+  --tracking-snug:    -0.02em;
+  --tracking-normal:   0em;
+  --tracking-wide:     0.08em;
+  --tracking-widest:   0.18em;
 
   /* ── Spacing (8px base unit) ── */
-  --space-xs:  0.5rem;    /* 8px  */
-  --space-sm:  1rem;      /* 16px */
-  --space-md:  1.5rem;    /* 24px */
-  --space-lg:  2rem;      /* 32px */
-  --space-xl:  3rem;      /* 48px */
-  --space-2xl: 5rem;      /* 80px */
-  --space-3xl: 8rem;      /* 128px */
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  1.5rem;
+  --space-lg:  2rem;
+  --space-xl:  3rem;
+  --space-2xl: 5rem;
+  --space-3xl: 8rem;
 
   /* ── Layout ── */
-  --container-max:  1200px;
-  --container-pad:  1.5rem;
-  --nav-height:     80px;
+  --container-max: 1200px;
+  --container-pad: 1.5rem;
+  --nav-height:    80px;
 
   /* ── Effects ── */
-  --radius:        4px;
-  --radius-md:     8px;
-  --transition:    0.3s ease;
-  --shadow-card:   0 4px 24px rgba(0, 0, 0, 0.18);
+  --radius:       3px;
+  --radius-md:    6px;
+  --transition:   0.28s ease;
+  --shadow-card:  0 8px 40px rgba(0, 0, 0, 0.55);
+  --shadow-gold:  0 0 24px rgba(201, 168, 76, 0.18);
+
+  /* ── Gold gradient (used on primary buttons & accents) ── */
+  --gradient-gold: linear-gradient(135deg, #C9A84C 0%, #E2C46D 50%, #C9A84C 100%);
+  --gradient-dark: linear-gradient(180deg, #0C0C0C 0%, #141414 100%);
 }
