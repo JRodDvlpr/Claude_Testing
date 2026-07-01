@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const goTo = (index) => {
       current = (index + slides.length) % slides.length;
-      track.style.transform = `translateX(calc(-${current} * (50% + 0.75rem)))`;
+      track.style.transform = `translateX(calc(-${current} * (50% + 1.25rem)))`;
       dots.forEach((d, i) => d.setAttribute('aria-selected', String(i === current)));
     };
 
@@ -83,23 +83,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ── 6. Newsletter Form ─────────────────────────────────────
-  const form       = document.querySelector('.newsletter__form');
-  const disclaimer = document.querySelector('.newsletter__disclaimer');
-  if (form && disclaimer) {
+  // ── 6. Contact Form ────────────────────────────────────────
+  const form     = document.querySelector('.contact__form');
+  const feedback = form?.querySelector('.contact__feedback');
+  if (form && feedback) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const email = form.querySelector('input[type="email"]').value.trim();
+      const name  = form.querySelector('input[type="text"]').value.trim();
+      const message = form.querySelector('textarea').value.trim();
       const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRe.test(email)) {
-        disclaimer.textContent = 'Please enter a valid email address.';
-        disclaimer.style.color = '#E8745A';
+      if (!name || !message || !emailRe.test(email)) {
+        feedback.textContent = 'Please complete all fields with a valid email address.';
+        feedback.style.color = '#E8745A';
         return;
       }
-      disclaimer.textContent = 'Thank you for joining the inner circle.';
-      disclaimer.style.color = 'var(--color-gold-light)';
+      feedback.textContent = 'Thank you — your message has been sent. We will be in touch shortly.';
+      feedback.style.color = 'var(--color-gold-light)';
       form.reset();
-      // TODO: wire up fetch() POST to your email service endpoint here
+      // TODO: wire up fetch() POST to your form/email service endpoint here
     });
   }
 
