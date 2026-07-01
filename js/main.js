@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── 7. Scroll Reveal ───────────────────────────────────────
   const revealEls = document.querySelectorAll(
-    '.product-card, .bundle-card, .benefit-item, .testimonial-card, .retailer-card, ' +
+    '.product-card, .category-card, .bundle-card, .benefit-item, .testimonial-card, .retailer-card, ' +
     '.about__media, .about__content, .contact__info, .contact__form, ' +
     '.pdp-story__inner, .section-header'
   );

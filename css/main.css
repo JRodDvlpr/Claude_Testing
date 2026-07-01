@@ -549,10 +549,16 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
 
 .about__stats {
   display: flex;
-  gap: var(--space-xl);
+  justify-content: space-between;
+  gap: var(--space-md);
   margin-bottom: var(--space-lg);
   padding-top: var(--space-lg);
   border-top: 1px solid #E6D8BC;
+}
+
+.about__stat {
+  flex: 1;
+  text-align: center;
 }
 
 .about__stat-number {
@@ -696,6 +702,114 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
 .link-underline:hover {
   color: var(--color-gold-light);
   border-color: var(--color-gold-light);
+}
+
+/* ============================================================
+   PRODUCTS HUB / CATEGORY CARDS
+============================================================ */
+.catalog {
+  background: var(--color-bg-dark);
+}
+
+.catalog .eyebrow { color: var(--color-gold); }
+.catalog .section-heading { color: var(--color-text-light); }
+
+.section-lede--dark { color: var(--color-text-dim); }
+
+.catalog__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.category-card {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.category-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-lift);
+}
+
+.category-card--soon:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.category-card__link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.category-card__media {
+  overflow: hidden;
+}
+
+.category-card__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.category-card:hover .category-card__image {
+  transform: scale(1.04);
+}
+
+.category-card--soon .category-card__image {
+  filter: grayscale(45%) brightness(0.75);
+}
+
+.category-card--soon:hover .category-card__image {
+  transform: none;
+}
+
+.category-card__body {
+  padding: var(--space-lg);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  flex: 1;
+}
+
+.category-card__name {
+  font-family: var(--font-serif);
+  font-size: var(--text-h3);
+  font-weight: 600;
+  letter-spacing: var(--tracking-snug);
+  color: var(--color-text-light);
+}
+
+.category-card__desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-dim);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.category-card__cta {
+  margin-top: var(--space-xs);
+}
+
+.category-card__badge {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: var(--text-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  background: var(--gradient-claret);
+  border-radius: var(--radius-pill);
+  padding: 0.375rem 1rem;
 }
 
 /* ============================================================
@@ -1476,6 +1590,12 @@ a.contact__value:hover { color: var(--color-gold); }
   color: var(--color-gold);
 }
 
+/* Breadcrumb on light/cream sections (e.g. Pita Bundles page) */
+.bundles .pdp__breadcrumb a { color: var(--color-text-secondary); }
+.bundles .pdp__breadcrumb a:hover { color: var(--color-claret); }
+.bundles .pdp__breadcrumb-sep { color: var(--color-gold-dim); }
+.bundles .pdp__breadcrumb-current { color: var(--color-claret); }
+
 .pdp__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1658,6 +1778,7 @@ a.contact__value:hover { color: var(--color-gold); }
    stays fully visible instead of being stuck at opacity 0.
 ============================================================ */
 .reveal-init .product-card,
+.reveal-init .category-card,
 .reveal-init .bundle-card,
 .reveal-init .benefit-item,
 .reveal-init .testimonial-card,
@@ -1675,6 +1796,7 @@ a.contact__value:hover { color: var(--color-gold); }
 }
 
 .reveal-init .product-card.is-visible,
+.reveal-init .category-card.is-visible,
 .reveal-init .bundle-card.is-visible,
 .reveal-init .benefit-item.is-visible,
 .reveal-init .testimonial-card.is-visible,
@@ -1691,12 +1813,14 @@ a.contact__value:hover { color: var(--color-gold); }
 
 /* Staggered reveal within grids so cards arrive in sequence, not all at once */
 .products__grid > *:nth-child(2),
+.catalog__grid > *:nth-child(2),
 .bundles__grid > *:nth-child(2),
 .related__grid > *:nth-child(2),
 .benefits__grid > *:nth-child(2),
 .retailers__grid > *:nth-child(2) { transition-delay: 0.08s; }
 
 .products__grid > *:nth-child(3),
+.catalog__grid > *:nth-child(3),
 .bundles__grid > *:nth-child(3),
 .benefits__grid > *:nth-child(3),
 .retailers__grid > *:nth-child(3) { transition-delay: 0.16s; }
@@ -1733,6 +1857,7 @@ a.contact__value:hover { color: var(--color-gold); }
   }
   .about__grid    { gap: var(--space-xl); }
   .products__grid { grid-template-columns: repeat(2, 1fr); }
+  .catalog__grid  { grid-template-columns: repeat(2, 1fr); }
   .bundles__grid  { grid-template-columns: repeat(2, 1fr); }
   .testimonial-card { flex: 0 0 100%; }
   .contact__grid  { gap: var(--space-xl); }
@@ -1769,7 +1894,15 @@ a.contact__value:hover { color: var(--color-gold); }
 
   .about__grid      { grid-template-columns: 1fr; }
   .about__media::before { display: none; }
+
+  /* Center the heritage story + stats when stacked on small screens */
+  .about__content   { text-align: center; }
+  .about__content .gold-rule { margin-inline: auto; }
+  .about__stats     { flex-wrap: wrap; justify-content: center; gap: var(--space-sm) var(--space-md); }
+  .about__stat      { flex: 1 1 25%; min-width: 0; }
+  .about__stat-number { font-size: 2.25rem; }
   .products__grid   { grid-template-columns: 1fr; }
+  .catalog__grid    { grid-template-columns: 1fr; }
   .bundles__grid    { grid-template-columns: 1fr; }
   .benefits__grid   { grid-template-columns: 1fr; }
   .contact__grid    { grid-template-columns: 1fr; gap: var(--space-xl); }
