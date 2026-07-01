@@ -16,6 +16,79 @@ body {
   font-optical-sizing: auto;
 }
 
+html.age-gate-open,
+html.age-gate-open body {
+  overflow: hidden;
+}
+
+/* ============================================================
+   AGE GATE
+============================================================ */
+.age-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+  background: rgba(4, 11, 20, 0.97);
+}
+
+.age-gate__panel {
+  width: 100%;
+  max-width: 460px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-gold-dim);
+  border-radius: var(--radius-md);
+  padding: var(--space-2xl) var(--space-xl);
+  text-align: center;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5);
+}
+
+.age-gate__logo {
+  height: 64px;
+  width: auto;
+  margin-inline: auto;
+  margin-bottom: var(--space-md);
+  display: block;
+}
+
+.age-gate__eyebrow {
+  color: var(--color-gold);
+}
+
+.age-gate__heading {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-sm);
+}
+
+.age-gate__desc {
+  color: var(--color-text-dim);
+  line-height: 1.65;
+  margin-bottom: var(--space-lg);
+}
+
+.age-gate__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.age-gate__actions .btn {
+  width: 100%;
+}
+
+.age-gate__disclaimer {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
 h1, h2, h3, h4 {
   font-family: var(--font-serif);
   font-weight: 500;

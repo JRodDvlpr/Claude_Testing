@@ -2,6 +2,31 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ── 0. Age Gate ──────────────────────────────────────────
+  const ageGate = document.getElementById('age-gate');
+  if (ageGate) {
+    const confirmBtn = ageGate.querySelector('.age-gate__confirm');
+    const denyBtn    = ageGate.querySelector('.age-gate__deny');
+    const panel      = ageGate.querySelector('.age-gate__panel');
+
+    confirmBtn?.addEventListener('click', () => {
+      try { localStorage.setItem('pitaAgeVerified', 'true'); } catch (e) {}
+      document.documentElement.classList.remove('age-gate-open');
+      ageGate.style.display = 'none';
+    });
+
+    denyBtn?.addEventListener('click', () => {
+      panel.innerHTML = `
+        <p class="eyebrow age-gate__eyebrow">Age Verification</p>
+        <h2 class="age-gate__heading">Access Restricted</h2>
+        <p class="age-gate__desc">
+          Pita Cigars sells tobacco products intended only for adults 21 years of age
+          or older. You must meet this age requirement to view this site.
+        </p>
+      `;
+    });
+  }
+
   // ── 1. Dynamic Footer Year ──────────────────────────────────
   const yearEl = document.getElementById('footer-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
