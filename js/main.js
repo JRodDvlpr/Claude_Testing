@@ -3,8 +3,14 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // ── 0. Age Gate ──────────────────────────────────────────
-  // Shows on every single page load/refresh — intentionally not remembered
-  // via cookie or localStorage, so there is no "confirm once" workaround.
+  // Rules:
+  //  - A hard refresh/reload of the page always re-shows the gate, even if
+  //    this tab already confirmed it.
+  //  - A brand new tab/window (pasted URL, typed URL, bookmark) always shows
+  //    it too, since sessionStorage starts empty in a fresh tab.
+  //  - Clicking an internal link (About, Bundles, etc.) after already
+  //    confirming in this tab does NOT re-show it — sessionStorage persists
+  //    across normal in-tab navigation, only reload forces it back open.
   const ageGate = document.getElementById('age-gate');
   if (ageGate) {
     const confirmBtn = ageGate.querySelector('.age-gate__confirm');
@@ -16,22 +22,21 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelector('.site-footer'),
     ].filter(Boolean);
 
-    // Clean up any leftover verification data from a previous version of
-    // this gate — it is no longer read or honored.
-    try { localStorage.removeItem('pitaAgeVerified'); } catch (e) {}
-    try { document.cookie = 'pitaAgeVerified=; max-age=0; path=/; SameSite=Lax'; } catch (e) {}
-
-    // Block pointer/keyboard access to (and hide from assistive tech) everything
-    // behind the modal until this page load is confirmed — prevents tabbing
-    // past the gate into the page underneath.
+    // The gate's initial visibility for THIS load was already decided by the
+    // small inline script that runs before this file (before first paint),
+    // to avoid any flash. Here we just react to whatever it decided.
     const lockBackground = (locked) => {
       lockedEls.forEach((el) => { el.inert = locked; });
     };
 
-    lockBackground(true);
-    confirmBtn?.focus();
+    const isHiddenAlready = getComputedStyle(ageGate).display === 'none';
+    if (!isHiddenAlready) {
+      lockBackground(true);
+      confirmBtn?.focus();
+    }
 
     confirmBtn?.addEventListener('click', () => {
+      try { sessionStorage.setItem('pitaAgeVerified', 'true'); } catch (e) {}
       document.documentElement.classList.remove('age-gate-open');
       lockBackground(false);
       ageGate.style.display = 'none';
@@ -39,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     denyBtn?.addEventListener('click', () => {
       // Cross-fade the panel content instead of an abrupt swap.
+      panel.style.transition = 'opacity 0.45s ease';
       panel.style.opacity = '0';
       setTimeout(() => {
         panel.innerHTML = `
@@ -50,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </p>
         `;
         panel.style.opacity = '1';
-      }, 250);
+      }, 450);
       // Background stays locked — there is no confirm path from here.
     });
   }

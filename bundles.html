@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="age-gate-open">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,9 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/reset.css?v=20260703" />
-  <link rel="stylesheet" href="css/tokens.css?v=20260703" />
-  <link rel="stylesheet" href="css/main.css?v=20260703" />
+  <link rel="stylesheet" href="css/reset.css?v=20260704" />
+  <link rel="stylesheet" href="css/tokens.css?v=20260704" />
+  <link rel="stylesheet" href="css/main.css?v=20260704" />
 </head>
 <body>
 
@@ -35,6 +35,28 @@
       </p>
     </div>
   </div>
+  <script>
+    (function () {
+      var gate = document.getElementById('age-gate');
+      if (!gate) return;
+      var isReload = false;
+      try {
+        var navEntries = performance.getEntriesByType('navigation');
+        if (navEntries && navEntries[0]) {
+          isReload = navEntries[0].type === 'reload';
+        } else if (performance.navigation) {
+          isReload = performance.navigation.type === 1;
+        }
+      } catch (e) {}
+      var confirmedThisTab = false;
+      try { confirmedThisTab = sessionStorage.getItem('pitaAgeVerified') === 'true'; } catch (e) {}
+      if (!isReload && confirmedThisTab) {
+        gate.style.display = 'none';
+      } else {
+        document.documentElement.classList.add('age-gate-open');
+      }
+    })();
+  </script>
   <header class="site-header" role="banner">
     <nav class="nav-primary" aria-label="Main navigation">
       <a href="index.html" class="nav-logo" aria-label="Pita Cigars home">
@@ -204,6 +226,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=20260703" defer></script>
+  <script src="js/main.js?v=20260704" defer></script>
 </body>
 </html>
