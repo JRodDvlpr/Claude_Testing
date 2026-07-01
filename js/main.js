@@ -3,6 +3,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // ── 0. Age Gate ──────────────────────────────────────────
+  // Shows on every single page load/refresh — intentionally not remembered
+  // via cookie or localStorage, so there is no "confirm once" workaround.
   const ageGate = document.getElementById('age-gate');
   if (ageGate) {
     const confirmBtn = ageGate.querySelector('.age-gate__confirm');
@@ -14,40 +16,22 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelector('.site-footer'),
     ].filter(Boolean);
 
-    const isVerified = () => {
-      try {
-        if (localStorage.getItem('pitaAgeVerified') === 'true') return true;
-      } catch (e) {}
-      try {
-        return document.cookie.indexOf('pitaAgeVerified=true') !== -1;
-      } catch (e) {}
-      return false;
-    };
-
-    const setVerified = () => {
-      try { localStorage.setItem('pitaAgeVerified', 'true'); } catch (e) {}
-      try {
-        const oneYear = 60 * 60 * 24 * 365;
-        document.cookie = 'pitaAgeVerified=true; max-age=' + oneYear + '; path=/; SameSite=Lax; Secure';
-      } catch (e) {}
-    };
+    // Clean up any leftover verification data from a previous version of
+    // this gate — it is no longer read or honored.
+    try { localStorage.removeItem('pitaAgeVerified'); } catch (e) {}
+    try { document.cookie = 'pitaAgeVerified=; max-age=0; path=/; SameSite=Lax'; } catch (e) {}
 
     // Block pointer/keyboard access to (and hide from assistive tech) everything
-    // behind the modal while age isn't confirmed — prevents tabbing past the
-    // gate into the page underneath.
+    // behind the modal until this page load is confirmed — prevents tabbing
+    // past the gate into the page underneath.
     const lockBackground = (locked) => {
       lockedEls.forEach((el) => { el.inert = locked; });
     };
 
-    if (isVerified()) {
-      ageGate.style.display = 'none';
-    } else {
-      lockBackground(true);
-      confirmBtn?.focus();
-    }
+    lockBackground(true);
+    confirmBtn?.focus();
 
     confirmBtn?.addEventListener('click', () => {
-      setVerified();
       document.documentElement.classList.remove('age-gate-open');
       lockBackground(false);
       ageGate.style.display = 'none';
