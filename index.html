@@ -43,6 +43,9 @@
       if (!gate) return;
       var verified = false;
       try { verified = localStorage.getItem('pitaAgeVerified') === 'true'; } catch (e) {}
+      if (!verified) {
+        try { verified = document.cookie.indexOf('pitaAgeVerified=true') !== -1; } catch (e) {}
+      }
       if (verified) {
         gate.style.display = 'none';
       } else {

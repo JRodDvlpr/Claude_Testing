@@ -8,10 +8,48 @@ document.addEventListener('DOMContentLoaded', () => {
     const confirmBtn = ageGate.querySelector('.age-gate__confirm');
     const denyBtn    = ageGate.querySelector('.age-gate__deny');
     const panel      = ageGate.querySelector('.age-gate__panel');
+    const lockedEls  = [
+      document.querySelector('.site-header'),
+      document.getElementById('main-content'),
+      document.querySelector('.site-footer'),
+    ].filter(Boolean);
+
+    const isVerified = () => {
+      try {
+        if (localStorage.getItem('pitaAgeVerified') === 'true') return true;
+      } catch (e) {}
+      try {
+        return document.cookie.indexOf('pitaAgeVerified=true') !== -1;
+      } catch (e) {}
+      return false;
+    };
+
+    const setVerified = () => {
+      try { localStorage.setItem('pitaAgeVerified', 'true'); } catch (e) {}
+      try {
+        const oneYear = 60 * 60 * 24 * 365;
+        document.cookie = 'pitaAgeVerified=true; max-age=' + oneYear + '; path=/; SameSite=Lax';
+      } catch (e) {}
+    };
+
+    // Block pointer/keyboard access to (and hide from assistive tech) everything
+    // behind the modal while age isn't confirmed — prevents tabbing past the
+    // gate into the page underneath.
+    const lockBackground = (locked) => {
+      lockedEls.forEach((el) => { el.inert = locked; });
+    };
+
+    if (isVerified()) {
+      ageGate.style.display = 'none';
+    } else {
+      lockBackground(true);
+      confirmBtn?.focus();
+    }
 
     confirmBtn?.addEventListener('click', () => {
-      try { localStorage.setItem('pitaAgeVerified', 'true'); } catch (e) {}
+      setVerified();
       document.documentElement.classList.remove('age-gate-open');
+      lockBackground(false);
       ageGate.style.display = 'none';
     });
 
@@ -24,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
           or older. You must meet this age requirement to view this site.
         </p>
       `;
+      // Background stays locked — there is no confirm path from here.
     });
   }
 
