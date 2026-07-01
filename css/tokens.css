@@ -79,4 +79,5 @@
   /* ── Gold gradient (used on primary buttons & accents) ── */
   --gradient-gold: linear-gradient(135deg, #B8923C 0%, #E6CB7C 50%, #B8923C 100%);
   --gradient-dark: linear-gradient(180deg, #0C0C0C 0%, #141414 100%);
+  --gradient-claret: linear-gradient(135deg, #7A1E2C 0%, #A6303F 50%, #7A1E2C 100%);
 }
