@@ -1397,14 +1397,36 @@ a.contact__value:hover { color: var(--color-gold); }
 }
 
 .pdp__breadcrumb {
-  font-size: var(--text-sm);
-  color: var(--color-text-dim);
-  margin-bottom: var(--space-lg);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: var(--text-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xl);
 }
 
-.pdp__breadcrumb a { color: var(--color-text-dim); transition: color var(--transition); }
-.pdp__breadcrumb a:hover { color: var(--color-gold); }
-.pdp__breadcrumb span { color: var(--color-gold); }
+.pdp__breadcrumb a {
+  color: var(--color-text-dim);
+  transition: color var(--transition);
+}
+
+.pdp__breadcrumb a:hover {
+  color: var(--color-gold);
+}
+
+.pdp__breadcrumb-sep {
+  color: var(--color-gold-dim);
+  font-size: 0.6rem;
+}
+
+.pdp__breadcrumb-current {
+  color: var(--color-gold);
+}
 
 .pdp__grid {
   display: grid;

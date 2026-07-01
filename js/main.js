@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
       try { localStorage.setItem('pitaAgeVerified', 'true'); } catch (e) {}
       try {
         const oneYear = 60 * 60 * 24 * 365;
-        document.cookie = 'pitaAgeVerified=true; max-age=' + oneYear + '; path=/; SameSite=Lax';
+        document.cookie = 'pitaAgeVerified=true; max-age=' + oneYear + '; path=/; SameSite=Lax; Secure';
       } catch (e) {}
     };
 
