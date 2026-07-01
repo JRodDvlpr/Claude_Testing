@@ -38,14 +38,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     denyBtn?.addEventListener('click', () => {
-      panel.innerHTML = `
-        <p class="eyebrow age-gate__eyebrow">Age Verification</p>
-        <h2 class="age-gate__heading">Access Restricted</h2>
-        <p class="age-gate__desc">
-          Pita Cigars sells tobacco products intended only for adults 21 years of age
-          or older. You must meet this age requirement to view this site.
-        </p>
-      `;
+      // Cross-fade the panel content instead of an abrupt swap.
+      panel.style.opacity = '0';
+      setTimeout(() => {
+        panel.innerHTML = `
+          <p class="eyebrow age-gate__eyebrow">Age Verification</p>
+          <h2 class="age-gate__heading">Access Restricted</h2>
+          <p class="age-gate__desc">
+            Pita Cigars sells tobacco products intended only for adults 21 years of age
+            or older. You must meet this age requirement to view this site.
+          </p>
+        `;
+        panel.style.opacity = '1';
+      }, 250);
       // Background stays locked — there is no confirm path from here.
     });
   }
@@ -154,15 +159,41 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ── 7. Scroll Reveal ───────────────────────────────────────
-  const revealEls = document.querySelectorAll('.section, .product-card, .benefit-item, .testimonial-card');
-  const observer  = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
+  const revealEls = document.querySelectorAll(
+    '.product-card, .bundle-card, .benefit-item, .testimonial-card, .retailer-card, ' +
+    '.about__media, .about__content, .contact__info, .contact__form, ' +
+    '.pdp-story__inner, .section-header'
+  );
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reducedMotion) {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  } else {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => observer.observe(el));
+  }
+
+  // ── 8. Hero Parallax ───────────────────────────────────────
+  const heroImg = document.querySelector('.hero__bg-img');
+  if (heroImg && !reducedMotion) {
+    let ticking = false;
+    const updateParallax = () => {
+      const offset = window.scrollY * 0.3;
+      heroImg.style.transform = `translateY(${offset}px) scale(1.12)`;
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateParallax);
+        ticking = true;
       }
-    });
-  }, { threshold: 0.15 });
-  revealEls.forEach(el => observer.observe(el));
+    }, { passive: true });
+  }
 
 });

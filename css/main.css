@@ -33,6 +33,7 @@ html.age-gate-open body {
   justify-content: center;
   padding: var(--space-lg);
   background: rgba(4, 11, 20, 0.97);
+  animation: ageGateFadeIn 0.5s ease both;
 }
 
 .age-gate__panel {
@@ -44,6 +45,19 @@ html.age-gate-open body {
   padding: var(--space-2xl) var(--space-xl);
   text-align: center;
   box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5);
+  animation: ageGatePanelIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.08s;
+  transition: opacity 0.25s ease;
+}
+
+@keyframes ageGateFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes ageGatePanelIn {
+  from { opacity: 0; transform: translateY(24px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .age-gate__logo {
@@ -1601,6 +1615,75 @@ a.contact__value:hover { color: var(--color-gold); }
   gap: var(--space-lg);
   max-width: 720px;
   margin-inline: auto;
+}
+
+/* ============================================================
+   SCROLL REVEAL
+============================================================ */
+.product-card,
+.bundle-card,
+.benefit-item,
+.testimonial-card,
+.retailer-card,
+.about__media,
+.about__content,
+.contact__info,
+.contact__form,
+.pdp-story__inner,
+.section-header {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-card.is-visible,
+.bundle-card.is-visible,
+.benefit-item.is-visible,
+.testimonial-card.is-visible,
+.retailer-card.is-visible,
+.about__media.is-visible,
+.about__content.is-visible,
+.contact__info.is-visible,
+.contact__form.is-visible,
+.pdp-story__inner.is-visible,
+.section-header.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered reveal within grids so cards arrive in sequence, not all at once */
+.products__grid > *:nth-child(2),
+.bundles__grid > *:nth-child(2),
+.related__grid > *:nth-child(2),
+.benefits__grid > *:nth-child(2),
+.retailers__grid > *:nth-child(2) { transition-delay: 0.08s; }
+
+.products__grid > *:nth-child(3),
+.bundles__grid > *:nth-child(3),
+.benefits__grid > *:nth-child(3),
+.retailers__grid > *:nth-child(3) { transition-delay: 0.16s; }
+
+.benefits__grid > *:nth-child(4),
+.retailers__grid > *:nth-child(4) { transition-delay: 0.24s; }
+
+.benefits__grid > *:nth-child(5),
+.retailers__grid > *:nth-child(5) { transition-delay: 0.32s; }
+
+.benefits__grid > *:nth-child(6),
+.retailers__grid > *:nth-child(6) { transition-delay: 0.4s; }
+
+.retailers__grid > *:nth-child(7)  { transition-delay: 0.48s; }
+.retailers__grid > *:nth-child(8)  { transition-delay: 0.56s; }
+.retailers__grid > *:nth-child(9)  { transition-delay: 0.64s; }
+.retailers__grid > *:nth-child(10) { transition-delay: 0.72s; }
+
+/* ============================================================
+   HERO PARALLAX
+============================================================ */
+.hero__bg-img {
+  transform: scale(1.12);
+  will-change: transform;
 }
 
 /* ============================================================
