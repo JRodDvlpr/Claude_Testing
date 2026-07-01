@@ -68,6 +68,14 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
   padding-block: var(--space-2xl);
 }
 
+.section--page-top {
+  padding-top: calc(var(--nav-height) + var(--space-xl));
+}
+
+.nav-link.is-active {
+  color: var(--color-gold);
+}
+
 .section-header--centered {
   text-align: center;
   margin-bottom: var(--space-xl);
@@ -636,19 +644,34 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
   font-weight: 500;
 }
 
-.bundle-card__price {
+.bundle-card__pricing {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.bundle-card__price-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--font-serif);
   font-size: var(--text-lg);
   font-weight: 600;
-  color: var(--color-claret);
+  letter-spacing: var(--tracking-snug);
+  color: var(--color-black);
+  background: var(--gradient-gold);
+  border-radius: var(--radius-pill);
+  padding: 0.5rem 1.25rem;
+  cursor: default;
+  user-select: none;
 }
 
-.bundle-card__price span {
+.bundle-card__price-note {
   font-family: var(--font-sans);
   font-size: var(--text-sm);
   font-weight: 400;
   color: var(--color-text-muted);
-  margin-left: 4px;
 }
 
 /* ============================================================
