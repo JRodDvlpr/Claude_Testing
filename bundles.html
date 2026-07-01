@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
   <meta name="description" content="Pita Cigars' traditional short-filler bundles — Babies, Small Fumas, and Gigantes Fumas." />
   <title>Pita Bundles | Pita Cigars</title>
 
@@ -10,9 +11,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/reset.css?v=20260704" />
-  <link rel="stylesheet" href="css/tokens.css?v=20260704" />
-  <link rel="stylesheet" href="css/main.css?v=20260704" />
+  <link rel="stylesheet" href="css/reset.css?v=20260705" />
+  <link rel="stylesheet" href="css/tokens.css?v=20260705" />
+  <link rel="stylesheet" href="css/main.css?v=20260705" />
 </head>
 <body>
 
@@ -39,18 +40,25 @@
     (function () {
       var gate = document.getElementById('age-gate');
       if (!gate) return;
+      // Refresh/reload should always re-show the gate.
       var isReload = false;
       try {
         var navEntries = performance.getEntriesByType('navigation');
-        if (navEntries && navEntries[0]) {
+        if (navEntries && navEntries.length) {
           isReload = navEntries[0].type === 'reload';
         } else if (performance.navigation) {
           isReload = performance.navigation.type === 1;
         }
       } catch (e) {}
-      var confirmedThisTab = false;
-      try { confirmedThisTab = sessionStorage.getItem('pitaAgeVerified') === 'true'; } catch (e) {}
-      if (!isReload && confirmedThisTab) {
+      // Confirmation is remembered via window.name (survives same-tab
+      // navigation even when cookies/storage are blocked); sessionStorage
+      // is a secondary check.
+      var confirmed = false;
+      try { confirmed = !!window.name && window.name.indexOf('pita-age-ok') !== -1; } catch (e) {}
+      if (!confirmed) {
+        try { confirmed = sessionStorage.getItem('pitaAgeVerified') === 'true'; } catch (e) {}
+      }
+      if (!isReload && confirmed) {
         gate.style.display = 'none';
       } else {
         document.documentElement.classList.add('age-gate-open');
@@ -226,6 +234,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=20260704" defer></script>
+  <script src="js/main.js?v=20260705" defer></script>
 </body>
 </html>

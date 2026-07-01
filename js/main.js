@@ -4,13 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── 0. Age Gate ──────────────────────────────────────────
   // Rules:
-  //  - A hard refresh/reload of the page always re-shows the gate, even if
-  //    this tab already confirmed it.
-  //  - A brand new tab/window (pasted URL, typed URL, bookmark) always shows
-  //    it too, since sessionStorage starts empty in a fresh tab.
-  //  - Clicking an internal link (About, Bundles, etc.) after already
-  //    confirming in this tab does NOT re-show it — sessionStorage persists
-  //    across normal in-tab navigation, only reload forces it back open.
+  //  - A hard refresh/reload of the page always re-shows the gate.
+  //  - A brand new tab/window (pasted URL, typed URL, bookmark) always shows it.
+  //  - Clicking an internal link (Home, Products, etc.) after confirming in
+  //    this tab does NOT re-show it.
+  //
+  // Persistence uses window.name as the primary signal: it survives same-tab
+  // navigation, is empty in a new tab, and — crucially — keeps working even
+  // when Safari/iOS blocks cookies & web storage ("Block All Cookies",
+  // private mode, ITP). sessionStorage is kept as a harmless secondary.
+  const AGE_FLAG = 'pita-age-ok';
   const ageGate = document.getElementById('age-gate');
   if (ageGate) {
     const confirmBtn = ageGate.querySelector('.age-gate__confirm');
@@ -36,6 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     confirmBtn?.addEventListener('click', () => {
+      // window.name persists across same-tab navigation with no reliance on
+      // cookies/storage, so this survives even when Safari blocks storage.
+      try {
+        if (window.name.indexOf(AGE_FLAG) === -1) {
+          window.name = (window.name ? window.name + ' ' : '') + AGE_FLAG;
+        }
+      } catch (e) {}
       try { sessionStorage.setItem('pitaAgeVerified', 'true'); } catch (e) {}
       document.documentElement.classList.remove('age-gate-open');
       lockBackground(false);
