@@ -1,5 +1,9 @@
 /* main.js — vanilla JS for cigar landing page */
 
+// Opt in to JS-driven scroll-reveal styling as early as possible. If this file
+// never loads, the class is never added and all content stays visible.
+document.documentElement.classList.add('reveal-init');
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // ── 0. Age Gate ──────────────────────────────────────────
@@ -50,6 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
       document.documentElement.classList.remove('age-gate-open');
       lockBackground(false);
       ageGate.style.display = 'none';
+      // Reset sequential focus to the top of the document so the next Tab
+      // lands on the skip link, not wherever the dialog sat in the DOM.
+      document.body.setAttribute('tabindex', '-1');
+      document.body.focus({ preventScroll: true });
+      document.body.removeAttribute('tabindex');
     });
 
     denyBtn?.addEventListener('click', () => {
@@ -101,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── 4. Smooth Scroll with Nav Offset ──────────────────────
   const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 80;
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  document.querySelectorAll('a[href^="#"]:not(.skip-link)').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
       const target = document.querySelector(anchor.getAttribute('href'));
       if (!target) return;
