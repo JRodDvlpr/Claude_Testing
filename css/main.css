@@ -160,9 +160,7 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
 }
 
 .site-header.is-scrolled {
-  background: rgba(6, 15, 26, 0.9);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(6, 15, 26, 0.98);
   box-shadow: 0 1px 0 rgba(198, 162, 74, 0.18);
 }
 
@@ -368,6 +366,23 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
   display: block;
 }
 
+.about__image--founder {
+  aspect-ratio: 388 / 331;
+  object-fit: cover;
+  filter: grayscale(35%) sepia(12%) contrast(1.05);
+  border: 10px solid var(--color-white);
+  outline: 1px solid #E6D8BC;
+  box-shadow: 0 24px 56px rgba(20, 33, 46, 0.18);
+}
+
+.about__caption {
+  margin-top: var(--space-md);
+  font-size: var(--text-sm);
+  font-style: italic;
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
 /* Decorative gold corner accent on image */
 .about__media::before {
   content: '';
@@ -456,10 +471,10 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
 
 .product-card__image {
   width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
   object-position: center;
-  background: var(--color-bg-deepest);
+  background: #253B62;
   display: block;
   border-radius: var(--radius);
   transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -537,6 +552,103 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
 .link-underline:hover {
   color: var(--color-gold-light);
   border-color: var(--color-gold-light);
+}
+
+/* ============================================================
+   SECTION 3B: BUNDLES / TRADITIONAL FUMAS
+============================================================ */
+.bundles {
+  background: var(--color-cream);
+  border-top: 1px solid #E6D8BC;
+}
+
+.bundles .section-lede { color: var(--color-text-secondary); }
+
+.bundles__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.bundle-card {
+  background: var(--color-white);
+  border: 1px solid #E6D8BC;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.bundle-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 56px rgba(20, 33, 46, 0.14);
+}
+
+.bundle-card__media { display: block; }
+
+.bundle-card__image {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+}
+
+.bundle-card__body {
+  padding: var(--space-lg);
+}
+
+.bundle-card__name {
+  font-family: var(--font-serif);
+  font-size: var(--text-h3);
+  font-weight: 600;
+  letter-spacing: var(--tracking-snug);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.bundle-card__desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-md);
+}
+
+.bundle-card__specs {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid #E6D8BC;
+}
+
+.bundle-card__specs > div {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-sm);
+}
+
+.bundle-card__specs dt {
+  color: var(--color-text-muted);
+}
+
+.bundle-card__specs dd {
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+.bundle-card__price {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-claret);
+}
+
+.bundle-card__price span {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: var(--color-text-muted);
+  margin-left: 4px;
 }
 
 /* ============================================================
@@ -1185,19 +1297,10 @@ a.contact__value:hover { color: var(--color-gold); }
 
 .pdp__image {
   width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  background: var(--color-bg-dark);
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: #253B62;
   border-radius: var(--radius-md);
-  display: block;
-}
-
-.pdp__thumb {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  background: var(--color-bg-dark);
-  border-radius: var(--radius);
   display: block;
 }
 
@@ -1356,6 +1459,7 @@ a.contact__value:hover { color: var(--color-gold); }
   }
   .about__grid    { gap: var(--space-xl); }
   .products__grid { grid-template-columns: repeat(2, 1fr); }
+  .bundles__grid  { grid-template-columns: repeat(2, 1fr); }
   .testimonial-card { flex: 0 0 100%; }
   .contact__grid  { gap: var(--space-xl); }
   .pdp__grid      { gap: var(--space-xl); }
@@ -1392,6 +1496,7 @@ a.contact__value:hover { color: var(--color-gold); }
   .about__grid      { grid-template-columns: 1fr; }
   .about__media::before { display: none; }
   .products__grid   { grid-template-columns: 1fr; }
+  .bundles__grid    { grid-template-columns: 1fr; }
   .benefits__grid   { grid-template-columns: 1fr; }
   .contact__grid    { grid-template-columns: 1fr; gap: var(--space-xl); }
   .contact__form    { padding: var(--space-lg); }
