@@ -591,8 +591,10 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
 
 .products__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-lg);
+  max-width: 1000px;
+  margin-inline: auto;
 }
 
 .product-card {
@@ -614,10 +616,10 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
 
 .product-card__image {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: contain;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
   object-position: center;
-  background: #253B62;
+  background: var(--color-bg-card);
   display: block;
   border-radius: var(--radius);
   transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -627,6 +629,39 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
   transform: scale(1.03);
 }
 
+/* Frame for photos whose native shape can't fill 3:4 (e.g. the landscape
+   torpedo shot): the photo sits contain-fit over a blurred, scaled copy of
+   itself, so the frame is always filled edge-to-edge by the same scene. */
+.product-card__frame {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.product-card__frame::before {
+  content: "";
+  position: absolute;
+  inset: -28px;
+  background-size: cover;
+  background-position: center;
+  filter: blur(22px) brightness(0.88);
+}
+
+.product-card__frame--torpedo::before {
+  background-image: url('../assets/images/premium-torpedo-habano.jpg');
+}
+
+.product-card__frame .product-card__image {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: contain;
+  border-radius: 0;
+  background: none;
+}
 .product-card__body {
   padding: var(--space-lg);
   text-align: center;
@@ -1607,9 +1642,7 @@ a.contact__value:hover { color: var(--color-gold); }
 
 .pdp__image {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: contain;
-  background: #253B62;
+  height: auto;
   border-radius: var(--radius-md);
   display: block;
 }
@@ -1825,6 +1858,7 @@ a.contact__value:hover { color: var(--color-gold); }
 .benefits__grid > *:nth-child(3),
 .retailers__grid > *:nth-child(3) { transition-delay: 0.16s; }
 
+.products__grid > *:nth-child(4),
 .benefits__grid > *:nth-child(4),
 .retailers__grid > *:nth-child(4) { transition-delay: 0.24s; }
 
