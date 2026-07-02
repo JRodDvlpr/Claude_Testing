@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
         feedback.style.color = '#E8745A';
         return;
       }
-      feedback.textContent = 'Thank you — your message has been sent. We will be in touch shortly.';
+      feedback.textContent = 'Thank you. Your message has been sent. We will be in touch shortly.';
       feedback.style.color = 'var(--color-gold-light)';
       form.reset();
       // TODO: wire up fetch() POST to your form/email service endpoint here
