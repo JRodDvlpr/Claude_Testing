@@ -7,6 +7,7 @@
   --color-bg-card:     #122539;   /* card surfaces */
   --color-bg-surface:  #1A3149;   /* elevated elements */
   --color-border:      #274664;   /* borders — brighter for visible separation */
+  --color-ash:         #7E8794;   /* inactive UI markers on dark (carousel dots) */
 
   /* ── Light Backgrounds (warm aged-paper cream — vintage warmth) ── */
   --color-cream:       #F5ECD7;   /* primary vintage paper */

@@ -136,16 +136,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const goTo = (index) => {
       current = (index + slides.length) % slides.length;
       track.style.transform = `translateX(calc(-${current} * (50% + 1.25rem)))`;
-      dots.forEach((d, i) => d.setAttribute('aria-selected', String(i === current)));
+      dots.forEach((d, i) => d.setAttribute('aria-current', String(i === current)));
     };
 
     // build dots
     const dots = slides.map((_, i) => {
       const btn = document.createElement('button');
-      btn.setAttribute('role', 'tab');
-      btn.setAttribute('aria-label', `Testimonial ${i + 1}`);
-      btn.setAttribute('aria-selected', String(i === 0));
-      btn.style.cssText = `width:8px;height:8px;border-radius:50%;background:${i===0?'var(--color-gold)':'var(--color-ash)'};border:none;cursor:pointer;transition:background 0.3s`;
+      btn.type = 'button';
+      btn.className = 'slider-dot';
+      btn.setAttribute('aria-label', `Testimonial ${i + 1} of ${slides.length}`);
+      btn.setAttribute('aria-current', String(i === 0));
       btn.addEventListener('click', () => goTo(i));
       dotsEl?.appendChild(btn);
       return btn;
@@ -176,19 +176,18 @@ document.addEventListener('DOMContentLoaded', () => {
     function sGoTo(index) {
       sCurrent = (index + sSlides.length) % sSlides.length;
       sTrack.style.transform = `translateX(-${sCurrent * 100}%)`;
-      sDots.forEach((d, i) => {
-        d.setAttribute('aria-selected', String(i === sCurrent));
-        d.style.background = i === sCurrent ? 'var(--color-gold)' : 'var(--color-ash)';
-      });
+      sSlides.forEach((sl, i) => sl.setAttribute('aria-hidden', String(i !== sCurrent)));
+      sDots.forEach((d, i) => d.setAttribute('aria-current', String(i === sCurrent)));
     }
+
+    sSlides.forEach((sl, i) => sl.setAttribute('aria-hidden', String(i !== 0)));
 
     const sDots = sSlides.map((_, i) => {
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.setAttribute('role', 'tab');
+      btn.className = 'slider-dot';
       btn.setAttribute('aria-label', `Photo ${i + 1} of ${sSlides.length}`);
-      btn.setAttribute('aria-selected', String(i === 0));
-      btn.style.cssText = `width:8px;height:8px;border-radius:50%;background:${i===0?'var(--color-gold)':'var(--color-ash)'};border:none;cursor:pointer;transition:background 0.3s`;
+      btn.setAttribute('aria-current', String(i === 0));
       btn.addEventListener('click', () => sGoTo(i));
       sDotsEl?.appendChild(btn);
       return btn;
@@ -196,6 +195,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     slider.querySelector('.pdp-slider__btn--prev')?.addEventListener('click', () => sGoTo(sCurrent - 1));
     slider.querySelector('.pdp-slider__btn--next')?.addEventListener('click', () => sGoTo(sCurrent + 1));
+
+    // arrow keys work while focus is anywhere inside the slider
+    slider.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); sGoTo(sCurrent - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); sGoTo(sCurrent + 1); }
+    });
 
     // swipe on touch devices
     let touchX = null;
