@@ -1661,6 +1661,20 @@ a.contact__value:hover { color: var(--color-gold); }
   display: block;
 }
 
+/* additional product photos under the main image */
+.pdp__gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+.pdp__gallery-img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  display: block;
+}
+
 .pdp__info { color: var(--color-text-light); }
 
 .pdp__name {
