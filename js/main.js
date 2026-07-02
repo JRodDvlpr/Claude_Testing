@@ -161,6 +161,53 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // ── 5b. Product Photo Slider ───────────────────────────────
+  document.querySelectorAll('.pdp-slider').forEach((slider) => {
+    const sTrack = slider.querySelector('.pdp-slider__track');
+    const sDotsEl = slider.querySelector('.pdp-slider__dots');
+    if (!sTrack) return;
+    const sSlides = Array.from(sTrack.children);
+    if (sSlides.length < 2) {
+      slider.querySelector('.pdp-slider__controls')?.remove();
+      return;
+    }
+    let sCurrent = 0;
+
+    function sGoTo(index) {
+      sCurrent = (index + sSlides.length) % sSlides.length;
+      sTrack.style.transform = `translateX(-${sCurrent * 100}%)`;
+      sDots.forEach((d, i) => {
+        d.setAttribute('aria-selected', String(i === sCurrent));
+        d.style.background = i === sCurrent ? 'var(--color-gold)' : 'var(--color-ash)';
+      });
+    }
+
+    const sDots = sSlides.map((_, i) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.setAttribute('role', 'tab');
+      btn.setAttribute('aria-label', `Photo ${i + 1} of ${sSlides.length}`);
+      btn.setAttribute('aria-selected', String(i === 0));
+      btn.style.cssText = `width:8px;height:8px;border-radius:50%;background:${i===0?'var(--color-gold)':'var(--color-ash)'};border:none;cursor:pointer;transition:background 0.3s`;
+      btn.addEventListener('click', () => sGoTo(i));
+      sDotsEl?.appendChild(btn);
+      return btn;
+    });
+
+    slider.querySelector('.pdp-slider__btn--prev')?.addEventListener('click', () => sGoTo(sCurrent - 1));
+    slider.querySelector('.pdp-slider__btn--next')?.addEventListener('click', () => sGoTo(sCurrent + 1));
+
+    // swipe on touch devices
+    let touchX = null;
+    sTrack.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+    sTrack.addEventListener('touchend', (e) => {
+      if (touchX === null) return;
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 40) sGoTo(sCurrent + (dx < 0 ? 1 : -1));
+      touchX = null;
+    }, { passive: true });
+  });
+
   // ── 6. Contact Form ────────────────────────────────────────
   const form     = document.querySelector('.contact__form');
   const feedback = form?.querySelector('.contact__feedback');
