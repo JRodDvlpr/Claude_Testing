@@ -30,9 +30,9 @@
   <meta name="twitter:description" content="Churchill Sumatra — hand-rolled Nicaraguan churchill with a Sumatra-shade wrapper, made in Esteli, Nicaragua by Pita Cigars." />
   <meta name="twitter:image" content="https://jroddvlpr.github.io/Claude_Testing/assets/images/premium-churchill-sumatra.jpg" />
 
-  <link rel="stylesheet" href="../css/reset.css?v=20260721" />
-  <link rel="stylesheet" href="../css/tokens.css?v=20260721" />
-  <link rel="stylesheet" href="../css/main.css?v=20260721" />
+  <link rel="stylesheet" href="../css/reset.css?v=20260722" />
+  <link rel="stylesheet" href="../css/tokens.css?v=20260722" />
+  <link rel="stylesheet" href="../css/main.css?v=20260722" />
 </head>
 <body>
 
@@ -130,7 +130,19 @@
         </p>
         <div class="pdp__grid">
           <div class="pdp__media">
-            <img src="../assets/images/premium-churchill-sumatra.jpg" alt="Churchill Sumatra — single cigar over the Pita spec card scene" class="pdp__image" width="720" height="960" fetchpriority="high" />
+            <div class="pdp-slider" aria-roledescription="carousel" aria-label="Churchill Sumatra photos">
+              <div class="pdp-slider__viewport">
+                <div class="pdp-slider__track">
+                  <img src="../assets/images/premium-churchill-sumatra.jpg" alt="Churchill Sumatra — single cigar over the Pita spec card scene" class="pdp-slider__slide" width="720" height="960" fetchpriority="high" />
+                  <img src="../assets/images/premium-churchill-sumatra-bundle.jpg" alt="Churchill Sumatra bundle of 25 with a single cigar resting against it" class="pdp-slider__slide" loading="lazy" width="599" height="886" />
+                </div>
+              </div>
+              <div class="pdp-slider__controls">
+                <button type="button" class="pdp-slider__btn pdp-slider__btn--prev" aria-label="Previous photo">&#8249;</button>
+                <div class="pdp-slider__dots"></div>
+                <button type="button" class="pdp-slider__btn pdp-slider__btn--next" aria-label="Next photo">&#8250;</button>
+              </div>
+            </div>
           </div>
           <div class="pdp__info">
             <p class="eyebrow">Handmade in Nicaragua</p>
@@ -329,6 +341,6 @@
     </div>
   </footer>
 
-  <script src="../js/main.js?v=20260721" defer></script>
+  <script src="../js/main.js?v=20260722" defer></script>
 </body>
 </html>
