@@ -628,6 +628,11 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
   padding: var(--space-lg) var(--space-lg) 0;
 }
 
+.product-card__media-link {
+  display: block;
+  cursor: pointer;
+}
+
 .product-card__image {
   width: 100%;
   aspect-ratio: 3 / 4;
