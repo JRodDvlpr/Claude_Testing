@@ -597,6 +597,13 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
   margin-inline: auto;
 }
 
+/* odd product out (e.g. 5th card) sits centered on its own row */
+.products__grid > .product-card:nth-child(odd):last-child {
+  grid-column: 1 / -1;
+  width: calc(50% - var(--space-lg) / 2);
+  margin-inline: auto;
+}
+
 /* With an odd product count, center the lone card on the last row */
 .products__grid > .product-card:nth-child(odd):last-child {
   grid-column: 1 / -1;
@@ -1943,6 +1950,7 @@ a.contact__value:hover { color: var(--color-gold); }
   .about__stat      { flex: 1 1 25%; min-width: 0; }
   .about__stat-number { font-size: 2.25rem; }
   .products__grid   { grid-template-columns: 1fr; }
+  .products__grid > .product-card:nth-child(odd):last-child { width: 100%; }
   .products__grid > .product-card:nth-child(odd):last-child { width: 100%; }
   .catalog__grid    { grid-template-columns: 1fr; }
   .bundles__grid    { grid-template-columns: 1fr; }
