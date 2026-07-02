@@ -2056,6 +2056,3 @@ a.contact__value:hover { color: var(--color-gold); }
     transition-duration: 0.01ms !important;
   }
 }
-.product-card__frame--churchill::before {
-  background-image: url('../assets/images/premium-churchill-sumatra.jpg');
-}
