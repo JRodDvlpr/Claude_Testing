@@ -707,8 +707,18 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
 .product-card__blend {
   font-size: var(--text-sm);
   color: var(--color-text-dim);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-xs);
   letter-spacing: 0.02em;
+}
+
+/* quantity line: small-caps gold, echoing the eyebrow treatment */
+.product-card__count {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-md);
 }
 
 .product-card__strength {
