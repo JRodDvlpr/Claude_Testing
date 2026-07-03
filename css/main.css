@@ -744,16 +744,27 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
   color: var(--color-text-dim);
 }
 
-/* tasting notes teaser: quiet italic serif, the card's flavor preview */
+/* tasting notes: hairline-outlined pills, soft white on the dark card */
 .product-card__notes {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 0.9375rem;
-  line-height: 1.5;
-  color: var(--color-text-dim);
-  max-width: 30ch;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  max-width: 32ch;
   margin-inline: auto;
   margin-bottom: var(--space-md);
+}
+
+.product-card__note {
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: rgba(242, 237, 228, 0.78);
+  border: 1px solid rgba(242, 237, 228, 0.26);
+  border-radius: var(--radius-pill);
+  padding: 0.3125rem 0.8125rem;
 }
 
 .strength-dot {
