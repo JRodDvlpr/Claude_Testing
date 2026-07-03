@@ -723,10 +723,37 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
 
 .product-card__strength {
   display: flex;
-  gap: 5px;
-  margin-bottom: var(--space-md);
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: var(--space-sm);
   align-items: center;
   justify-content: center;
+}
+
+.product-card__strength-dots {
+  display: flex;
+  gap: 5px;
+}
+
+/* plain-words strength under the dots, for newcomers */
+.product-card__strength-label {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+}
+
+/* tasting notes teaser: quiet italic serif, the card's flavor preview */
+.product-card__notes {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--color-text-dim);
+  max-width: 30ch;
+  margin-inline: auto;
+  margin-bottom: var(--space-md);
 }
 
 .strength-dot {
@@ -833,6 +860,12 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
 
 .category-card:hover .category-card__image {
   transform: scale(1.04);
+}
+
+/* The Gigantes package shot is tall; frame the 4:3 window on the cigar
+   heads and the red GIGANTES headline rather than the geometric center. */
+.category-card__image--gigantes {
+  object-position: center 30%;
 }
 
 .category-card--soon .category-card__image {
