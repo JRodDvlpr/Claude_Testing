@@ -1113,6 +1113,7 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
 .testimonials .section-heading { color: var(--color-text-light); }
 
 .testimonials__carousel {
+  position: relative;
   overflow: hidden;
 }
 
