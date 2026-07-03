@@ -1065,43 +1065,41 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
   line-height: 1.65;
 }
 
-/* ── Collage ── */
+/* ── Collage: seamless staggered mosaic, one unified block ── */
 .craft__collage {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, auto);
-  gap: var(--space-lg) var(--space-xl);
-  padding: var(--space-lg);
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 8px;
+  aspect-ratio: 5 / 6;
 }
 
 .craft__photo {
-  --tilt: 0deg;
-  background: var(--color-white);
-  padding: 10px 10px 28px;
-  box-shadow: var(--shadow-card);
-  transform: rotate(var(--tilt));
-  transition: transform var(--transition), box-shadow var(--transition), z-index 0s;
   position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .craft__photo img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: 100%;
   object-fit: cover;
   background-color: #E4D6BA;
 }
 
 .craft__photo:hover {
-  transform: translateY(-6px) rotate(var(--tilt)) scale(1.03);
-  box-shadow: var(--shadow-card-lift);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(20, 33, 46, 0.22);
   z-index: 2;
 }
 
-.craft__photo--1 { --tilt: -4deg; }
-.craft__photo--2 { --tilt: 3deg; margin-top: var(--space-xl); }
-.craft__photo--3 { --tilt: 2deg; margin-top: calc(-1 * var(--space-xl)); }
-.craft__photo--4 { --tilt: -3deg; }
+/* Staggered placement: tall-short left column, short-tall right column */
+.craft__photo--1 { grid-column: 1; grid-row: 1 / 3; }
+.craft__photo--2 { grid-column: 2; grid-row: 1 / 2; }
+.craft__photo--3 { grid-column: 1; grid-row: 3 / 4; }
+.craft__photo--4 { grid-column: 2; grid-row: 2 / 4; }
 
 /* ============================================================
    SECTION 5: TESTIMONIALS
@@ -1996,6 +1994,7 @@ a.contact__value:hover { color: var(--color-gold); }
 .reveal-init .product-card.is-visible,
 .reveal-init .category-card.is-visible,
 .reveal-init .bundle-card.is-visible,
+.reveal-init .craft__photo.is-visible,
 .reveal-init .craft__content.is-visible,
 .reveal-init .testimonial-card.is-visible,
 .reveal-init .retailer-card.is-visible,
@@ -2007,17 +2006,6 @@ a.contact__value:hover { color: var(--color-gold); }
 .reveal-init .section-header.is-visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* Photos keep their collage tilt through the reveal transition instead of
-   flattening to translateY(0) like the other reveal targets. */
-.reveal-init .craft__photo {
-  transform: translateY(28px) rotate(var(--tilt));
-}
-
-.reveal-init .craft__photo.is-visible {
-  opacity: 1;
-  transform: rotate(var(--tilt));
 }
 
 /* Staggered reveal within grids so cards arrive in sequence, not all at once */
@@ -2122,9 +2110,7 @@ a.contact__value:hover { color: var(--color-gold); }
   .craft__lede      { margin-inline: auto; }
   .craft__quote     { text-align: left; margin-inline: auto; max-width: 46ch; }
   .craft__steps     { text-align: left; }
-  .craft__collage   { order: 1; gap: var(--space-md) var(--space-lg); padding: var(--space-sm); }
-  .craft__photo--2  { margin-top: var(--space-lg); }
-  .craft__photo--3  { margin-top: calc(-1 * var(--space-lg)); }
+  .craft__collage   { order: 1; gap: 6px; }
 
   .contact__grid    { grid-template-columns: 1fr; gap: var(--space-xl); }
   .contact__form    { padding: var(--space-lg); }
