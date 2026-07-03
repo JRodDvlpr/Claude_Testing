@@ -130,7 +130,19 @@
         </p>
         <div class="pdp__grid">
           <div class="pdp__media">
-            <img src="../../assets/images/premium-robusto-indonesian.jpg" alt="Robusto Indonesian spec card: Indonesian filler and binder, Indonesian shade wrapper, vitola 5 x 50" class="pdp__image" width="720" height="1280" fetchpriority="high" />
+            <div class="pdp-slider" aria-roledescription="carousel" aria-label="Robusto Indonesian photos">
+              <div class="pdp-slider__viewport">
+                <div class="pdp-slider__track">
+                  <img src="../../assets/images/premium-robusto-indonesian.jpg" alt="Robusto Indonesian spec card: Indonesian filler and binder, Indonesian shade wrapper, vitola 5 x 50" class="pdp-slider__slide" width="720" height="1280" fetchpriority="high" />
+                  <img src="../../assets/images/premium-robusto-indonesian-bundle.jpg" alt="Robusto Indonesian bundle with a single cigar resting against it" class="pdp-slider__slide" loading="lazy" width="768" height="1024" />
+                </div>
+              </div>
+              <div class="pdp-slider__controls">
+                <button type="button" class="pdp-slider__btn pdp-slider__btn--prev" aria-label="Previous photo">&#8249;</button>
+                <div class="pdp-slider__dots"></div>
+                <button type="button" class="pdp-slider__btn pdp-slider__btn--next" aria-label="Next photo">&#8250;</button>
+              </div>
+            </div>
           </div>
           <div class="pdp__info">
             <p class="eyebrow">Handmade in Nicaragua</p>

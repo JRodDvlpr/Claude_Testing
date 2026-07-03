@@ -677,7 +677,10 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
-  object-position: center;
+  /* The 9:16 spec-card artwork overflows a 3:4 box top and bottom; bias
+     the visible window upward so the lettered headline is never clipped
+     (only bottom tabletop is cropped). 3:4-native photos are unaffected. */
+  object-position: center 25%;
   background: var(--color-bg-card);
   display: block;
   border-radius: var(--radius);
@@ -686,40 +689,6 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
 
 .product-card:hover .product-card__image {
   transform: scale(1.03);
-}
-
-/* Frame for photos whose native shape can't fill 3:4 (e.g. the landscape
-   torpedo shot): the photo sits contain-fit over a blurred, scaled copy of
-   itself, so the frame is always filled edge-to-edge by the same scene. */
-.product-card__frame {
-  position: relative;
-  display: block;
-  aspect-ratio: 3 / 4;
-  overflow: hidden;
-  border-radius: var(--radius);
-}
-
-.product-card__frame::before {
-  content: "";
-  position: absolute;
-  inset: -28px;
-  background-size: cover;
-  background-position: center;
-  filter: blur(22px) brightness(0.88);
-}
-
-.product-card__frame--torpedo::before {
-  background-image: url('../assets/images/premium-torpedo-habano.jpg');
-}
-
-.product-card__frame .product-card__image {
-  position: absolute;
-  inset: 0;
-  height: 100%;
-  aspect-ratio: auto;
-  object-fit: contain;
-  border-radius: 0;
-  background: none;
 }
 .product-card__body {
   padding: var(--space-lg);
@@ -1789,6 +1758,8 @@ a.contact__value:hover { color: var(--color-gold); }
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
+  /* same upward bias as .product-card__image, for the 9:16 spec cards */
+  object-position: center 25%;
   display: block;
 }
 
