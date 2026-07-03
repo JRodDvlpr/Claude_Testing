@@ -979,65 +979,129 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
 }
 
 /* ============================================================
-   SECTION 4: BENEFITS
+   SECTION 4: CRAFT (photo collage)
 ============================================================ */
-.benefits {
+.craft {
   background: var(--color-off-white);
   border-top: 1px solid #E0CFAC;
+  overflow: hidden;
 }
 
-.benefits__grid {
+.craft__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1.05fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
+.craft__heading {
+  color: var(--color-text-primary);
+  margin-bottom: 0;
+}
+
+.craft__lede {
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+  margin-block: var(--space-lg);
+  max-width: 46ch;
+}
+
+.craft__quote {
+  margin: 0 0 var(--space-xl);
+  padding-left: var(--space-md);
+  border-left: 3px solid var(--color-gold);
+}
+
+.craft__quote p {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-lg);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  margin-bottom: var(--space-xs);
+}
+
+.craft__quote cite {
+  display: block;
+  font-style: normal;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.craft__steps {
+  display: flex;
+  flex-direction: column;
   gap: var(--space-lg);
 }
 
-.benefit-item {
-  text-align: center;
-  padding: var(--space-xl) var(--space-lg);
-  border-radius: var(--radius-md);
-  transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
-}
-
-.benefit-item:hover {
-  background: var(--color-white);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.08);
-  transform: translateY(-4px);
-}
-
-.benefit-item__icon {
-  width: 56px; height: 56px;
-  margin-inline: auto;
-  margin-bottom: var(--space-lg);
-  background: var(--color-bg-dark);
-  border-radius: 50%;
+.craft__step {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  border: 1px solid var(--color-border);
-  transition: border-color var(--transition), box-shadow var(--transition);
+  gap: var(--space-md);
+  align-items: baseline;
 }
 
-.benefit-item:hover .benefit-item__icon {
-  border-color: var(--color-gold-dim);
-  box-shadow: var(--shadow-gold);
-}
-
-.benefit-item__title {
+.craft__step-number {
   font-family: var(--font-serif);
   font-size: 1.5rem;
   font-weight: 600;
-  letter-spacing: var(--tracking-snug);
-  color: var(--color-text-primary);
-  margin-bottom: var(--space-sm);
+  color: var(--color-gold-dim);
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 2.5ch;
 }
 
-.benefit-item__body {
+.craft__step-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-snug);
+  color: var(--color-text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.craft__step-body {
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
-  line-height: 1.7;
+  line-height: 1.65;
 }
+
+/* ── Collage ── */
+.craft__collage {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: var(--space-lg) var(--space-xl);
+  padding: var(--space-lg);
+}
+
+.craft__photo {
+  --tilt: 0deg;
+  background: var(--color-white);
+  padding: 10px 10px 28px;
+  box-shadow: var(--shadow-card);
+  transform: rotate(var(--tilt));
+  transition: transform var(--transition), box-shadow var(--transition), z-index 0s;
+  position: relative;
+}
+
+.craft__photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background-color: #E4D6BA;
+}
+
+.craft__photo:hover {
+  transform: translateY(-6px) rotate(var(--tilt)) scale(1.03);
+  box-shadow: var(--shadow-card-lift);
+  z-index: 2;
+}
+
+.craft__photo--1 { --tilt: -4deg; }
+.craft__photo--2 { --tilt: 3deg; margin-top: var(--space-xl); }
+.craft__photo--3 { --tilt: 2deg; margin-top: calc(-1 * var(--space-xl)); }
+.craft__photo--4 { --tilt: -3deg; }
 
 /* ============================================================
    SECTION 5: TESTIMONIALS
@@ -1913,7 +1977,8 @@ a.contact__value:hover { color: var(--color-gold); }
 .reveal-init .product-card,
 .reveal-init .category-card,
 .reveal-init .bundle-card,
-.reveal-init .benefit-item,
+.reveal-init .craft__photo,
+.reveal-init .craft__content,
 .reveal-init .testimonial-card,
 .reveal-init .retailer-card,
 .reveal-init .about__media,
@@ -1931,7 +1996,7 @@ a.contact__value:hover { color: var(--color-gold); }
 .reveal-init .product-card.is-visible,
 .reveal-init .category-card.is-visible,
 .reveal-init .bundle-card.is-visible,
-.reveal-init .benefit-item.is-visible,
+.reveal-init .craft__content.is-visible,
 .reveal-init .testimonial-card.is-visible,
 .reveal-init .retailer-card.is-visible,
 .reveal-init .about__media.is-visible,
@@ -1944,28 +2009,37 @@ a.contact__value:hover { color: var(--color-gold); }
   transform: translateY(0);
 }
 
+/* Photos keep their collage tilt through the reveal transition instead of
+   flattening to translateY(0) like the other reveal targets. */
+.reveal-init .craft__photo {
+  transform: translateY(28px) rotate(var(--tilt));
+}
+
+.reveal-init .craft__photo.is-visible {
+  opacity: 1;
+  transform: rotate(var(--tilt));
+}
+
 /* Staggered reveal within grids so cards arrive in sequence, not all at once */
 .products__grid > *:nth-child(2),
 .catalog__grid > *:nth-child(2),
 .bundles__grid > *:nth-child(2),
 .related__grid > *:nth-child(2),
-.benefits__grid > *:nth-child(2),
+.craft__collage > *:nth-child(2),
 .retailers__grid > *:nth-child(2) { transition-delay: 0.08s; }
 
 .products__grid > *:nth-child(3),
 .catalog__grid > *:nth-child(3),
 .bundles__grid > *:nth-child(3),
-.benefits__grid > *:nth-child(3),
+.craft__collage > *:nth-child(3),
 .retailers__grid > *:nth-child(3) { transition-delay: 0.16s; }
 
 .products__grid > *:nth-child(4),
-.benefits__grid > *:nth-child(4),
+.craft__collage > *:nth-child(4),
 .retailers__grid > *:nth-child(4) { transition-delay: 0.24s; }
 
-.benefits__grid > *:nth-child(5),
 .retailers__grid > *:nth-child(5) { transition-delay: 0.32s; }
 
-.benefits__grid > *:nth-child(6),
 .retailers__grid > *:nth-child(6) { transition-delay: 0.4s; }
 
 .retailers__grid > *:nth-child(7)  { transition-delay: 0.48s; }
@@ -1996,6 +2070,7 @@ a.contact__value:hover { color: var(--color-gold); }
   .testimonial-card { flex: 0 0 100%; }
   .contact__grid  { gap: var(--space-xl); }
   .pdp__grid      { gap: var(--space-xl); }
+  .craft__grid    { gap: var(--space-xl); }
 }
 
 @media (max-width: 768px) {
@@ -2040,7 +2115,17 @@ a.contact__value:hover { color: var(--color-gold); }
   .products__grid > .product-card:nth-child(odd):last-child { width: 100%; }
   .catalog__grid    { grid-template-columns: 1fr; }
   .bundles__grid    { grid-template-columns: 1fr; }
-  .benefits__grid   { grid-template-columns: 1fr; }
+
+  .craft__grid      { grid-template-columns: 1fr; }
+  .craft__content   { text-align: center; order: 2; }
+  .craft__content .gold-rule { margin-inline: auto; }
+  .craft__lede      { margin-inline: auto; }
+  .craft__quote     { text-align: left; margin-inline: auto; max-width: 46ch; }
+  .craft__steps     { text-align: left; }
+  .craft__collage   { order: 1; gap: var(--space-md) var(--space-lg); padding: var(--space-sm); }
+  .craft__photo--2  { margin-top: var(--space-lg); }
+  .craft__photo--3  { margin-top: calc(-1 * var(--space-lg)); }
+
   .contact__grid    { grid-template-columns: 1fr; gap: var(--space-xl); }
   .contact__form    { padding: var(--space-lg); }
   .pdp__grid        { grid-template-columns: 1fr; }
