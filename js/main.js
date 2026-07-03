@@ -92,18 +92,24 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ── 3. Mobile Nav Toggle ───────────────────────────────────
+  // The toggle stays above the full-screen menu overlay and morphs into
+  // an X while the menu is open, so it can always be closed from the
+  // same top-right corner it was opened from.
   const toggle = document.querySelector('.nav-toggle');
   const menu   = document.querySelector('.nav-menu');
   if (toggle && menu) {
+    const setOpen = (open) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      toggle.innerHTML = open ? '&#10005;' : '&#9776;';
+      menu.classList.toggle('is-open', open);
+    };
     toggle.addEventListener('click', () => {
-      const expanded = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!expanded));
-      menu.classList.toggle('is-open');
+      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
     });
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && menu.classList.contains('is-open')) {
-        toggle.setAttribute('aria-expanded', 'false');
-        menu.classList.remove('is-open');
+        setOpen(false);
       }
     });
   }
@@ -118,6 +124,8 @@ document.addEventListener('DOMContentLoaded', () => {
       window.scrollTo({ top: target.offsetTop - navHeight, behavior: 'smooth' });
       if (menu?.classList.contains('is-open')) {
         toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open menu');
+        toggle.innerHTML = '&#9776;';
         menu.classList.remove('is-open');
       }
     });

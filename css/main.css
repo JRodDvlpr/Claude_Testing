@@ -350,6 +350,16 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
   display: none;
   color: var(--color-text-light);
   font-size: 1.25rem;
+  /* stays clickable above the full-screen .nav-menu.is-open overlay */
+  position: relative;
+  z-index: 5;
+  padding: 0.5rem 0.75rem;
+  line-height: 1;
+}
+
+.nav-toggle[aria-expanded="true"] {
+  color: var(--color-gold);
+  font-size: 1.5rem;
 }
 
 /* ============================================================
@@ -429,15 +439,34 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
   line-height: 1.02;
 }
 
-/* italic serif greeting line above the brand name */
+/* Italic serif greeting flanked by gold hairlines with diamond tips,
+   echoing the site's gold-rule ornament. */
 .hero__welcome {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.875rem, 2.5vw, 1.5rem);
   font-style: italic;
   font-weight: 300;
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  letter-spacing: 0.04em;
+  font-size: clamp(1.625rem, 3.2vw, 2.75rem);
+  letter-spacing: 0.05em;
   color: var(--color-gold-light);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.625rem;
+  text-shadow: 0 2px 24px rgba(198, 162, 74, 0.35);
+}
+
+.hero__welcome::before,
+.hero__welcome::after {
+  content: '';
+  flex: 0 1 clamp(48px, 10vw, 130px);
+  height: 5px;
+  background:
+    radial-gradient(circle, var(--color-gold) 0 1.5px, transparent 2.5px) right center / 5px 5px no-repeat,
+    linear-gradient(to right, transparent, var(--color-gold-dim) 45%, var(--color-gold)) left center / calc(100% - 4px) 1px no-repeat;
+}
+
+.hero__welcome::after {
+  transform: scaleX(-1);
 }
 
 .hero__subheadline {
