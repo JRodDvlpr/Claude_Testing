@@ -25,7 +25,7 @@ eleventyComputed:
           <span class="pdp__breadcrumb-sep" aria-hidden="true">&rsaquo;</span>
           <a href="/products/">Products</a>
           <span class="pdp__breadcrumb-sep" aria-hidden="true">&rsaquo;</span>
-          <a href="/premium-cigars/">Premium Cigars</a>
+          <a href="/premium-cigars/">Premium Cigar Bundles</a>
           <span class="pdp__breadcrumb-sep" aria-hidden="true">&rsaquo;</span>
           <span class="pdp__breadcrumb-current">{{ product.name }}</span>
         </p>
@@ -57,6 +57,7 @@ eleventyComputed:
             <div class="pdp__meta">
               <div class="pdp__price-wrap">
                 <span class="pdp__price">{{ product.price }}</span>
+                <span class="pdp__count">Bundle of {{ product.quantity }} Cigars</span>
                 <span class="pdp__price-note">Plus Tax</span>
               </div>
               <span class="pdp__strength" aria-label="Strength: {{ product.strength }} of 5">

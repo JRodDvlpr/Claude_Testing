@@ -49,7 +49,7 @@ function breadcrumbJsonLd(product) {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `${site.url}/` },
       { "@type": "ListItem", position: 2, name: "Products", item: `${site.url}/products/` },
-      { "@type": "ListItem", position: 3, name: "Premium Cigars", item: `${site.url}/premium-cigars/` },
+      { "@type": "ListItem", position: 3, name: "Premium Cigar Bundles", item: `${site.url}/premium-cigars/` },
       { "@type": "ListItem", position: 4, name: product.name, item: `${site.url}/product/${product.slug}/` },
     ],
   });

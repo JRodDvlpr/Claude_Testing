@@ -17,6 +17,7 @@ jsonLd: |
     "email": "pitacigars@att.net",
     "foundingDate": "1968",
     "founder": { "@type": "Person", "name": "Arnaldo Laurencio" },
+    "sameAs": ["https://www.instagram.com/pitacigars/"],
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "1895 NW 21st St",
@@ -44,9 +45,13 @@ jsonLd: |
       <div class="hero__glow" aria-hidden="true"></div>
       <div class="container hero__content">
         <p class="eyebrow hero__eyebrow">Est. 1968</p>
-        <h1 class="hero__headline">Crafted for the<br>Discerning Few</h1>
+        <h1 class="hero__headline">
+          <span class="hero__welcome">Welcome to</span>
+          Pita Cigars
+        </h1>
         <p class="hero__subheadline">
-          Hand-rolled excellence from the finest tobacco leaves in the world.
+          Crafted for the discerning few. Hand-rolled excellence from the
+          finest tobacco leaves in the world.
         </p>
         <div class="hero__actions">
           <a href="/products/" class="btn btn--primary">Explore Our Collection</a>
@@ -132,14 +137,13 @@ jsonLd: |
           <li class="category-card" role="listitem">
             <a href="/premium-cigars/" class="category-card__link">
               <figure class="category-card__media">
-                <img src="/assets/images/premium-lifestyle-cover.webp" alt="Flor de Pita Selects cigars with rum and whiskey" class="category-card__image" loading="lazy" width="1187" height="890" />
+                <img src="/assets/images/premium-lineup-cover.webp" alt="Pita Cigars premium bundle lineup: Torpedo, Churchill, Robusto, and Toro" class="category-card__image" loading="lazy" width="1109" height="832" />
               </figure>
               <div class="category-card__body">
-                <h3 class="category-card__name">Premium Cigars</h3>
+                <h3 class="category-card__name">Premium Cigar Bundles</h3>
                 <p class="category-card__desc">
-                  Our flagship long-filler puros: torpedoes in Habano and
-                  Connecticut, robustos in Sumatra and Indonesian, the Churchill Sumatra, and the Toro.
-                  Aged, hand-rolled, uncompromising.
+                  Our flagship line. Long-filler puros aged to perfection,
+                  rolled by hand, and worthy of the family name.
                 </p>
                 <span class="category-card__cta btn btn--primary">Explore Premium</span>
               </div>
@@ -149,7 +153,7 @@ jsonLd: |
           <li class="category-card" role="listitem">
             <a href="/bundles/" class="category-card__link">
               <figure class="category-card__media">
-                <img src="/assets/images/bundle-gigantes.webp" alt="Pita Bundles: Gigantes Fumas in butcher paper" class="category-card__image" loading="lazy" width="1080" height="1440" />
+                <img src="/assets/images/bundle-gigantes.webp" alt="Gigantes Flor de Pita Fumas bundle of 25 with visible cigar heads" class="category-card__image category-card__image--gigantes" loading="lazy" width="864" height="1200" />
               </figure>
               <div class="category-card__body">
                 <h3 class="category-card__name">Pita Bundles</h3>
@@ -182,47 +186,64 @@ jsonLd: |
     </section>
 
     <!-- ============================================================
-         SECTION 4: BENEFITS / WHY CHOOSE US
+         SECTION 4: CRAFT / WHY CHOOSE US (photo collage)
     ============================================================ -->
-    <section class="section benefits" id="benefits" aria-labelledby="benefits-heading">
-      <div class="container">
-        <div class="section-header section-header--centered">
-          <h2 class="section-heading" id="benefits-heading">The Distinction of Excellence</h2>
+    <section class="section craft" id="craft" aria-labelledby="craft-heading">
+      <div class="container craft__grid">
+
+        <div class="craft__content">
+          <p class="eyebrow">From Seed to Smoke</p>
+          <h2 class="section-heading craft__heading" id="craft-heading">The Craft of Three Generations</h2>
+          <div class="gold-rule" role="presentation"></div>
+          <p class="craft__lede">
+            From leaves cured in the Nicaraguan sun to the band that seals every
+            finished cigar, nothing at Pita is rushed and nothing is delegated
+            to a machine.
+          </p>
+          <blockquote class="craft__quote">
+            <p>&ldquo;His goal was simple: obtain the finest tobacco there is.&rdquo;</p>
+            <cite>The standard set by Arnaldo Laurencio, 1968</cite>
+          </blockquote>
+          <ol class="craft__steps">
+            <li class="craft__step">
+              <span class="craft__step-number" aria-hidden="true">01</span>
+              <div>
+                <h3 class="craft__step-title">Hand-Selected Leaf</h3>
+                <p class="craft__step-body">Every leaf is personally inspected by our master blenders, sourced from twelve tobacco-growing regions worldwide.</p>
+              </div>
+            </li>
+            <li class="craft__step">
+              <span class="craft__step-number" aria-hidden="true">02</span>
+              <div>
+                <h3 class="craft__step-title">Slow-Cured &amp; Aged</h3>
+                <p class="craft__step-body">Wrappers ferment for a minimum of 18 months, and every blend rests in Spanish cedar for at least three years.</p>
+              </div>
+            </li>
+            <li class="craft__step">
+              <span class="craft__step-number" aria-hidden="true">03</span>
+              <div>
+                <h3 class="craft__step-title">Rolled by Masters</h3>
+                <p class="craft__step-body">No shortcuts, no machines. Every cigar passes a certified master roller and has earned 40+ ratings of 93 points or higher.</p>
+              </div>
+            </li>
+          </ol>
         </div>
-        <ul class="benefits__grid" role="list">
 
-          <li class="benefit-item" role="listitem">
-            <div class="benefit-item__icon" aria-hidden="true">&#127807;</div>
-            <h3 class="benefit-item__title">Hand-Selected Tobacco</h3>
-            <p class="benefit-item__body">Every leaf personally inspected by our master blenders before entering the aging room.</p>
-          </li>
-          <li class="benefit-item" role="listitem">
-            <div class="benefit-item__icon" aria-hidden="true">&#127941;</div>
-            <h3 class="benefit-item__title">Award-Winning Blends</h3>
-            <p class="benefit-item__body">Recognized globally with over 40 ratings of 93+ points from leading cigar publications.</p>
-          </li>
-          <li class="benefit-item" role="listitem">
-            <div class="benefit-item__icon" aria-hidden="true">&#127758;</div>
-            <h3 class="benefit-item__title">World-Sourced Tobaccos</h3>
-            <p class="benefit-item__body">Wrapper, binder, and filler sourced from the finest growing regions across 12 countries.</p>
-          </li>
-          <li class="benefit-item" role="listitem">
-            <div class="benefit-item__icon" aria-hidden="true">&#128293;</div>
-            <h3 class="benefit-item__title">Slow Cured Wrappers</h3>
-            <p class="benefit-item__body">Wrapper leaves fermented for a minimum of 18 months to achieve a smooth, even burn.</p>
-          </li>
-          <li class="benefit-item" role="listitem">
-            <div class="benefit-item__icon" aria-hidden="true">&#8987;</div>
-            <h3 class="benefit-item__title">Aged to Perfection</h3>
-            <p class="benefit-item__body">All blends rest in Spanish cedar humidors for a minimum of three years before release.</p>
-          </li>
-          <li class="benefit-item" role="listitem">
-            <div class="benefit-item__icon" aria-hidden="true">&#127941;</div>
-            <h3 class="benefit-item__title">Master Blenders Only</h3>
-            <p class="benefit-item__body">No production shortcuts. Every cigar passes through the hands of a certified master roller.</p>
-          </li>
+        <div class="craft__collage" role="group" aria-label="Photos of the Flor de Pita curing barn, rolling table, and finished cigars">
+          <figure class="craft__photo craft__photo--1">
+            <img src="/assets/images/craft-tobacco-curing.webp" alt="Nicaraguan tobacco leaves hand-hung to cure in the drying barn" loading="lazy" width="513" height="900" />
+          </figure>
+          <figure class="craft__photo craft__photo--2">
+            <img src="/assets/images/craft-hand-rolling.webp" alt="A master roller hand-binding tobacco leaves at the rolling table" loading="lazy" width="526" height="900" />
+          </figure>
+          <figure class="craft__photo craft__photo--3">
+            <img src="/assets/images/craft-cigar-foot.webp" alt="Cross-section of hand-rolled Flor de Pita cigars showing long-filler tobacco" loading="lazy" width="535" height="900" />
+          </figure>
+          <figure class="craft__photo craft__photo--4">
+            <img src="/assets/images/craft-box-ribbon.webp" alt="A box of Flor de Pita Selects cigars tied with blue ribbon" loading="lazy" width="520" height="900" />
+          </figure>
+        </div>
 
-        </ul>
       </div>
     </section>
 
@@ -306,7 +327,7 @@ jsonLd: |
           <h2 class="section-heading" id="retailers-heading">Find Pita Cigars Near You</h2>
           <div class="gold-rule gold-rule--center" role="presentation"></div>
           <p class="section-lede">
-            Our hand-rolled Nicaraguan cigars are carried at these fine establishments.
+            Our traditional Pita Bundles are available at these fine establishments.
             Select a location for directions. New retailers are added regularly.
           </p>
         </div>
@@ -439,7 +460,7 @@ jsonLd: |
               <span class="contact__value">Mon&ndash;Fri 9AM&ndash;5PM &middot; Sat &amp; Sun Closed</span>
             </li>
           </ul>
-          <a href="https://www.instagram.com/" class="contact__social-link" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/pitacigars/" class="contact__social-link" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
               <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
               <circle cx="12" cy="12" r="4.2" />
@@ -448,22 +469,5 @@ jsonLd: |
             Follow us on Instagram
           </a>
         </div>
-
-        <form class="contact__form" action="#" method="post" novalidate aria-label="Contact form">
-          <div class="field">
-            <label for="contact-name" class="field__label">Name</label>
-            <input type="text" id="contact-name" name="name" class="field__input" autocomplete="name" required aria-required="true" />
-          </div>
-          <div class="field">
-            <label for="contact-email" class="field__label">Email</label>
-            <input type="email" id="contact-email" name="email" class="field__input" autocomplete="email" required aria-required="true" />
-          </div>
-          <div class="field">
-            <label for="contact-message" class="field__label">Message</label>
-            <textarea id="contact-message" name="message" class="field__input field__input--textarea" rows="5" required aria-required="true"></textarea>
-          </div>
-          <button type="submit" class="btn btn--primary contact__submit">Send Message</button>
-          <p class="contact__feedback" aria-live="polite"></p>
-        </form>
       </div>
     </section>
