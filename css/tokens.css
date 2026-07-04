@@ -2,7 +2,7 @@
 :root {
   /* ── Dark Backgrounds (deep vintage navy — deepened for contrast) ── */
   --color-black:       #040B14;   /* footer, deepest */
-  --color-bg-deepest:  #081320;   /* hero, testimonials */
+  --color-bg-deepest:  #081320;   /* hero */
   --color-bg-dark:     #0C1B2C;   /* products section */
   --color-bg-card:     #122539;   /* card surfaces */
   --color-bg-surface:  #1A3149;   /* elevated elements */
@@ -12,7 +12,7 @@
   /* ── Light Backgrounds (warm aged-paper cream — vintage warmth) ── */
   --color-cream:       #F5ECD7;   /* primary vintage paper */
   --color-white:       #FBF4E4;   /* about section — warm ivory */
-  --color-off-white:   #F0E4CB;   /* benefits section — deeper parchment */
+  --color-off-white:   #F0E4CB;   /* craft section — deeper parchment */
 
   /* ── Gold (richer vintage foil) ── */
   --color-gold:        #C6A24A;   /* primary accent */

@@ -30,9 +30,9 @@
   <meta name="twitter:description" content="Flor de Pita Presidente Sumatra: a hand-rolled Nicaraguan presidente with a Sumatra-shade wrapper, sold in boxes of 25 by Pita Cigars." />
   <meta name="twitter:image" content="https://jroddvlpr.github.io/Claude_Testing/assets/images/premium-lifestyle-cover.jpg" />
 
-  <link rel="stylesheet" href="../../css/reset.css?v=20260726" />
-  <link rel="stylesheet" href="../../css/tokens.css?v=20260726" />
-  <link rel="stylesheet" href="../../css/main.css?v=20260726" />
+  <link rel="stylesheet" href="../../css/reset.css?v=20260704m" />
+  <link rel="stylesheet" href="../../css/tokens.css?v=20260704m" />
+  <link rel="stylesheet" href="../../css/main.css?v=20260704m" />
   <link rel="stylesheet" href="../../css/boxes.css?v=1" />
 </head>
 <body>
@@ -97,12 +97,13 @@
         &#9776;
       </button>
       <ul class="nav-menu" id="nav-menu" role="list">
-        <li><a href="../../about/"     class="nav-link">About</a></li>
-        <li><a href="../../products/" class="nav-link is-active" aria-current="page">Products</a></li>
+        <li><a href="../../" class="nav-link">Home</a></li>
+        <li><a href="../../about/" class="nav-link">About Us</a></li>
+        <li><a href="../../products/" class="nav-link is-active" aria-current="page">Cigars</a></li>
         <li><a href="../../retailers/" class="nav-link">Retailers</a></li>
         <li><a href="../../contact/"   class="nav-link">Contact</a></li>
         <li class="nav-menu__social">
-          <a href="https://www.instagram.com/" class="nav-social" target="_blank" rel="noopener noreferrer" aria-label="Follow Pita Cigars on Instagram">
+          <a href="https://www.instagram.com/pitacigars/" class="nav-social" target="_blank" rel="noopener noreferrer" aria-label="Follow Pita Cigars on Instagram">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
               <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
               <circle cx="12" cy="12" r="4.2" />
@@ -123,7 +124,7 @@
         <p class="pdp__breadcrumb">
           <a href="../../">Home</a>
           <span class="pdp__breadcrumb-sep" aria-hidden="true">&rsaquo;</span>
-          <a href="../../products/">Products</a>
+          <a href="../../products/">Cigars</a>
           <span class="pdp__breadcrumb-sep" aria-hidden="true">&rsaquo;</span>
           <a href="../../boxes/">Flor de Pita Boxes</a>
           <span class="pdp__breadcrumb-sep" aria-hidden="true">&rsaquo;</span>
@@ -250,12 +251,20 @@
             <div class="product-card__body">
               <h3 class="product-card__name">Presidente Indonesian</h3>
               <p class="product-card__blend">Indonesian Wrapper</p>
+              <p class="product-card__count">Box of 25 Cigars</p>
               <div class="product-card__strength" aria-label="Strength: 3 of 5">
-                <span class="strength-dot"></span><span class="strength-dot"></span><span class="strength-dot"></span><span class="strength-dot--empty strength-dot"></span><span class="strength-dot--empty strength-dot"></span>
+                <span class="product-card__strength-dots" aria-hidden="true"><span class="strength-dot"></span><span class="strength-dot"></span><span class="strength-dot"></span><span class="strength-dot--empty strength-dot"></span><span class="strength-dot--empty strength-dot"></span></span>
+                <span class="product-card__strength-label">Medium Strength</span>
+              </div>
+              <div class="product-card__notes" aria-label="Tasting notes">
+                <span class="product-card__note">Earth</span>
+                <span class="product-card__note">Dark Cocoa</span>
+                <span class="product-card__note">Espresso</span>
+                <span class="product-card__note">Molasses</span>
+                <span class="product-card__note">Leather</span>
               </div>
               <p class="product-card__price">$100.00</p>
               <p class="product-card__price-note">Plus Tax</p>
-              <p class="product-card__box-count">Box of 25</p>
               <a href="../box-presidente-indonesian/" class="btn btn--primary product-card__cta">View Details</a>
             </div>
           </li>
@@ -268,12 +277,20 @@
             <div class="product-card__body">
               <h3 class="product-card__name">Robusto Sumatra</h3>
               <p class="product-card__blend">Sumatra Shade Wrapper</p>
+              <p class="product-card__count">Box of 25 Cigars</p>
               <div class="product-card__strength" aria-label="Strength: 2 of 5">
-                <span class="strength-dot"></span><span class="strength-dot"></span><span class="strength-dot--empty strength-dot"></span><span class="strength-dot--empty strength-dot"></span><span class="strength-dot--empty strength-dot"></span>
+                <span class="product-card__strength-dots" aria-hidden="true"><span class="strength-dot"></span><span class="strength-dot"></span><span class="strength-dot--empty strength-dot"></span><span class="strength-dot--empty strength-dot"></span><span class="strength-dot--empty strength-dot"></span></span>
+                <span class="product-card__strength-label">Mild &ndash; Medium Strength</span>
+              </div>
+              <div class="product-card__notes" aria-label="Tasting notes">
+                <span class="product-card__note">Sweet Spice</span>
+                <span class="product-card__note">Cedar</span>
+                <span class="product-card__note">Toasted Bread</span>
+                <span class="product-card__note">Raisin</span>
+                <span class="product-card__note">Coffee</span>
               </div>
               <p class="product-card__price">$90.00</p>
               <p class="product-card__price-note">Plus Tax</p>
-              <p class="product-card__box-count">Box of 25</p>
               <a href="../box-robusto-sumatra/" class="btn btn--primary product-card__cta">View Details</a>
             </div>
           </li>
@@ -298,8 +315,9 @@
         <div class="footer__nav-col">
           <h4 class="footer__nav-heading">Navigate</h4>
           <ul role="list">
-            <li><a href="../../about/">About</a></li>
-            <li><a href="../../products/">Products</a></li>
+            <li><a href="../../">Home</a></li>
+            <li><a href="../../about/">About Us</a></li>
+            <li><a href="../../products/">Cigars</a></li>
             <li><a href="../../retailers/">Retailers</a></li>
             <li><a href="../../contact/">Contact</a></li>
           </ul>
@@ -307,14 +325,8 @@
         <div class="footer__nav-col">
           <h4 class="footer__nav-heading">Our Cigars</h4>
           <ul role="list">
-            <li><a href="../torpedo-habano/">Torpedo Habano</a></li>
-            <li><a href="../torpedo-connecticut/">Torpedo Connecticut</a></li>
-            <li><a href="../robusto-sumatra/">Robusto Sumatra</a></li>
-            <li><a href="../robusto-indonesian/">Robusto Indonesian</a></li>
-            <li><a href="../churchill-sumatra/">Churchill Sumatra</a></li>
-            <li><a href="../churchill-indonesian/">Churchill Indonesian</a></li>
-            <li><a href="../toro-habano/">Toro Habano</a></li>
-            <li><a href="../../bundles/">Pita Bundles</a></li>
+            <li><a href="../../premium-cigars/">Premium Cigars</a></li>
+            <li><a href="../../bundles/">Flor de Pita Bundles</a></li>
             <li><a href="../../boxes/">Flor de Pita Boxes</a></li>
           </ul>
         </div>
@@ -322,7 +334,7 @@
           <h4 class="footer__nav-heading">Connect</h4>
           <ul class="footer__social" role="list">
             <li>
-              <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.instagram.com/pitacigars/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
                   <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
                   <circle cx="12" cy="12" r="4.2" />
@@ -347,6 +359,6 @@
     </div>
   </footer>
 
-  <script src="../../js/main.js?v=20260726" defer></script>
+  <script src="../../js/main.js?v=20260704m" defer></script>
 </body>
 </html>
