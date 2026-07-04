@@ -1,0 +1,179 @@
+/* ==========================================================================
+   Flor de Pita Boxes — styles specific to the /boxes/ listing and the four
+   box product detail pages. Loaded after main.css on those pages only, so
+   existing pages are untouched. Uses tokens from tokens.css.
+   ========================================================================== */
+
+/* --- 1968 heritage watermark ---------------------------------------------
+   Applied to the main section of the boxes listing and each box PDP.
+   A giant vertical founding-year numeral bleeds off the right edge, with a
+   faint "Our Heritage" postage-stamp mark lower left. Purely decorative:
+   sits behind the content, never intercepts clicks, and is faint enough to
+   leave text contrast unaffected. */
+
+.boxes-watermark {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Distinct backdrop for the boxes line: a soft gold glow bleeding in from
+   the top over a deep navy vignette, instead of the premium listing's
+   flat panel. */
+section.boxes-watermark {
+  background:
+    radial-gradient(1100px 520px at 50% -8%, rgba(198, 162, 74, 0.10), transparent 62%),
+    linear-gradient(180deg, #081320 0%, #0C1B2C 52%, #071019 100%);
+}
+
+/* Giant vertical "1968" running down the right edge, digit tops cropped
+   by the viewport edge. */
+.boxes-watermark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='1500'%3E%3Ctext x='210' y='750' text-anchor='middle' dominant-baseline='middle' font-family='Georgia, serif' font-size='430' font-weight='600' letter-spacing='30' fill='%23C6A24A' fill-opacity='0.085' transform='rotate(90 210 750)'%3E1968%3C/text%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right -150px top 30px;
+  background-size: auto 1400px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* "Our Heritage" postmark: circled P with arc text and cancellation waves. */
+.boxes-watermark::after {
+  content: "";
+  position: absolute;
+  left: 3%;
+  bottom: 6%;
+  width: 360px;
+  height: 200px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='200' fill='none'%3E%3Cdefs%3E%3Cpath id='a' d='M35 100 A65 65 0 0 1 165 100'/%3E%3Cpath id='b' d='M28 100 A72 72 0 0 0 172 100'/%3E%3C/defs%3E%3Cg stroke='%23C6A24A' stroke-opacity='0.55'%3E%3Ccircle cx='100' cy='100' r='84' stroke-width='2'/%3E%3Ccircle cx='100' cy='100' r='52' stroke-width='1.5'/%3E%3Cpath d='M196 55 q11 -9 22 0 t22 0 t22 0 t22 0 t22 0 t22 0'/%3E%3Cpath d='M196 78 q11 -9 22 0 t22 0 t22 0 t22 0 t22 0 t22 0'/%3E%3Cpath d='M196 101 q11 -9 22 0 t22 0 t22 0 t22 0 t22 0 t22 0'/%3E%3Cpath d='M196 124 q11 -9 22 0 t22 0 t22 0 t22 0 t22 0 t22 0'/%3E%3Cpath d='M196 147 q11 -9 22 0 t22 0 t22 0 t22 0 t22 0 t22 0'/%3E%3C/g%3E%3Cg fill='%23C6A24A' fill-opacity='0.6' font-family='Helvetica, Arial, sans-serif' font-size='14' letter-spacing='3'%3E%3Ctext text-anchor='middle'%3E%3CtextPath href='%23a' startOffset='50%25'%3EOUR HERITAGE%3C/textPath%3E%3C/text%3E%3Ctext text-anchor='middle'%3E%3CtextPath href='%23b' startOffset='50%25'%3E1968 - TODAY%3C/textPath%3E%3C/text%3E%3Ctext x='100' y='122' text-anchor='middle' font-family='Georgia, serif' font-size='62' font-weight='600' letter-spacing='0'%3EP%3C/text%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.3;
+  transform: rotate(-7deg);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.boxes-watermark > .container {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 720px) {
+  .boxes-watermark::before {
+    background-position: right -110px top 20px;
+    background-size: auto 950px;
+  }
+  .boxes-watermark::after {
+    width: 250px;
+    height: 140px;
+    bottom: 3%;
+  }
+}
+
+/* --- Box count presentation ---------------------------------------------- */
+
+/* Gold-keyline pill shown under the PDP price in place of a per-cigar
+   price line (boxes are sold as 25-count boxes only). */
+.pdp__box-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-top: var(--space-xs, 8px);
+  padding: 0.4em 1.1em;
+  border: 1px solid rgba(198, 162, 74, 0.45);
+  border-radius: var(--radius-pill, 980px);
+  color: var(--color-gold-light, #E6CB7C);
+  font-family: var(--font-sans, sans-serif);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.pdp__box-count::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--color-gold, #C6A24A);
+  transform: rotate(45deg);
+}
+
+/* --- Box cards: cigar-box-lid treatment -----------------------------------
+   Distinct from the premium product cards: gold keyline border with an
+   inset second keyline (like the lid of a dressed cigar box), a wax-seal
+   style BOX OF 25 tag over the artwork, and a warmer card surface. */
+
+.product-card--box {
+  background: linear-gradient(165deg, #13253A 0%, #0C1A2B 68%, #0A1624 100%);
+  border: 1px solid rgba(198, 162, 74, 0.42);
+}
+
+/* inner keyline of the box lid */
+.product-card--box::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border: 1px solid rgba(198, 162, 74, 0.22);
+  border-radius: calc(var(--radius-md, 16px) - 7px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* BOX OF 25 seal over the artwork */
+.product-card--box::after {
+  content: "Box of 25";
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  z-index: 3;
+  padding: 0.5em 1em;
+  background: rgba(8, 19, 32, 0.88);
+  border: 1px solid rgba(198, 162, 74, 0.55);
+  border-radius: var(--radius-pill, 980px);
+  color: var(--color-gold-light, #E6CB7C);
+  font-family: var(--font-sans, sans-serif);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.product-card--box:hover {
+  border-color: rgba(230, 203, 124, 0.8);
+  box-shadow:
+    0 18px 44px rgba(2, 8, 16, 0.55),
+    0 0 24px rgba(198, 162, 74, 0.12);
+}
+
+.product-card--box .product-card__name {
+  color: var(--color-gold-light, #E6CB7C);
+}
+
+/* --- Box PDP flourishes ---------------------------------------------------- */
+
+/* Frame the product artwork like a presentation box lid. */
+.pdp--box .pdp-slider {
+  padding: 10px;
+  border: 1px solid rgba(198, 162, 74, 0.4);
+  border-radius: var(--radius-md, 16px);
+  background: linear-gradient(165deg, rgba(198, 162, 74, 0.07), rgba(198, 162, 74, 0.02));
+}
+
+.pdp--box .pdp-slider__viewport {
+  border: 1px solid rgba(198, 162, 74, 0.18);
+  border-radius: calc(var(--radius-md, 16px) - 7px);
+  overflow: hidden;
+}
+
+/* Serif price sets the boxes line apart from the sans prices elsewhere. */
+.pdp--box .pdp__price {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: var(--text-h3, 1.75rem);
+  font-weight: 600;
+  color: var(--color-gold-light, #E6CB7C);
+}
