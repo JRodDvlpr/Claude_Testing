@@ -1,0 +1,30 @@
+---
+permalink: /404.html
+eleventyExcludeFromCollections: true
+title: "Page Not Found | Pita Cigars"
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>{{ title }}</title>
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png" />
+  <meta name="theme-color" content="{{ site.themeColor }}" />
+
+  <link rel="stylesheet" href="/css/main.css?v={{ assetRev }}" />
+</head>
+<body>
+  <div class="error-page">
+    <div>
+      <img src="/assets/images/logo.png" alt="Pita Cigars" class="error-page__img" width="584" height="422" />
+      <div class="error-page__code">404</div>
+      <h1 class="error-page__heading">This page has gone up in smoke</h1>
+      <p class="error-page__desc">The page you're looking for doesn't exist or has been moved.</p>
+      <a class="error-page__link" href="/">Back to Home</a>
+    </div>
+  </div>
+</body>
+</html>
