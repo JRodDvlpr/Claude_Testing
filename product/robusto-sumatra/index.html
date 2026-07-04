@@ -32,7 +32,7 @@
 
   <link rel="stylesheet" href="../../css/reset.css?v=20260726" />
   <link rel="stylesheet" href="../../css/tokens.css?v=20260726" />
-  <link rel="stylesheet" href="../../css/main.css?v=20260726" />
+  <link rel="stylesheet" href="../../css/main.css?v=20260704" />
 </head>
 <body>
 
@@ -116,6 +116,15 @@
 
   <main id="main-content">
 
+    <svg class="svg-defs" width="0" height="0" aria-hidden="true" focusable="false">
+      <defs>
+        <symbol id="leaf-icon" viewBox="0 0 24 30">
+          <path d="M12 1.6C7.1 7.7 3.4 13.5 3.4 18.7c0 5.6 3.7 9.5 8.6 9.5s8.6-3.9 8.6-9.5c0-5.2-3.7-11-8.6-17.1Z" fill="var(--leaf-fill, none)" stroke="var(--leaf-outline, currentColor)" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M12 25.5v-19M12 12.6 7.6 8.9M12 12.6l4.4-3.7M12 18.6l-4.4-3.7M12 18.6l4.4-3.7" fill="none" stroke="var(--leaf-vein, currentColor)" stroke-width="1.2" stroke-linecap="round"/>
+        </symbol>
+      </defs>
+    </svg>
+
     <!-- PRODUCT DETAIL -->
     <section class="section pdp" aria-labelledby="pdp-heading">
       <div class="container">
@@ -154,45 +163,49 @@
                 <span class="pdp__price-note">Plus Tax</span>
               </div>
               <span class="pdp__strength" aria-label="Strength: 2 of 5">
-                <span class="strength-dot"></span><span class="strength-dot"></span><span class="strength-dot--empty strength-dot"></span><span class="strength-dot--empty strength-dot"></span><span class="strength-dot--empty strength-dot"></span>
-                <span class="pdp__strength-label">Mild &ndash; Medium</span>
+              <span class="pdp__strength-title">Strength</span>
+              <span class="leaf-meter" aria-hidden="true">
+                <svg class="leaf leaf--p1" viewBox="0 0 24 30" aria-hidden="true" focusable="false"><use href="#leaf-icon"></use></svg>
+                <svg class="leaf leaf--p2" viewBox="0 0 24 30" aria-hidden="true" focusable="false"><use href="#leaf-icon"></use></svg>
+                <svg class="leaf leaf--empty" viewBox="0 0 24 30" aria-hidden="true" focusable="false"><use href="#leaf-icon"></use></svg>
+                <svg class="leaf leaf--empty" viewBox="0 0 24 30" aria-hidden="true" focusable="false"><use href="#leaf-icon"></use></svg>
+                <svg class="leaf leaf--empty" viewBox="0 0 24 30" aria-hidden="true" focusable="false"><use href="#leaf-icon"></use></svg>
               </span>
+              <span class="pdp__strength-label">Mild &ndash; Medium</span>
+            </span>
             </div>
             <p class="pdp__desc">A stout, slow-burning robusto dressed in a genuine Sumatra-shade wrapper, subtly sweet, gently spiced, and effortlessly smooth. The same aged Nicaraguan long-filler as our torpedoes in a shorter format, built for the everyday hour.</p>
 
             <div class="pdp__specs">
-            <div class="spec">
-              <span class="spec__label">Origin</span>
-              <span class="spec__value">Est&eacute;l&iacute;, Nicaragua</span>
-            </div>
-            <div class="spec">
-              <span class="spec__label">Wrapper</span>
-              <span class="spec__value">Sumatra Shade</span>
-            </div>
-            <div class="spec">
-              <span class="spec__label">Binder</span>
-              <span class="spec__value">Nicaraguan</span>
-            </div>
-            <div class="spec">
-              <span class="spec__label">Filler</span>
-              <span class="spec__value">Nicaraguan (Est&eacute;l&iacute; &amp; Jalapa)</span>
-            </div>
-            <div class="spec">
-              <span class="spec__label">Vitola</span>
-              <span class="spec__value">Robusto</span>
-            </div>
-            <div class="spec">
-              <span class="spec__label">Length</span>
-              <span class="spec__value">5&quot;</span>
-            </div>
-            <div class="spec">
-              <span class="spec__label">Ring Gauge</span>
-              <span class="spec__value">52</span>
-            </div>
-            <div class="spec">
-              <span class="spec__label">Strength</span>
-              <span class="spec__value">Mild &ndash; Medium</span>
-            </div>
+              <svg class="pdp__specs-map" viewBox="0 0 200 170" aria-hidden="true" focusable="false"><path d="M10 55 25 48 38 52 52 40 68 45 84 32 100 38 118 24 136 30 152 18 168 24 192 30C186 44 181 52 180 62 178 78 177 92 182 104 177 118 172 130 160 145 150 140 143 139 135 138 127 141 119 143 112 142 106 139 100 136 95 132 86 125 77 118 70 110 61 101 52 93 45 85 37 78 29 71 22 65 17 61 13 58 10 55Z" fill="currentColor"/></svg>
+              <div class="pdp__specs-col">
+                <div class="spec">
+                  <span class="spec__label">Factory &amp; Blender</span>
+                  <span class="spec__value">Pita Cigars</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__label">Origin</span>
+                  <span class="spec__value">Est&eacute;l&iacute;, Nicaragua</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__label">Vitola</span>
+                  <span class="spec__value">Robusto &middot; 5&quot; x 52</span>
+                </div>
+              </div>
+              <div class="pdp__specs-col">
+                <div class="spec">
+                  <span class="spec__label">Wrapper</span>
+                  <span class="spec__value">Sumatra Shade</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__label">Binder</span>
+                  <span class="spec__value">Nicaraguan</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__label">Filler</span>
+                  <span class="spec__value">Nicaraguan (Est&eacute;l&iacute; &amp; Jalapa)</span>
+                </div>
+              </div>
             </div>
 
             <p class="pdp__notes-heading">Tasting Notes</p>
