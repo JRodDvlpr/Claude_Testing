@@ -1,0 +1,27 @@
+  <header class="site-header" role="banner">
+    <nav class="nav-primary" aria-label="Main navigation">
+      <a href="/" class="nav-logo" aria-label="Pita Cigars home">
+        <img src="/assets/images/logo.png" alt="Pita Cigars" class="nav-logo__img" width="584" height="422" />
+        <span class="nav-logo__text">Pita Cigars</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        &#9776;
+      </button>
+      <ul class="nav-menu" id="nav-menu" role="list">
+        <li><a href="/about/" class="nav-link{{ ' is-active' if nav == 'about' }}"{{ ' aria-current="page"' | safe if nav == 'about' }}>About</a></li>
+        <li><a href="/products/" class="nav-link{{ ' is-active' if nav == 'products' }}"{{ ' aria-current="page"' | safe if nav == 'products' }}>Products</a></li>
+        <li><a href="/retailers/" class="nav-link{{ ' is-active' if nav == 'retailers' }}"{{ ' aria-current="page"' | safe if nav == 'retailers' }}>Retailers</a></li>
+        <li><a href="/contact/" class="nav-link{{ ' is-active' if nav == 'contact' }}"{{ ' aria-current="page"' | safe if nav == 'contact' }}>Contact</a></li>
+        <li class="nav-menu__social">
+          <a href="https://www.instagram.com/" class="nav-social" target="_blank" rel="noopener noreferrer" aria-label="Follow Pita Cigars on Instagram">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+              <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
+              <circle cx="12" cy="12" r="4.2" />
+              <circle cx="17.5" cy="6.5" r="1.15" fill="currentColor" stroke="none" />
+            </svg>
+            <span class="nav-social__label">Instagram</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>

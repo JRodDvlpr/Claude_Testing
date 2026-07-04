@@ -1,42 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
-  <meta name="description" content="Premium hand-rolled cigars crafted with decades of tradition." />
-  <title>Pita Cigars | Premium Cigars</title>
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-  <!-- Styles -->
-
-  <!-- Icons & theming -->
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
-  <meta name="theme-color" content="#060F1A" />
-
-  <!-- Canonical & social sharing -->
-  <link rel="canonical" href="https://jroddvlpr.github.io/Claude_Testing/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Pita Cigars" />
-  <meta property="og:title" content="Pita Cigars | Premium Cigars" />
-  <meta property="og:description" content="Premium hand-rolled cigars crafted with decades of tradition." />
-  <meta property="og:url" content="https://jroddvlpr.github.io/Claude_Testing/" />
-  <meta property="og:image" content="https://jroddvlpr.github.io/Claude_Testing/assets/images/hero.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Pita Cigars | Premium Cigars" />
-  <meta name="twitter:description" content="Premium hand-rolled cigars crafted with decades of tradition." />
-  <meta name="twitter:image" content="https://jroddvlpr.github.io/Claude_Testing/assets/images/hero.jpg" />
-
-  <!-- LCP: fetch the hero image early -->
-  <link rel="preload" as="image" href="assets/images/hero.jpg" fetchpriority="high" />
-
-  <!-- Structured data -->
-  <script type="application/ld+json">
+---
+layout: layouts/base.njk
+title: "Pita Cigars | Premium Cigars"
+description: "Premium hand-rolled cigars crafted with decades of tradition."
+ogImage: "/assets/images/hero.jpg"
+preloadImage: "/assets/images/hero.jpg"
+jsonLd: |
   {
     "@context": "https://schema.org",
     "@type": "Store",
@@ -63,103 +31,13 @@
       "closes": "17:00"
     }
   }
-  </script>
-
-  <link rel="stylesheet" href="css/reset.css?v=20260726" />
-  <link rel="stylesheet" href="css/tokens.css?v=20260726" />
-  <link rel="stylesheet" href="css/main.css?v=20260726" />
-</head>
-<body>
-
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-
-  <div class="age-gate" id="age-gate" role="dialog" aria-modal="true" aria-labelledby="age-gate-heading" aria-describedby="age-gate-desc">
-    <div class="age-gate__panel">
-      <img src="assets/images/logo.png" alt="Pita Cigars" class="age-gate__logo" width="584" height="422" />
-      <p class="eyebrow age-gate__eyebrow">Age Verification</p>
-      <h2 id="age-gate-heading" class="age-gate__heading">Are You 21 or Older?</h2>
-      <p id="age-gate-desc" class="age-gate__desc">
-        Pita Cigars sells tobacco products intended for adults 21 years of age or
-        older. Please confirm your age to enter this site.
-      </p>
-      <div class="age-gate__actions">
-        <button type="button" class="btn btn--primary age-gate__confirm">Yes, I'm 21 or Older</button>
-        <button type="button" class="btn btn--ghost age-gate__deny">No, I'm Under 21</button>
-      </div>
-      <p class="age-gate__disclaimer">
-        Must be 21 years or older to purchase tobacco products. By entering, you
-        confirm you are of legal smoking age in your jurisdiction.
-      </p>
-    </div>
-  </div>
-  <script>
-    (function () {
-      var gate = document.getElementById('age-gate');
-      if (!gate) return;
-      // Refresh/reload should always re-show the gate.
-      var isReload = false;
-      try {
-        var navEntries = performance.getEntriesByType('navigation');
-        if (navEntries && navEntries.length) {
-          isReload = navEntries[0].type === 'reload';
-        } else if (performance.navigation) {
-          isReload = performance.navigation.type === 1;
-        }
-      } catch (e) {}
-      // Confirmation is remembered via window.name (survives same-tab
-      // navigation even when cookies/storage are blocked); sessionStorage
-      // is a secondary check.
-      var confirmed = false;
-      try { confirmed = !!window.name && window.name.indexOf('pita-age-ok') !== -1; } catch (e) {}
-      if (!confirmed) {
-        try { confirmed = sessionStorage.getItem('pitaAgeVerified') === 'true'; } catch (e) {}
-      }
-      if (!isReload && confirmed) {
-        gate.style.display = 'none';
-      } else {
-        document.documentElement.classList.add('age-gate-open');
-      }
-    })();
-  </script>
-  <!-- ============================================================
-       NAVIGATION
-  ============================================================ -->
-  <header class="site-header" role="banner">
-    <nav class="nav-primary" aria-label="Main navigation">
-      <a href="./" class="nav-logo" aria-label="Pita Cigars home">
-        <img src="assets/images/logo.png" alt="Pita Cigars" class="nav-logo__img" width="584" height="422" />
-        <span class="nav-logo__text">Pita Cigars</span>
-      </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
-        &#9776;
-      </button>
-      <ul class="nav-menu" id="nav-menu" role="list">
-        <li><a href="about/"     class="nav-link">About</a></li>
-        <li><a href="products/" class="nav-link">Products</a></li>
-        <li><a href="retailers/" class="nav-link">Retailers</a></li>
-        <li><a href="contact/"   class="nav-link">Contact</a></li>
-        <li class="nav-menu__social">
-          <a href="https://www.instagram.com/" class="nav-social" target="_blank" rel="noopener noreferrer" aria-label="Follow Pita Cigars on Instagram">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
-              <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
-              <circle cx="12" cy="12" r="4.2" />
-              <circle cx="17.5" cy="6.5" r="1.15" fill="currentColor" stroke="none" />
-            </svg>
-            <span class="nav-social__label">Instagram</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-
-  <main id="main-content">
-
+---
     <!-- ============================================================
          SECTION 1: HERO
     ============================================================ -->
     <section class="section hero" id="hero" aria-label="Hero banner">
       <div class="hero__bg-media">
-        <img src="assets/images/hero.jpg" alt="" aria-hidden="true" class="hero__bg-img" fetchpriority="high" width="920" height="828" />
+        <img src="/assets/images/hero.jpg" alt="" aria-hidden="true" class="hero__bg-img" fetchpriority="high" width="920" height="828" />
       </div>
       <div class="hero__overlay" aria-hidden="true"></div>
       <div class="hero__glow" aria-hidden="true"></div>
@@ -170,8 +48,8 @@
           Hand-rolled excellence from the finest tobacco leaves in the world.
         </p>
         <div class="hero__actions">
-          <a href="products/" class="btn btn--primary">Explore Our Collection</a>
-          <a href="about/"    class="btn btn--ghost">Our Story</a>
+          <a href="/products/" class="btn btn--primary">Explore Our Collection</a>
+          <a href="/about/"    class="btn btn--ghost">Our Story</a>
         </div>
       </div>
       <div class="hero__scroll-indicator" aria-hidden="true">Scroll</div>
@@ -184,7 +62,7 @@
       <div class="container about__grid">
         <figure class="about__media">
           <img
-            src="assets/images/founder.jpg"
+            src="/assets/images/founder.jpg"
             alt="Arnaldo Laurencio, founder of Flor de Pita, smoking a hand-rolled cigar"
             class="about__image about__image--founder"
             loading="lazy"
@@ -251,9 +129,9 @@
         <ul class="catalog__grid" role="list">
 
           <li class="category-card" role="listitem">
-            <a href="premium-cigars/" class="category-card__link">
+            <a href="/premium-cigars/" class="category-card__link">
               <figure class="category-card__media">
-                <img src="assets/images/premium-lifestyle-cover.jpg" alt="Flor de Pita Selects cigars with rum and whiskey" class="category-card__image" loading="lazy" width="1187" height="890" />
+                <img src="/assets/images/premium-lifestyle-cover.jpg" alt="Flor de Pita Selects cigars with rum and whiskey" class="category-card__image" loading="lazy" width="1187" height="890" />
               </figure>
               <div class="category-card__body">
                 <h3 class="category-card__name">Premium Cigars</h3>
@@ -268,9 +146,9 @@
           </li>
 
           <li class="category-card" role="listitem">
-            <a href="bundles/" class="category-card__link">
+            <a href="/bundles/" class="category-card__link">
               <figure class="category-card__media">
-                <img src="assets/images/bundle-gigantes.jpg" alt="Pita Bundles: Gigantes Fumas in butcher paper" class="category-card__image" loading="lazy" width="1080" height="1440" />
+                <img src="/assets/images/bundle-gigantes.jpg" alt="Pita Bundles: Gigantes Fumas in butcher paper" class="category-card__image" loading="lazy" width="1080" height="1440" />
               </figure>
               <div class="category-card__body">
                 <h3 class="category-card__name">Pita Bundles</h3>
@@ -286,7 +164,7 @@
           <li class="category-card category-card--soon" role="listitem" aria-label="New products coming soon">
             <div class="category-card__link">
               <figure class="category-card__media">
-                <img src="assets/images/cigars-group.jpg" alt="" aria-hidden="true" class="category-card__image" loading="lazy" width="683" height="720" />
+                <img src="/assets/images/cigars-group.jpg" alt="" aria-hidden="true" class="category-card__image" loading="lazy" width="683" height="720" />
               </figure>
               <div class="category-card__body">
                 <span class="category-card__badge">Coming Soon</span>
@@ -367,7 +245,7 @@
                 </p>
               </blockquote>
               <figure class="testimonial-card__author">
-                <img src="assets/images/testimonial-1.jpg" alt="Roberto M." class="testimonial-card__avatar" loading="lazy" width="400" height="640" />
+                <img src="/assets/images/testimonial-1.jpg" alt="Roberto M." class="testimonial-card__avatar" loading="lazy" width="400" height="640" />
                 <figcaption>
                   <strong class="testimonial-card__name">Roberto M.</strong>
                   <span class="testimonial-card__title">Cigar Aficionado, New York</span>
@@ -383,7 +261,7 @@
                 </p>
               </blockquote>
               <figure class="testimonial-card__author">
-                <img src="assets/images/testimonial-2.jpg" alt="James T." class="testimonial-card__avatar" loading="lazy" width="244" height="244" />
+                <img src="/assets/images/testimonial-2.jpg" alt="James T." class="testimonial-card__avatar" loading="lazy" width="244" height="244" />
                 <figcaption>
                   <strong class="testimonial-card__name">James T.</strong>
                   <span class="testimonial-card__title">Editor, Smoke &amp; Oak Magazine</span>
@@ -399,7 +277,7 @@
                 </p>
               </blockquote>
               <figure class="testimonial-card__author">
-                <img src="assets/images/testimonial-3.jpg" alt="Sandra L." class="testimonial-card__avatar" loading="lazy" width="294" height="196" />
+                <img src="/assets/images/testimonial-3.jpg" alt="Sandra L." class="testimonial-card__avatar" loading="lazy" width="294" height="196" />
                 <figcaption>
                   <strong class="testimonial-card__name">Sandra L.</strong>
                   <span class="testimonial-card__title">Collector, Miami FL</span>
@@ -588,75 +466,3 @@
         </form>
       </div>
     </section>
-
-  </main>
-
-  <!-- ============================================================
-       FOOTER
-  ============================================================ -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="container footer__grid">
-      <div class="footer__brand">
-        <a href="./" class="footer__logo" aria-label="Pita Cigars home">
-          <img src="assets/images/logo.png" alt="Pita Cigars" class="footer__logo-img" width="584" height="422" />
-          <span class="footer__logo-text">Pita Cigars</span>
-        </a>
-        <p class="footer__tagline">
-          Hand-rolled excellence since 1968.<br>Where tradition meets the art of the perfect smoke.
-        </p>
-      </div>
-      <nav class="footer__nav" aria-label="Footer navigation">
-        <div class="footer__nav-col">
-          <h4 class="footer__nav-heading">Navigate</h4>
-          <ul role="list">
-            <li><a href="about/">About</a></li>
-            <li><a href="products/">Products</a></li>
-            <li><a href="retailers/">Retailers</a></li>
-            <li><a href="contact/">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer__nav-col">
-          <h4 class="footer__nav-heading">Our Cigars</h4>
-          <ul role="list">
-            <li><a href="product/torpedo-habano/">Torpedo Habano</a></li>
-            <li><a href="product/torpedo-connecticut/">Torpedo Connecticut</a></li>
-            <li><a href="product/robusto-sumatra/">Robusto Sumatra</a></li>
-            <li><a href="product/robusto-indonesian/">Robusto Indonesian</a></li>
-            <li><a href="product/churchill-sumatra/">Churchill Sumatra</a></li>
-            <li><a href="product/churchill-indonesian/">Churchill Indonesian</a></li>
-            <li><a href="product/toro-habano/">Toro Habano</a></li>
-            <li><a href="bundles/">Pita Bundles</a></li>
-          </ul>
-        </div>
-        <div class="footer__nav-col">
-          <h4 class="footer__nav-heading">Connect</h4>
-          <ul class="footer__social" role="list">
-            <li>
-              <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
-                  <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
-                  <circle cx="12" cy="12" r="4.2" />
-                  <circle cx="17.5" cy="6.5" r="1.15" fill="currentColor" stroke="none" />
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-    <hr class="footer__divider" />
-    <div class="footer__bottom">
-      <div class="container footer__bottom-inner">
-        <p class="footer__copyright">&copy; <span id="footer-year"></span> Pita Cigars. All Rights Reserved.</p>
-        <ul class="footer__legal" role="list">
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Use</a></li>
-        </ul>
-        <p class="footer__age-disclaimer">Must be 21 or older to purchase tobacco products.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/main.js?v=20260726" defer></script>
-</body>
-</html>

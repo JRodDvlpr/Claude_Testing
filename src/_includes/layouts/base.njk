@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% if noindex %}<meta name="robots" content="noindex" />
+  {% endif -%}
+  <meta name="description" content="{{ description }}" />
+  <title>{{ title }}</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Icons & theming -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png" />
+  <meta name="theme-color" content="{{ site.themeColor }}" />
+
+  <!-- Canonical & social sharing -->
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="{{ site.name }}" />
+  <meta property="og:title" content="{{ title }}" />
+  <meta property="og:description" content="{{ description }}" />
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+  <meta property="og:image" content="{{ site.url }}{{ ogImage or site.defaultOgImage }}" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ title }}" />
+  <meta name="twitter:description" content="{{ description }}" />
+  <meta name="twitter:image" content="{{ site.url }}{{ ogImage or site.defaultOgImage }}" />
+  {% if preloadImage %}
+  <!-- LCP: fetch the hero image early -->
+  <link rel="preload" as="image" href="{{ preloadImage }}" fetchpriority="high" />
+  {% endif -%}
+  {% if jsonLd %}
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {{ jsonLd | safe }}
+  </script>
+  {% endif -%}
+
+  <link rel="stylesheet" href="/css/reset.css?v=20260726" />
+  <link rel="stylesheet" href="/css/tokens.css?v=20260726" />
+  <link rel="stylesheet" href="/css/main.css?v=20260726" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+{% include "partials/age-gate.njk" %}
+{% include "partials/header.njk" %}
+
+  <main id="main-content">
+{{ content | safe }}
+  </main>
+
+{% include "partials/footer.njk" %}
+
+  <script src="/js/main.js?v=20260726" defer></script>
+</body>
+</html>
