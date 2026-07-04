@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="960" viewBox="0 0 720 960" role="img" aria-label="Flor de Pita Robusto Sumatra box of 25 placeholder artwork">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0E1F31"/>
+      <stop offset="1" stop-color="#081320"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="720" height="960" fill="url(#bg)"/>
+
+  <!-- concentric ring motif -->
+  <circle cx="600" cy="150" r="40" fill="none" stroke="#C6A24A" stroke-opacity="0.09" stroke-width="1.5"/>
+  <circle cx="600" cy="150" r="70" fill="none" stroke="#C6A24A" stroke-opacity="0.09" stroke-width="1.5"/>
+  <circle cx="600" cy="150" r="100" fill="none" stroke="#C6A24A" stroke-opacity="0.09" stroke-width="1.5"/>
+  <circle cx="600" cy="150" r="130" fill="none" stroke="#C6A24A" stroke-opacity="0.09" stroke-width="1.5"/>
+  <circle cx="600" cy="150" r="160" fill="none" stroke="#C6A24A" stroke-opacity="0.09" stroke-width="1.5"/>
+  <circle cx="600" cy="150" r="190" fill="none" stroke="#C6A24A" stroke-opacity="0.09" stroke-width="1.5"/>
+
+  <!-- 1968 watermark: giant vertical numeral bleeding off the right edge -->
+  <text x="620" y="470" text-anchor="middle" dominant-baseline="middle" font-family="Cormorant Garamond, Georgia, 'Times New Roman', serif" font-size="300" font-weight="600" letter-spacing="20" fill="#C6A24A" fill-opacity="0.07" transform="rotate(90 620 470)">1968</text>
+
+  <!-- double keyline box-lid frame -->
+  <rect x="26" y="26" width="668" height="908" fill="none" stroke="#C6A24A" stroke-opacity="0.55" stroke-width="1.5"/>
+  <rect x="38" y="38" width="644" height="884" fill="none" stroke="#C6A24A" stroke-opacity="0.25" stroke-width="1"/>
+  <rect x="-6" y="-6" width="12" height="12" fill="#C6A24A" fill-opacity="0.75" transform="translate(38 38) rotate(45)"/>
+  <rect x="-6" y="-6" width="12" height="12" fill="#C6A24A" fill-opacity="0.75" transform="translate(682 38) rotate(45)"/>
+  <rect x="-6" y="-6" width="12" height="12" fill="#C6A24A" fill-opacity="0.75" transform="translate(38 922) rotate(45)"/>
+  <rect x="-6" y="-6" width="12" height="12" fill="#C6A24A" fill-opacity="0.75" transform="translate(682 922) rotate(45)"/>
+
+  <!-- lockup -->
+  <text x="360" y="296" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="24" font-weight="500" letter-spacing="8" fill="#C6A24A">FLOR DE PITA</text>
+  <text x="360" y="416" text-anchor="middle" font-family="Cormorant Garamond, Georgia, 'Times New Roman', serif" font-size="104" font-weight="600" letter-spacing="3" fill="#F5EEDC">ROBUSTO</text>
+  <text x="360" y="478" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="25" font-weight="400" letter-spacing="6" fill="#E6CB7C">SUMATRA WRAPPER</text>
+
+  <line x1="240" y1="528" x2="480" y2="528" stroke="#C6A24A" stroke-opacity="0.7" stroke-width="1"/>
+  <rect x="-5.5" y="-5.5" width="11" height="11" fill="#C6A24A" transform="translate(360 528) rotate(45)"/>
+
+  <text x="360" y="588" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="400" letter-spacing="4" fill="#BEC9D4">5 × 52 · BOX OF 25</text>
+
+  <!-- wrapper-tone band -->
+  <line x1="90" y1="760" x2="630" y2="760" stroke="#C6A24A" stroke-opacity="0.5" stroke-width="1"/>
+  <rect x="90" y="768" width="540" height="62" fill="#C89B6A"/>
+  <line x1="90" y1="838" x2="630" y2="838" stroke="#C6A24A" stroke-opacity="0.5" stroke-width="1"/>
+  <text x="360" y="807" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="500" letter-spacing="5" fill="#122539">HAND-ROLLED &#183; EST. 1968</text>
+
+  <text x="360" y="896" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="400" letter-spacing="4" fill="#BEC9D4" fill-opacity="0.7">PITA CIGARS &#183; ESTEL&#205;, NICARAGUA</text>
+</svg>
