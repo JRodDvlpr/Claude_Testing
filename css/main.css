@@ -1188,124 +1188,6 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
 .craft__photo--4 { grid-column: 2; grid-row: 2 / 4; }
 
 /* ============================================================
-   SECTION 5: TESTIMONIALS
-============================================================ */
-.testimonials {
-  background: var(--color-bg-deepest);
-  border-top: 1px solid var(--color-border);
-}
-
-.testimonials .eyebrow        { color: var(--color-gold); }
-.testimonials .section-heading { color: var(--color-text-light); }
-
-.testimonials__carousel {
-  position: relative;
-  overflow: hidden;
-}
-
-.testimonials__track {
-  display: flex;
-  gap: var(--space-lg);
-  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.testimonial-card {
-  flex: 0 0 calc(50% - var(--space-md));
-  background: var(--color-bg-card);
-  border: none;
-  border-radius: var(--radius-md);
-  padding: var(--space-xl);
-  position: relative;
-}
-
-/* opening quote mark */
-.testimonial-card::before {
-  content: '\201C';
-  position: absolute;
-  top: var(--space-md);
-  left: var(--space-md);
-  font-family: var(--font-serif);
-  font-size: 4rem;
-  line-height: 1;
-  color: var(--color-gold);
-  opacity: 0.25;
-}
-
-.testimonial-card__quote {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
-  font-weight: 300;
-  font-style: italic;
-  letter-spacing: var(--tracking-snug);
-  color: var(--color-text-light);
-  line-height: 1.7;
-  margin-bottom: var(--space-lg);
-  padding-top: var(--space-sm);
-}
-
-.testimonial-card__author {
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
-  padding-top: var(--space-md);
-  border-top: 1px solid var(--color-border);
-}
-
-.testimonial-card__avatar {
-  width: 48px; height: 48px;
-  border-radius: 50%;
-  object-fit: cover;
-  background: var(--color-bg-surface);
-  border: 1px solid var(--color-border);
-  flex-shrink: 0;
-}
-
-.testimonial-card__name {
-  display: block;
-  color: var(--color-text-light);
-  font-weight: 500;
-  font-size: var(--text-sm);
-}
-
-.testimonial-card__title {
-  display: block;
-  font-size: 0.8125rem;
-  color: var(--color-text-dim);
-  margin-top: 2px;
-}
-
-.testimonials__controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-md);
-  margin-top: var(--space-xl);
-}
-
-.testimonials__btn {
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  border: 1px solid var(--color-border);
-  color: var(--color-gold);
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: border-color var(--transition), background var(--transition);
-}
-
-.testimonials__btn:hover {
-  border-color: var(--color-gold-dim);
-  background: var(--color-gold-subtle);
-}
-
-.testimonials__dots {
-  display: flex;
-  gap: var(--space-xs);
-  align-items: center;
-}
-
-/* ============================================================
    SECTION 6: NEWSLETTER / CTA
 ============================================================ */
 .newsletter {
@@ -2034,7 +1916,6 @@ a.contact__value:hover { color: var(--color-gold); }
 .reveal-init .bundle-card,
 .reveal-init .craft__photo,
 .reveal-init .craft__content,
-.reveal-init .testimonial-card,
 .reveal-init .retailer-card,
 .reveal-init .about__media,
 .reveal-init .about__content,
@@ -2052,7 +1933,6 @@ a.contact__value:hover { color: var(--color-gold); }
 .reveal-init .bundle-card.is-visible,
 .reveal-init .craft__photo.is-visible,
 .reveal-init .craft__content.is-visible,
-.reveal-init .testimonial-card.is-visible,
 .reveal-init .retailer-card.is-visible,
 .reveal-init .about__media.is-visible,
 .reveal-init .about__content.is-visible,
@@ -2110,7 +1990,6 @@ a.contact__value:hover { color: var(--color-gold); }
   .products__grid { grid-template-columns: repeat(2, 1fr); }
   .catalog__grid  { grid-template-columns: repeat(2, 1fr); }
   .bundles__grid  { grid-template-columns: repeat(2, 1fr); }
-  .testimonial-card { flex: 0 0 100%; }
   .pdp__grid      { gap: var(--space-xl); }
   .craft__grid    { gap: var(--space-xl); }
 }

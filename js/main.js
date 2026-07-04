@@ -131,78 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ── 5. Testimonials Carousel ───────────────────────────────
-  // Cards are shown two-at-a-time on wide screens and one-at-a-time on
-  // narrow ones (see the 768px breakpoint in main.css). Dots represent
-  // actual reachable pages for the current width, not one dot per card,
-  // so there's never a trailing dot that scrolls to a half-empty view.
-  const track  = document.querySelector('.testimonials__track');
-  const dotsEl = document.querySelector('.testimonials__dots');
-  const prevBtn = document.querySelector('.testimonials__btn--prev');
-  const nextBtn = document.querySelector('.testimonials__btn--next');
-
-  if (track && dotsEl) {
-    const slides = Array.from(track.children);
-    const narrowMq = window.matchMedia('(max-width: 768px)');
-    let dots = [];
-    let page = 0;
-
-    const getVisibleCount = () => (narrowMq.matches ? 1 : Math.min(2, slides.length));
-    const getPageCount = () => Math.max(1, Math.ceil(slides.length / getVisibleCount()));
-    const getStartIndex = (p) => Math.min(p * getVisibleCount(), Math.max(0, slides.length - getVisibleCount()));
-
-    const render = () => {
-      const startIndex = getStartIndex(page);
-      const target = slides[startIndex];
-      track.style.transform = `translateX(-${target ? target.offsetLeft : 0}px)`;
-      dots.forEach((d, i) => d.setAttribute('aria-current', String(i === page)));
-    };
-
-    const buildDots = () => {
-      const pageCount = getPageCount();
-      dotsEl.innerHTML = '';
-      dots = Array.from({ length: pageCount }, (_, i) => {
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'slider-dot';
-        btn.setAttribute('aria-label', `Testimonials, page ${i + 1} of ${pageCount}`);
-        btn.addEventListener('click', () => goTo(i));
-        dotsEl.appendChild(btn);
-        return btn;
-      });
-    };
-
-    const goTo = (index) => {
-      const pageCount = getPageCount();
-      page = (index + pageCount) % pageCount;
-      render();
-    };
-
-    buildDots();
-    render();
-
-    prevBtn?.addEventListener('click', () => goTo(page - 1));
-    nextBtn?.addEventListener('click', () => goTo(page + 1));
-
-    // Rebuild on breakpoint crossing so dot count always matches what's visible.
-    let lastNarrow = narrowMq.matches;
-    window.addEventListener('resize', () => {
-      if (narrowMq.matches !== lastNarrow) {
-        lastNarrow = narrowMq.matches;
-        page = 0;
-        buildDots();
-      }
-      render();
-    });
-
-    // auto-advance (paused if user prefers reduced motion)
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!reduced) {
-      setInterval(() => goTo(page + 1), 5000);
-    }
-  }
-
-  // ── 5b. Product Photo Slider ───────────────────────────────
+  // ── 5. Product Photo Slider ────────────────────────────────
   document.querySelectorAll('.pdp-slider').forEach((slider) => {
     const sTrack = slider.querySelector('.pdp-slider__track');
     const sDotsEl = slider.querySelector('.pdp-slider__dots');
@@ -256,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── 6. Scroll Reveal ───────────────────────────────────────
   const revealEls = document.querySelectorAll(
-    '.product-card, .category-card, .bundle-card, .craft__photo, .craft__content, .testimonial-card, .retailer-card, ' +
+    '.product-card, .category-card, .bundle-card, .craft__photo, .craft__content, .retailer-card, ' +
     '.about__media, .about__content, .contact__info, ' +
     '.pdp-story__inner, .section-header'
   );
