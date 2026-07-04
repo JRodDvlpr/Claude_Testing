@@ -4,8 +4,10 @@ pagination:
   data: products
   size: 1
   alias: product
+  addAllPagesToCollections: true
 permalink: "/product/{{ product.slug }}/"
 nav: products
+sitemapPriority: "0.8"
 eleventyComputed:
   title: "{{ product.title }}"
   description: "{{ product.description }}"
@@ -13,6 +15,8 @@ eleventyComputed:
   preloadImage: "{{ product.images[0].src }}"
 ---
 {% from "partials/related-card.njk" import relatedCard %}
+    <script type="application/ld+json">{{ product | productJsonLd | safe }}</script>
+    <script type="application/ld+json">{{ product | breadcrumbJsonLd | safe }}</script>
     <!-- PRODUCT DETAIL -->
     <section class="section pdp" aria-labelledby="pdp-heading">
       <div class="container">

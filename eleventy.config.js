@@ -1,7 +1,16 @@
-const { execSync } = require("child_process");
+const { execSync, execFileSync } = require("child_process");
 const { HtmlBasePlugin } = require("@11ty/eleventy");
 const esbuild = require("esbuild");
 const { minify: minifyHtml } = require("html-minifier-terser");
+const site = require("./src/_data/site.json");
+
+function gitLastMod(inputPath) {
+  try {
+    const date = execFileSync("git", ["log", "-1", "--format=%cI", "--", inputPath]).toString().trim();
+    if (date) return date;
+  } catch {}
+  return new Date().toISOString();
+}
 
 function getAssetRev() {
   try {
@@ -9,6 +18,41 @@ function getAssetRev() {
   } catch {
     return String(Date.now());
   }
+}
+
+// The product data stores its handful of accented/typographic characters as
+// HTML entities so they render correctly in markup; <script> tag content is
+// not HTML-entity-decoded, so JSON-LD needs the literal characters instead.
+const ENTITY_MAP = { "&eacute;": "é", "&iacute;": "í", "&ndash;": "–", "&rsquo;": "’", "&amp;": "&" };
+function decodeEntities(str) {
+  return typeof str === "string"
+    ? str.replace(/&[a-z]+;/g, (m) => ENTITY_MAP[m] ?? m)
+    : str;
+}
+
+function productJsonLd(product) {
+  return JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    image: product.images.map((img) => `${site.url}${img.src}`),
+    description: decodeEntities(product.desc),
+    brand: { "@type": "Brand", name: "Pita Cigars" },
+    category: "Cigars",
+  });
+}
+
+function breadcrumbJsonLd(product) {
+  return JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${site.url}/` },
+      { "@type": "ListItem", position: 2, name: "Products", item: `${site.url}/products/` },
+      { "@type": "ListItem", position: 3, name: "Premium Cigars", item: `${site.url}/premium-cigars/` },
+      { "@type": "ListItem", position: 4, name: product.name, item: `${site.url}/product/${product.slug}/` },
+    ],
+  });
 }
 
 module.exports = function (eleventyConfig) {
@@ -38,6 +82,9 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addGlobalData("assetRev", getAssetRev());
+  eleventyConfig.addFilter("productJsonLd", productJsonLd);
+  eleventyConfig.addFilter("breadcrumbJsonLd", breadcrumbJsonLd);
+  eleventyConfig.addFilter("gitLastMod", gitLastMod);
 
   eleventyConfig.addTransform("htmlmin", async function (content, outputPath) {
     if (outputPath && outputPath.endsWith(".html")) {
