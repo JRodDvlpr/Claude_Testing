@@ -896,12 +896,6 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
   transform: scale(1.04);
 }
 
-/* The Gigantes package shot is tall; frame the 4:3 window on the cigar
-   heads and the red GIGANTES headline rather than the geometric center. */
-.category-card__image--gigantes {
-  object-position: center 30%;
-}
-
 .category-card--soon .category-card__image {
   filter: grayscale(45%) brightness(0.75);
 }
