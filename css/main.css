@@ -825,8 +825,6 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
 .catalog .eyebrow { color: var(--color-gold); }
 .catalog .section-heading { color: var(--color-text-light); }
 
-.section-lede--dark { color: var(--color-text-dim); }
-
 .catalog__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1531,6 +1529,8 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
   line-height: 1.65;
 }
 
+.section-lede--dark { color: var(--color-text-dim); }
+
 /* ============================================================
    RETAILERS
 ============================================================ */
@@ -1627,10 +1627,13 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
 .contact .section-heading { color: var(--color-text-light); }
 
 .contact__grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-3xl);
-  align-items: start;
+  display: flex;
+  justify-content: center;
+}
+
+.contact__info {
+  max-width: 480px;
+  width: 100%;
 }
 
 .contact__lede {
@@ -1638,7 +1641,6 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
   line-height: 1.7;
   margin-top: var(--space-md);
   margin-bottom: var(--space-lg);
-  max-width: 420px;
 }
 
 .contact__details {
@@ -1683,51 +1685,6 @@ a.contact__value:hover { color: var(--color-gold); }
 }
 
 .contact__social-link:hover { color: var(--color-gold); }
-
-.contact__form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: var(--space-xl);
-}
-
-.field { display: flex; flex-direction: column; gap: 0.5rem; }
-
-.field__label {
-  font-size: var(--text-sm);
-  font-weight: 500;
-  color: var(--color-text-dim);
-}
-
-.field__input {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  color: var(--color-text-light);
-  font-family: var(--font-sans);
-  font-size: var(--text-body);
-  padding: 0.75rem 1rem;
-  transition: border-color var(--transition), box-shadow var(--transition);
-}
-
-.field__input:focus {
-  outline: none;
-  border-color: var(--color-gold);
-  box-shadow: 0 0 0 3px rgba(198, 162, 74, 0.10);
-}
-
-.field__input--textarea { resize: vertical; min-height: 120px; }
-
-.contact__submit { align-self: flex-start; margin-top: var(--space-xs); }
-
-.contact__feedback {
-  font-size: var(--text-sm);
-  color: var(--color-text-dim);
-  min-height: 1.2em;
-}
 
 /* ============================================================
    PRODUCT DETAIL PAGE (PDP)
@@ -2057,7 +2014,6 @@ a.contact__value:hover { color: var(--color-gold); }
 .reveal-init .about__media,
 .reveal-init .about__content,
 .reveal-init .contact__info,
-.reveal-init .contact__form,
 .reveal-init .pdp-story__inner,
 .reveal-init .section-header {
   opacity: 0;
@@ -2076,7 +2032,6 @@ a.contact__value:hover { color: var(--color-gold); }
 .reveal-init .about__media.is-visible,
 .reveal-init .about__content.is-visible,
 .reveal-init .contact__info.is-visible,
-.reveal-init .contact__form.is-visible,
 .reveal-init .pdp-story__inner.is-visible,
 .reveal-init .section-header.is-visible {
   opacity: 1;
@@ -2131,7 +2086,6 @@ a.contact__value:hover { color: var(--color-gold); }
   .catalog__grid  { grid-template-columns: repeat(2, 1fr); }
   .bundles__grid  { grid-template-columns: repeat(2, 1fr); }
   .testimonial-card { flex: 0 0 100%; }
-  .contact__grid  { gap: var(--space-xl); }
   .pdp__grid      { gap: var(--space-xl); }
   .craft__grid    { gap: var(--space-xl); }
 }
@@ -2187,8 +2141,6 @@ a.contact__value:hover { color: var(--color-gold); }
   .craft__steps     { text-align: left; }
   .craft__collage   { order: 1; gap: 6px; }
 
-  .contact__grid    { grid-template-columns: 1fr; gap: var(--space-xl); }
-  .contact__form    { padding: var(--space-lg); }
   .pdp__grid        { grid-template-columns: 1fr; }
   .pdp__specs       { grid-template-columns: 1fr; }
   .related__grid    { grid-template-columns: 1fr; }

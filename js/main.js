@@ -254,32 +254,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   });
 
-  // ── 6. Contact Form ────────────────────────────────────────
-  const form     = document.querySelector('.contact__form');
-  const feedback = form?.querySelector('.contact__feedback');
-  if (form && feedback) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const email = form.querySelector('input[type="email"]').value.trim();
-      const name  = form.querySelector('input[type="text"]').value.trim();
-      const message = form.querySelector('textarea').value.trim();
-      const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!name || !message || !emailRe.test(email)) {
-        feedback.textContent = 'Please complete all fields with a valid email address.';
-        feedback.style.color = '#E8745A';
-        return;
-      }
-      feedback.textContent = 'Thank you. Your message has been sent. We will be in touch shortly.';
-      feedback.style.color = 'var(--color-gold-light)';
-      form.reset();
-      // TODO: wire up fetch() POST to your form/email service endpoint here
-    });
-  }
-
-  // ── 7. Scroll Reveal ───────────────────────────────────────
+  // ── 6. Scroll Reveal ───────────────────────────────────────
   const revealEls = document.querySelectorAll(
     '.product-card, .category-card, .bundle-card, .craft__photo, .craft__content, .testimonial-card, .retailer-card, ' +
-    '.about__media, .about__content, .contact__info, .contact__form, ' +
+    '.about__media, .about__content, .contact__info, ' +
     '.pdp-story__inner, .section-header'
   );
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -297,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
     revealEls.forEach(el => observer.observe(el));
   }
 
-  // ── 8. Hero Parallax ───────────────────────────────────────
+  // ── 7. Hero Parallax ───────────────────────────────────────
   const heroImg = document.querySelector('.hero__bg-img');
   if (heroImg && !reducedMotion) {
     let ticking = false;
