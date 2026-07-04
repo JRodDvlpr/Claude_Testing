@@ -67,19 +67,15 @@ html.age-gate-open body {
   align-items: center;
   justify-content: center;
   padding: var(--space-lg);
-  background: rgba(4, 11, 20, 0.97);
+  background: var(--color-bg-deepest);
   animation: ageGateFadeIn 1.1s ease both;
 }
 
 .age-gate__panel {
   width: 100%;
   max-width: 460px;
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-gold-dim);
-  border-radius: var(--radius-md);
   padding: var(--space-2xl) var(--space-xl);
   text-align: center;
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5);
   animation: ageGatePanelIn 1.3s cubic-bezier(0.19, 1, 0.22, 1) both;
   animation-delay: 0.1s;
 }
