@@ -815,11 +815,40 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
    PRODUCTS HUB / CATEGORY CARDS
 ============================================================ */
 .catalog {
+  position: relative;
   background: var(--color-bg-dark);
+  overflow: hidden;
 }
 
 .catalog .eyebrow { color: var(--color-gold); }
 .catalog .section-heading { color: var(--color-text-light); }
+
+.catalog__watermark {
+  position: absolute;
+  top: -48px;
+  right: -36px;
+  width: 34%;
+  min-width: 260px;
+  max-width: 480px;
+  height: auto;
+  opacity: 0.07;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.catalog > .container {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 640px) {
+  .catalog__watermark {
+    width: 58%;
+    top: -24px;
+    right: -48px;
+  }
+}
 
 .catalog__grid {
   display: grid;
