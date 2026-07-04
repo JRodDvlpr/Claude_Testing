@@ -1648,13 +1648,6 @@ a.contact__value:hover { color: var(--color-gold); }
 
 .pdp__media { display: flex; flex-direction: column; gap: var(--space-md); }
 
-.pdp__image {
-  width: 100%;
-  height: auto;
-  border-radius: var(--radius-md);
-  display: block;
-}
-
 /* product photo slider (main photo + additional views) */
 .pdp-slider__viewport {
   overflow: hidden;
