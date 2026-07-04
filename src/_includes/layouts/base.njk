@@ -42,9 +42,7 @@
   </script>
   {% endif -%}
 
-  <link rel="stylesheet" href="/css/reset.css?v=20260726" />
-  <link rel="stylesheet" href="/css/tokens.css?v=20260726" />
-  <link rel="stylesheet" href="/css/main.css?v=20260726" />
+  <link rel="stylesheet" href="/css/main.css?v={{ assetRev }}" />
 </head>
 <body>
 
@@ -59,6 +57,6 @@
 
 {% include "partials/footer.njk" %}
 
-  <script src="/js/main.js?v=20260726" defer></script>
+  <script src="/js/main.js?v={{ assetRev }}" defer></script>
 </body>
 </html>

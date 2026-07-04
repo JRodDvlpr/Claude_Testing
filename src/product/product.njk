@@ -9,7 +9,7 @@ nav: products
 eleventyComputed:
   title: "{{ product.title }}"
   description: "{{ product.description }}"
-  ogImage: "{{ product.images[0].src }}"
+  ogImage: "{{ product.ogImage }}"
   preloadImage: "{{ product.images[0].src }}"
 ---
 {% from "partials/related-card.njk" import relatedCard %}

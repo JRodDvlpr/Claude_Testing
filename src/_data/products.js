@@ -9,9 +9,10 @@ module.exports = [
     strength: 4,
     strengthLabel: "Full",
     desc: "A bold, full-bodied torpedo finished with a dark, oily Nicaraguan Habano wrapper. Its tapered head concentrates the smoke for a rich, focused draw, layered notes of espresso and cocoa over a foundation of pepper and aged cedar. A Nicaraguan puro built for the seasoned palate.",
+    ogImage: "/assets/images/premium-torpedo-habano.jpg",
     cardFrameClass: "product-card__frame--torpedo",
     images: [
-      { src: "/assets/images/premium-torpedo-habano.jpg", alt: "Torpedo Habano bundle tied with twine", width: 832, height: 832 },
+      { src: "/assets/images/premium-torpedo-habano.webp", alt: "Torpedo Habano bundle tied with twine", width: 832, height: 832 },
     ],
     specs: [
       { label: "Origin", value: "Est&eacute;l&iacute;, Nicaragua" },
@@ -40,8 +41,9 @@ module.exports = [
     strength: 2,
     strengthLabel: "Mild &ndash; Medium",
     desc: "An elegant, approachable torpedo wrapped in a silky golden Connecticut-shade leaf. Smooth and creamy with a gentle sweetness and a tapered head that sharpens every note, the perfect morning cigar and an ideal introduction to the Pita house style.",
+    ogImage: "/assets/images/premium-torpedo-connecticut.jpg",
     images: [
-      { src: "/assets/images/premium-torpedo-connecticut.jpg", alt: "Torpedo Connecticut: single cigar with a bundle in the background", width: 720, height: 960 },
+      { src: "/assets/images/premium-torpedo-connecticut.webp", alt: "Torpedo Connecticut: single cigar with a bundle in the background", width: 720, height: 960 },
     ],
     specs: [
       { label: "Origin", value: "Est&eacute;l&iacute;, Nicaragua" },
@@ -70,9 +72,10 @@ module.exports = [
     strength: 2,
     strengthLabel: "Mild &ndash; Medium",
     desc: "A stout, slow-burning robusto dressed in a genuine Sumatra-shade wrapper, subtly sweet, gently spiced, and effortlessly smooth. The same aged Nicaraguan long-filler as our torpedoes in a shorter format, built for the everyday hour.",
+    ogImage: "/assets/images/premium-robusto-sumatra.jpg",
     images: [
-      { src: "/assets/images/premium-robusto-sumatra.jpg", alt: "Robusto Sumatra: single cigar with a bundle in the background", width: 720, height: 960 },
-      { src: "/assets/images/premium-robusto-sumatra-bundle.jpg", alt: "Robusto Sumatra bundle of 25 with a single cigar resting against it", width: 768, height: 1024 },
+      { src: "/assets/images/premium-robusto-sumatra.webp", alt: "Robusto Sumatra: single cigar with a bundle in the background", width: 720, height: 960 },
+      { src: "/assets/images/premium-robusto-sumatra-bundle.webp", alt: "Robusto Sumatra bundle of 25 with a single cigar resting against it", width: 768, height: 1024 },
     ],
     specs: [
       { label: "Origin", value: "Est&eacute;l&iacute;, Nicaragua" },
@@ -101,8 +104,9 @@ module.exports = [
     strength: 3,
     strengthLabel: "Medium",
     desc: "The Robusto Sumatra&rsquo;s darker sibling, a rich Indonesian-grown wrapper laid over the same aged Nicaraguan long-filler core. Deeper earth, dark cocoa, and a rounded, medium-bodied finish from the first draw to the last.",
+    ogImage: "/assets/images/premium-robusto-indonesian.jpg",
     images: [
-      { src: "/assets/images/premium-robusto-indonesian.jpg", alt: "Robusto Indonesian bundle with a single cigar resting against it", width: 768, height: 1024 },
+      { src: "/assets/images/premium-robusto-indonesian.webp", alt: "Robusto Indonesian bundle with a single cigar resting against it", width: 768, height: 1024 },
     ],
     specs: [
       { label: "Origin", value: "Est&eacute;l&iacute;, Nicaragua" },
@@ -131,9 +135,10 @@ module.exports = [
     strength: 2,
     strengthLabel: "Mild &ndash; Medium",
     desc: "Seven inches of unhurried elegance: our classic Churchill draped in the same Sumatra-shade leaf as its robusto sibling. A long, cool burn with a gentle natural sweetness that deepens through the final third.",
+    ogImage: "/assets/images/premium-churchill-sumatra.jpg",
     images: [
-      { src: "/assets/images/premium-churchill-sumatra.jpg", alt: "Churchill Sumatra: single cigar over the Pita spec card scene", width: 720, height: 960 },
-      { src: "/assets/images/premium-churchill-sumatra-bundle.jpg", alt: "Churchill Sumatra bundle of 25 with a single cigar resting against it", width: 599, height: 886 },
+      { src: "/assets/images/premium-churchill-sumatra.webp", alt: "Churchill Sumatra: single cigar over the Pita spec card scene", width: 720, height: 960 },
+      { src: "/assets/images/premium-churchill-sumatra-bundle.webp", alt: "Churchill Sumatra bundle of 25 with a single cigar resting against it", width: 599, height: 886 },
     ],
     specs: [
       { label: "Origin", value: "Est&eacute;l&iacute;, Nicaragua" },
@@ -162,8 +167,9 @@ module.exports = [
     strength: 3,
     strengthLabel: "Medium",
     desc: "The Churchill Sumatra&rsquo;s darker sibling, a rich Indonesian-grown wrapper laid over the same aged Nicaraguan long-filler core, rolled to the full seven-inch Churchill format. Deeper earth, dark cocoa, and a long, rounded, medium-bodied smoke.",
+    ogImage: "/assets/images/premium-churchill-indonesian.jpg",
     images: [
-      { src: "/assets/images/premium-churchill-indonesian.jpg", alt: "Churchill Indonesian bundle with a single cigar resting against it", width: 768, height: 1024 },
+      { src: "/assets/images/premium-churchill-indonesian.webp", alt: "Churchill Indonesian bundle with a single cigar resting against it", width: 768, height: 1024 },
     ],
     specs: [
       { label: "Origin", value: "Est&eacute;l&iacute;, Nicaragua" },
@@ -192,8 +198,9 @@ module.exports = [
     strength: 3,
     strengthLabel: "Medium",
     desc: "A classic medium-bodied toro beneath a rich Nicaraguan Habano wrapper. Its generous ring gauge burns cool and even, unfolding notes of dried fruit and warm baking spice over oak and cocoa. Balanced, complex, and endlessly smokable.",
+    ogImage: "/assets/images/premium-toro-habano.jpg",
     images: [
-      { src: "/assets/images/premium-toro-habano.jpg", alt: "Toro Habano cigar", width: 900, height: 1200 },
+      { src: "/assets/images/premium-toro-habano.webp", alt: "Toro Habano cigar", width: 900, height: 1200 },
     ],
     specs: [
       { label: "Origin", value: "Est&eacute;l&iacute;, Nicaragua" },
