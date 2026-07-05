@@ -42,6 +42,19 @@ function productJsonLd(product) {
   });
 }
 
+function itemListJsonLd(products) {
+  return JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: products.map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: p.name,
+      url: `${site.url}/product/${p.slug}/`,
+    })),
+  });
+}
+
 function breadcrumbJsonLd(product) {
   return JSON.stringify({
     "@context": "https://schema.org",
@@ -84,6 +97,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addGlobalData("assetRev", getAssetRev());
   eleventyConfig.addFilter("productJsonLd", productJsonLd);
   eleventyConfig.addFilter("breadcrumbJsonLd", breadcrumbJsonLd);
+  eleventyConfig.addFilter("itemListJsonLd", itemListJsonLd);
+  eleventyConfig.addFilter("plainText", decodeEntities);
   eleventyConfig.addFilter("gitLastMod", gitLastMod);
 
   eleventyConfig.addTransform("htmlmin", async function (content, outputPath) {
