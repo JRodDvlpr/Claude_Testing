@@ -32,7 +32,7 @@
 
   <link rel="stylesheet" href="../../css/reset.css?v=20260704p" />
   <link rel="stylesheet" href="../../css/tokens.css?v=20260704p" />
-  <link rel="stylesheet" href="../../css/main.css?v=20260704p" />
+  <link rel="stylesheet" href="../../css/main.css?v=20260705" />
 </head>
 <body>
 
@@ -117,6 +117,15 @@
 
   <main id="main-content">
 
+    <svg class="svg-defs" width="0" height="0" aria-hidden="true" focusable="false">
+      <defs>
+        <symbol id="leaf-icon" viewBox="0 0 24 30">
+          <path d="M12 1.6C7.1 7.7 3.4 13.5 3.4 18.7c0 5.6 3.7 9.5 8.6 9.5s8.6-3.9 8.6-9.5c0-5.2-3.7-11-8.6-17.1Z" fill="var(--leaf-fill, none)" stroke="var(--leaf-outline, currentColor)" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M12 25.5v-19M12 12.6 7.6 8.9M12 12.6l4.4-3.7M12 18.6l-4.4-3.7M12 18.6l4.4-3.7" fill="none" stroke="var(--leaf-vein, currentColor)" stroke-width="1.2" stroke-linecap="round"/>
+        </symbol>
+      </defs>
+    </svg>
+
     <!-- PRODUCT DETAIL -->
     <section class="section pdp" aria-labelledby="pdp-heading">
       <div class="container">
@@ -156,51 +165,54 @@
                 <span class="pdp__price-note">Plus Tax</span>
               </div>
               <span class="pdp__strength" aria-label="Strength: 2 of 5">
-                <span class="strength-dot"></span><span class="strength-dot"></span><span class="strength-dot--empty strength-dot"></span><span class="strength-dot--empty strength-dot"></span><span class="strength-dot--empty strength-dot"></span>
-                <span class="pdp__strength-label">Mild &ndash; Medium</span>
+              <span class="pdp__strength-title">Strength</span>
+              <span class="leaf-meter" aria-hidden="true">
+                <svg class="leaf leaf--p1" viewBox="0 0 24 30" aria-hidden="true" focusable="false"><use href="#leaf-icon"></use></svg>
+                <svg class="leaf leaf--p2" viewBox="0 0 24 30" aria-hidden="true" focusable="false"><use href="#leaf-icon"></use></svg>
+                <svg class="leaf leaf--empty" viewBox="0 0 24 30" aria-hidden="true" focusable="false"><use href="#leaf-icon"></use></svg>
+                <svg class="leaf leaf--empty" viewBox="0 0 24 30" aria-hidden="true" focusable="false"><use href="#leaf-icon"></use></svg>
+                <svg class="leaf leaf--empty" viewBox="0 0 24 30" aria-hidden="true" focusable="false"><use href="#leaf-icon"></use></svg>
               </span>
+              <span class="pdp__strength-label">Mild &ndash; Medium</span>
+            </span>
             </div>
             <p class="pdp__desc">Seven inches of unhurried elegance: our classic Churchill draped in the same Sumatra-shade leaf as its robusto sibling. A long, cool burn with a gentle natural sweetness that deepens through the final third.</p>
 
             <div class="pdp__specs">
-            <div class="spec">
-              <span class="spec__label">Origin</span>
-              <span class="spec__value">Est&eacute;l&iacute;, Nicaragua</span>
+              <svg class="pdp__specs-map" viewBox="0 0 200 197.2" aria-hidden="true" focusable="false"><path d="M185 0 188.4 1 193.5 0.8 199 3.4 197.4 6.2 195.3 3.4 193.3 4.7 193.8 6.2 195.9 7.2 195.6 8.3 194.3 8.3 193.3 12.7 195.6 11.9 196.9 13.7 197.7 20.4 195.9 21.2 195.1 23 195.9 23.8 198.4 22.5 199.5 23.3 199 26.4 197.4 25.4 196.4 25.9 200 29.5 200 31.6 199.2 33.9 197.4 34.7 196.6 31 195.3 30 193.5 30.8 194.3 33.9 196.9 36.5 196.9 38.3 193.3 41.4 193.3 43.5 190.2 45.5 188.9 48.6 187.6 46.6 185.8 47.1 185.5 48.9 187.6 51.2 187.6 53.6 184.5 62.1 181.6 62.4 180.1 63.9 180.9 65.7 183.7 65.2 182.4 68.8 183.2 72.7 180.1 74 183.2 76.3 185 84.3 185.5 91.8 184 97 185.3 97.5 186 99.9 185.3 112.5 188.1 120.1 182.9 119.8 181.4 114.6 184 112.5 184.7 104.3 181.9 101.7 179.8 101.7 178 103.8 181.4 106.3 181.6 109.2 180.1 111 180.9 113.1 177.7 115.4 177.5 116.7 181.1 122.6 183.7 121.9 184.5 123.2 181.4 126.8 180.6 137.1 178.5 135.6 178.5 132.2 179.8 129.6 178.3 128.8 174.4 131.7 174.6 134 177 136.1 177 137.6 175.4 136.6 174.4 138.9 175.9 141 175.7 145.1 177.7 146.2 178.8 144.4 180.1 147 181.6 156 179.6 156 173.4 161.2 175.2 161.2 175.2 163 171.3 165.3 170.8 170.5 172.6 177.7 174.9 178.5 176.5 184.2 178.8 186.5 178.8 188.1 180.9 188.6 181.4 191.5 180.3 193.3 169.2 197.2 164.3 193.3 158.3 193.8 155.5 193 154.7 188.9 151.6 187.6 149.3 184.5 144.6 186.3 139.5 182.7 136.4 182.7 132.7 180.9 125.5 186.8 115.9 181.4 105.8 180.9 92.4 174.6 90.3 175.2 89 178 85.1 181.9 82.8 179 82.5 176.5 76.3 169.5 74 169 66.8 163.3 64.7 160.2 58.5 157.6 54.6 152.7 49.9 149.8 49.2 147.2 46.3 144.6 45.5 141.5 40.6 136.4 38.3 129.1 25.4 123.9 21.2 120.1 21.5 117.5 12.4 111 7.5 105.8 5.4 101.7 4.9 103.2 3.6 103.5 0 101.4 0 91.3 1 90.8 6.5 93.7 7.8 96.8 15.3 98.3 16.3 96.8 12.9 95.5 14 93.9 27.7 94.4 32.1 90.8 31.6 83.3 32.6 81.2 34.2 80.2 39.8 81.2 41.4 79.7 39.6 75.8 40.4 73.7 38.8 63.4 39.6 59.5 48.6 57.7 58.2 58.7 61.1 52.5 69.9 44.2 72.2 44.5 71.9 48.9 73 49.9 78.7 52 81.2 54.3 83.6 53.6 86.2 50.7 86.4 48.9 89.5 48.4 91.3 45 94.2 44.8 101.4 35.7 109.4 30.8 111 21.5 114.9 21.2 116.4 15 122.6 10.1 125.7 9.6 131.2 16.3 134 16.3 138.9 18.4 141.3 18.4 145.4 16 150.1 17.1 150.8 16.6 150.3 13.2 155.5 13.2 158.1 11.4 168.7 10.6Z" fill="currentColor"/></svg>
+              <div class="pdp__specs-col">
+                <div class="spec">
+                  <span class="spec__label">Factory &amp; Blender</span>
+                  <span class="spec__value">Pita Cigars</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__label">Origin</span>
+                  <span class="spec__value">Est&eacute;l&iacute;, Nicaragua</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__label">Vitola</span>
+                  <span class="spec__value">Churchill &middot; 7&quot; x 48</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__label">Quantity</span>
+                  <span class="spec__value">25 per Bundle</span>
+                </div>
+              </div>
+              <div class="pdp__specs-col">
+                <div class="spec">
+                  <span class="spec__label">Wrapper</span>
+                  <span class="spec__value">Sumatra Shade</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__label">Binder</span>
+                  <span class="spec__value">Nicaraguan</span>
+                </div>
+                <div class="spec">
+                  <span class="spec__label">Filler</span>
+                  <span class="spec__value">Nicaraguan (Est&eacute;l&iacute;)</span>
+                </div>
+              </div>
             </div>
-            <div class="spec">
-              <span class="spec__label">Wrapper</span>
-              <span class="spec__value">Sumatra Shade</span>
-            </div>
-            <div class="spec">
-              <span class="spec__label">Binder</span>
-              <span class="spec__value">Nicaraguan</span>
-            </div>
-            <div class="spec">
-              <span class="spec__label">Filler</span>
-              <span class="spec__value">Nicaraguan (Est&eacute;l&iacute;)</span>
-            </div>
-            <div class="spec">
-              <span class="spec__label">Vitola</span>
-              <span class="spec__value">Churchill</span>
-            </div>
-            <div class="spec">
-              <span class="spec__label">Length</span>
-              <span class="spec__value">7&quot;</span>
-            </div>
-            <div class="spec">
-              <span class="spec__label">Ring Gauge</span>
-              <span class="spec__value">48</span>
-            </div>
-            <div class="spec">
-              <span class="spec__label">Quantity</span>
-              <span class="spec__value">25 per Bundle</span>
-            </div>
-            <div class="spec">
-              <span class="spec__label">Strength</span>
-              <span class="spec__value">Mild &ndash; Medium</span>
-            </div>
-            </div>
-
             <p class="pdp__notes-heading">Tasting Notes</p>
             <div class="pdp__notes">
             <span class="pdp__note">Sweet Spice</span>
