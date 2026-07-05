@@ -1796,13 +1796,49 @@ a.contact__value:hover { color: var(--color-gold); }
 
 .pdp__strength {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45rem;
+}
+
+.pdp__strength-title {
+  font-family: var(--font-sans);
+  font-size: var(--text-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-gold);
 }
 
 .pdp__strength-label {
   font-size: var(--text-sm);
   color: var(--color-text-dim);
+}
+
+/* Leaf strength meter — filled leaves deepen from bright tan to dark maduro */
+.leaf-meter {
+  display: flex;
+  gap: 7px;
+}
+
+.leaf {
+  width: 24px;
+  height: 30px;
+  color: var(--color-ash); /* empty leaves: outline + veins only */
+}
+
+.leaf--p1 { --leaf-fill: #C99E58; --leaf-outline: #96733C; --leaf-vein: rgba(20, 12, 4, 0.5); }
+.leaf--p2 { --leaf-fill: #A87E44; --leaf-outline: #7C5B2F; --leaf-vein: rgba(20, 12, 4, 0.5); }
+.leaf--p3 { --leaf-fill: #855D31; --leaf-outline: #61421F; --leaf-vein: rgba(15, 9, 3, 0.55); }
+.leaf--p4 { --leaf-fill: #64431F; --leaf-outline: #452C12; --leaf-vein: rgba(8, 5, 2, 0.6); }
+.leaf--p5 { --leaf-fill: #472E13; --leaf-outline: #2F1D0A; --leaf-vein: rgba(0, 0, 0, 0.65); }
+
+/* Hidden inline-SVG symbol definitions */
+.svg-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 
 .pdp__desc {
@@ -1811,19 +1847,40 @@ a.contact__value:hover { color: var(--color-gold); }
   margin-bottom: var(--space-lg);
 }
 
+/* Spec sheet — two open columns over a faded Nicaragua silhouette */
 .pdp__specs {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-sm) var(--space-lg);
+  gap: var(--space-md) var(--space-lg);
   margin-bottom: var(--space-lg);
+  padding: var(--space-sm) 0;
+}
+
+.pdp__specs-col {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.pdp__specs-map {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(300px, 65%);
+  height: auto;
+  color: var(--color-gold);
+  opacity: 0.09;
+  pointer-events: none;
 }
 
 .spec {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  padding-bottom: var(--space-sm);
-  border-bottom: 1px solid var(--color-border);
+  gap: 4px;
 }
 
 .spec__label {
@@ -1835,7 +1892,11 @@ a.contact__value:hover { color: var(--color-gold); }
 }
 
 .spec__value {
-  font-size: var(--text-body);
+  font-family: var(--font-serif);
+  font-size: 1.375rem;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: var(--tracking-snug);
   color: var(--color-text-light);
 }
 
