@@ -1,0 +1,29 @@
+# Pita Cigars — all crawlers welcome.
+# A plain-text site summary for AI assistants lives at /Claude_Testing/llms.txt
+
+User-agent: *
+Allow: /
+
+# AI / LLM crawlers, explicitly welcome
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://jroddvlpr.github.io/Claude_Testing/sitemap.xml

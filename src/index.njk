@@ -1,0 +1,404 @@
+---
+layout: layouts/base.njk
+title: "Pita Cigars | Premium Cigars"
+description: "Premium hand-rolled cigars crafted with decades of tradition."
+sitemapPriority: "1.0"
+nav: home
+ogImage: "/assets/images/hero.jpg"
+preloadImage: "/assets/images/hero.webp"
+jsonLd: |
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "Pita Cigars",
+    "description": "Hand-rolled premium and traditional Nicaraguan cigars since 1968.",
+    "image": "https://jroddvlpr.github.io/Claude_Testing/assets/images/hero.jpg",
+    "logo": "https://jroddvlpr.github.io/Claude_Testing/assets/images/logo.png",
+    "telephone": "+1-305-548-1212",
+    "email": "pitacigars@att.net",
+    "foundingDate": "1968",
+    "founder": { "@type": "Person", "name": "Arnaldo Laurencio" },
+    "sameAs": ["https://www.instagram.com/pitacigars/"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1895 NW 21st St",
+      "addressLocality": "Miami",
+      "addressRegion": "FL",
+      "postalCode": "33142",
+      "addressCountry": "US"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "17:00"
+    }
+  }
+---
+    <!-- ============================================================
+         SECTION 1: HERO
+    ============================================================ -->
+    <section class="section hero" id="hero" aria-label="Hero banner">
+      <div class="hero__bg-media">
+        <img src="/assets/images/hero.webp" alt="" aria-hidden="true" class="hero__bg-img" fetchpriority="high" width="920" height="828" />
+      </div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="container hero__content">
+        <p class="eyebrow hero__eyebrow">Est. 1968</p>
+        <h1 class="hero__headline">
+          <span class="hero__welcome">Welcome to</span>
+          Pita Cigars
+        </h1>
+        <p class="hero__subheadline">
+          Crafted for the discerning few. Hand-rolled excellence from the
+          finest tobacco leaves in the world.
+        </p>
+        <div class="hero__actions">
+          <a href="/products/" class="btn btn--primary">Explore Our Collection</a>
+          <a href="/about/"    class="btn btn--ghost">Our Story</a>
+        </div>
+      </div>
+      <div class="hero__scroll-indicator" aria-hidden="true">Scroll</div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 2: ABOUT / BRAND STORY
+    ============================================================ -->
+    <section class="section about" id="about" aria-labelledby="about-heading">
+      <div class="container about__grid">
+        <figure class="about__media">
+          <img
+            src="/assets/images/founder.webp"
+            alt="Arnaldo Laurencio, founder of Flor de Pita, smoking a hand-rolled cigar"
+            class="about__image about__image--founder"
+            loading="lazy"
+            width="1088"
+            height="928"
+          />
+          <figcaption class="about__caption">Arnaldo Laurencio, founder of Flor de Pita, est. 1968</figcaption>
+        </figure>
+        <div class="about__content">
+          <p class="eyebrow">The Birth of the Greatest Cigar</p>
+          <h2 class="section-heading about__heading" id="about-heading">
+            A Family Legacy Since 1968
+          </h2>
+          <div class="about__body">
+            <p>
+              The legend behind Flor de Pita is Arnaldo Laurencio, who established
+              the company in 1968. Born and raised in Camag&uuml;ey, Cuba, one of
+              the most storied cigar regions in the world, he was infatuated with
+              cigars from the very beginning. From the day he opened his cigar store,
+              he wanted nothing more than to provide his friends and family with the
+              best cigars around.
+            </p>
+            <p>
+              His goal was simple: obtain the finest tobacco there is. Today his
+              grandson, Erik, continues that legacy: every Pita cigar is still
+              hand-rolled in small batches, using Nicaraguan long-filler tobacco and
+              the same techniques passed down through three generations. Nothing
+              shortcut, nothing outsourced.
+            </p>
+          </div>
+          <div class="gold-rule" role="presentation"></div>
+          <div class="about__stats" role="list">
+            <div class="about__stat" role="listitem">
+              <span class="about__stat-number">58</span>
+              <span class="about__stat-label">Years of Craft</span>
+            </div>
+            <div class="about__stat" role="listitem">
+              <span class="about__stat-number">3</span>
+              <span class="about__stat-label">Generations</span>
+            </div>
+            <div class="about__stat" role="listitem">
+              <span class="about__stat-number">100%</span>
+              <span class="about__stat-label">Hand-Rolled</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 3: OUR PRODUCTS
+    ============================================================ -->
+    <section class="section catalog" id="products" aria-labelledby="products-heading">
+      <img src="/assets/images/logo-silhouette.webp" alt="" aria-hidden="true" class="catalog__watermark" width="584" height="422" loading="lazy" />
+      <div class="container">
+        <div class="section-header section-header--centered">
+          <p class="eyebrow">The Pita Range</p>
+          <h2 class="section-heading" id="products-heading">Our Cigars</h2>
+          <div class="gold-rule gold-rule--center" role="presentation"></div>
+          <p class="section-lede section-lede--dark">
+            Three lines, one family recipe. Choose where to begin.
+          </p>
+        </div>
+        <ul class="catalog__grid" role="list">
+
+          <li class="category-card" role="listitem">
+            <a href="/premium-cigars/" class="category-card__link">
+              <figure class="category-card__media">
+                <img src="/assets/images/premium-lineup-cover.webp" alt="Pita Cigars premium bundle lineup: Torpedo, Churchill, Robusto, and Toro" class="category-card__image" loading="lazy" width="1109" height="832" />
+              </figure>
+              <div class="category-card__body">
+                <h3 class="category-card__name">Premium Naked Bundles</h3>
+                <p class="category-card__desc">
+                  Our flagship line. Long-filler puros aged to perfection,
+                  rolled by hand, and worthy of the family name.
+                </p>
+                <span class="category-card__cta btn btn--primary">Explore Premium</span>
+              </div>
+            </a>
+          </li>
+
+          <li class="category-card" role="listitem">
+            <a href="/bundles/" class="category-card__link">
+              <figure class="category-card__media">
+                <img src="/assets/images/bundle-lineup-cover.webp" alt="Flor de Pita bundle lineup: Gigantes, Super Cazadores, Small Fumas, and Babies" class="category-card__image" loading="lazy" width="960" height="720" />
+              </figure>
+              <div class="category-card__body">
+                <h3 class="category-card__name">Flor de Pita Bundles</h3>
+                <p class="category-card__desc">
+                  The traditional fumas: Babies, Small Fumas, Super Cazadores, and Gigantes,
+                  wrapped in butcher paper the same way since 1968.
+                </p>
+                <span class="category-card__cta btn btn--primary">Explore Bundles</span>
+              </div>
+            </a>
+          </li>
+
+          <li class="category-card" role="listitem">
+            <a href="/boxes/" class="category-card__link">
+              <figure class="category-card__media">
+                <img src="/assets/images/cigars-group.webp" alt="Flor de Pita Boxes: Presidente and Robusto cigars in 25-count boxes" class="category-card__image" loading="lazy" width="683" height="720" />
+              </figure>
+              <div class="category-card__body">
+                <h3 class="category-card__name">Flor de Pita Boxes</h3>
+                <p class="category-card__desc">
+                  Presidente and Robusto in Sumatra and Indonesian wrappers,
+                  twenty-five to a box. The newest chapter of the Pita range.
+                </p>
+                <span class="category-card__cta btn btn--primary">Explore Boxes</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 4: CRAFT / WHY CHOOSE US (photo collage)
+    ============================================================ -->
+    <section class="section craft" id="craft" aria-labelledby="craft-heading">
+      <div class="container craft__grid">
+
+        <div class="craft__content">
+          <p class="eyebrow">From Seed to Smoke</p>
+          <h2 class="section-heading craft__heading" id="craft-heading">The Craft of Three Generations</h2>
+          <div class="gold-rule" role="presentation"></div>
+          <p class="craft__lede">
+            From leaves cured in the Nicaraguan sun to the band that seals every
+            finished cigar, nothing at Pita is rushed and nothing is delegated
+            to a machine.
+          </p>
+          <blockquote class="craft__quote">
+            <p>&ldquo;His goal was simple: obtain the finest tobacco there is.&rdquo;</p>
+            <cite>The standard set by Arnaldo Laurencio, 1968</cite>
+          </blockquote>
+          <ol class="craft__steps">
+            <li class="craft__step">
+              <span class="craft__step-number" aria-hidden="true">01</span>
+              <div>
+                <h3 class="craft__step-title">Hand-Selected Leaf</h3>
+                <p class="craft__step-body">Every leaf is personally inspected by our master blenders, sourced from twelve tobacco-growing regions worldwide.</p>
+              </div>
+            </li>
+            <li class="craft__step">
+              <span class="craft__step-number" aria-hidden="true">02</span>
+              <div>
+                <h3 class="craft__step-title">Slow-Cured &amp; Aged</h3>
+                <p class="craft__step-body">Wrappers ferment for a minimum of 18 months, and every blend rests in Spanish cedar for at least three years.</p>
+              </div>
+            </li>
+            <li class="craft__step">
+              <span class="craft__step-number" aria-hidden="true">03</span>
+              <div>
+                <h3 class="craft__step-title">Rolled by Masters</h3>
+                <p class="craft__step-body">No shortcuts, no machines. Every cigar passes a certified master roller and has earned 40+ ratings of 93 points or higher.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <div class="craft__collage" role="group" aria-label="Photos of the Flor de Pita curing barn, rolling table, and finished cigars">
+          <figure class="craft__photo craft__photo--1">
+            <img src="/assets/images/craft-tobacco-curing.webp" alt="Nicaraguan tobacco leaves hand-hung to cure in the drying barn" loading="lazy" width="766" height="1344" />
+          </figure>
+          <figure class="craft__photo craft__photo--2">
+            <img src="/assets/images/craft-hand-rolling.webp" alt="A master roller hand-binding tobacco leaves at the rolling table" loading="lazy" width="768" height="1314" />
+          </figure>
+          <figure class="craft__photo craft__photo--3">
+            <img src="/assets/images/craft-cigar-foot.webp" alt="Flor de Pita Selects cigars banded and stacked, showing hand-rolled long-filler tobacco ends" loading="lazy" width="784" height="1319" />
+          </figure>
+          <figure class="craft__photo craft__photo--4">
+            <img src="/assets/images/craft-box-ribbon.webp" alt="A box of Flor de Pita Selects cigars tied with blue ribbon" loading="lazy" width="520" height="900" />
+          </figure>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 6: RETAILERS
+    ============================================================ -->
+    <section class="section retailers" id="retailers" aria-labelledby="retailers-heading">
+      <div class="container">
+        <div class="section-header section-header--centered">
+          <p class="eyebrow">Where to Buy</p>
+          <h2 class="section-heading" id="retailers-heading">Find Pita Cigars Near You</h2>
+          <div class="gold-rule gold-rule--center" role="presentation"></div>
+          <p class="section-lede section-lede--dark">
+            Our traditional Flor de Pita Bundles are available at these fine establishments.
+            Select a location for directions. New retailers are added regularly.
+          </p>
+        </div>
+        <ul class="retailers__grid" role="list">
+          <li class="retailer-card" role="listitem">
+            <h3 class="retailer-card__name">ALICIA COFFEE SHOP</h3>
+            <address class="retailer-card__address">
+              1200 NW 22nd St<br />Miami, FL 33142
+            </address>
+            <a class="retailer-card__link" href="https://www.google.com/maps/search/?api=1&query=ALICIA+COFFEE+SHOP+1200+NW+22nd+St%2C+Miami%2C+FL+33142" target="_blank" rel="noopener noreferrer">
+              Get Directions &rarr;
+            </a>
+          </li>
+          <li class="retailer-card" role="listitem">
+            <h3 class="retailer-card__name">COLLINS & 74TH ST INC.</h3>
+            <address class="retailer-card__address">
+              7446 Collins Ave.<br />Miami Beach, FL 33141
+            </address>
+            <a class="retailer-card__link" href="https://www.google.com/maps/search/?api=1&query=COLLINS+%26+74TH+ST+INC.+7446+Collins+Ave.%2C+Miami+Beach%2C+FL+33141" target="_blank" rel="noopener noreferrer">
+              Get Directions &rarr;
+            </a>
+          </li>
+          <li class="retailer-card" role="listitem">
+            <h3 class="retailer-card__name">EL GIGANTE LIQUOR #3</h3>
+            <address class="retailer-card__address">
+              3992 W 12th Ave<br />Hialeah, FL 33012
+            </address>
+            <a class="retailer-card__link" href="https://www.google.com/maps/search/?api=1&query=EL+GIGANTE+LIQUOR+%233+3992+W+12th+Ave%2C+Hialeah%2C+FL+33012" target="_blank" rel="noopener noreferrer">
+              Get Directions &rarr;
+            </a>
+          </li>
+          <li class="retailer-card" role="listitem">
+            <h3 class="retailer-card__name">ARMANDO SUPERMARKET & CAFETERIA INC.</h3>
+            <address class="retailer-card__address">
+              13260 Immokalee rd<br />Naples, FL 34120
+            </address>
+            <a class="retailer-card__link" href="https://www.google.com/maps/search/?api=1&query=ARMANDO+SUPERMARKET+%26+CAFETERIA+INC.+13260+Immokalee+rd%2C+Naples%2C+FL+34120" target="_blank" rel="noopener noreferrer">
+              Get Directions &rarr;
+            </a>
+          </li>
+          <li class="retailer-card" role="listitem">
+            <h3 class="retailer-card__name">BRAVO SUPERMARKET</h3>
+            <address class="retailer-card__address">
+              524 Dr. Martin Luther King Blvd.<br />Belle Glade, FL 33430
+            </address>
+            <a class="retailer-card__link" href="https://www.google.com/maps/search/?api=1&query=BRAVO+SUPERMARKET+524+Dr.+Martin+Luther+King+Blvd.%2C+Belle+Glade%2C+FL+33430" target="_blank" rel="noopener noreferrer">
+              Get Directions &rarr;
+            </a>
+          </li>
+          <li class="retailer-card" role="listitem">
+            <h3 class="retailer-card__name">BOTANICA LA MILAGROSA</h3>
+            <address class="retailer-card__address">
+              4522 Bergenline Ave<br />Union City, NJ 07087
+            </address>
+            <a class="retailer-card__link" href="https://www.google.com/maps/search/?api=1&query=BOTANICA+LA+MILAGROSA+4522+Bergenline+Ave%2C+Union+City%2C+NJ+07087" target="_blank" rel="noopener noreferrer">
+              Get Directions &rarr;
+            </a>
+          </li>
+          <li class="retailer-card" role="listitem">
+            <h3 class="retailer-card__name">BOTANCIA SANTA BARBARA CHANGO</h3>
+            <address class="retailer-card__address">
+              2109 E Main St<br />Bridgeport, CT 06610
+            </address>
+            <a class="retailer-card__link" href="https://www.google.com/maps/search/?api=1&query=BOTANCIA+SANTA+BARBARA+CHANGO+2109+E+Main+St%2C+Bridgeport%2C+CT+06610" target="_blank" rel="noopener noreferrer">
+              Get Directions &rarr;
+            </a>
+          </li>
+          <li class="retailer-card" role="listitem">
+            <h3 class="retailer-card__name">CIGAR CITY VENTURES OF TAMPA BAY</h3>
+            <address class="retailer-card__address">
+              3404 W Tampa Bay Blvd<br />Tampa, FL 33607
+            </address>
+            <a class="retailer-card__link" href="https://www.google.com/maps/search/?api=1&query=CIGAR+CITY+VENTURES+OF+TAMPA+BAY+3404+W+Tampa+Bay+Blvd%2C+Tampa%2C+FL+33607" target="_blank" rel="noopener noreferrer">
+              Get Directions &rarr;
+            </a>
+          </li>
+          <li class="retailer-card" role="listitem">
+            <h3 class="retailer-card__name">ALIBABA TOBACCO & GIFT SHOP</h3>
+            <address class="retailer-card__address">
+              403 W 29th St<br />Hialeah, FL 33012
+            </address>
+            <a class="retailer-card__link" href="https://www.google.com/maps/search/?api=1&query=ALIBABA+TOBACCO+%26+GIFT+SHOP+403+W+29th+St%2C+Hialeah%2C+FL+33012" target="_blank" rel="noopener noreferrer">
+              Get Directions &rarr;
+            </a>
+          </li>
+          <li class="retailer-card" role="listitem">
+            <h3 class="retailer-card__name">B & J MINI MARKET</h3>
+            <address class="retailer-card__address">
+              1410 SW 6th ST<br />Miami, FL 33135
+            </address>
+            <a class="retailer-card__link" href="https://www.google.com/maps/search/?api=1&query=B+%26+J+MINI+MARKET+1410+SW+6th+ST%2C+Miami%2C+FL+33135" target="_blank" rel="noopener noreferrer">
+              Get Directions &rarr;
+            </a>
+          </li>
+        </ul>
+        <p class="retailers__cta">
+          Interested in carrying Pita Cigars?
+          <a href="#contact" class="link-underline--inline">Become a retailer &rarr;</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 7: CONTACT
+    ============================================================ -->
+    <section class="section contact" id="contact" aria-labelledby="contact-heading">
+      <div class="container contact__grid">
+        <div class="contact__info">
+          <p class="eyebrow">Get in Touch</p>
+          <h2 class="section-heading" id="contact-heading">Visit Our Factory</h2>
+          <p class="contact__lede">
+            Questions about our blends, wholesale pricing, or becoming a retailer?
+            We would be glad to hear from you.
+          </p>
+          <ul class="contact__details" role="list">
+            <li class="contact__detail">
+              <span class="contact__label">Address</span>
+              <a class="contact__value" href="https://www.google.com/maps/search/?api=1&query=Pita+Cigars+1895+NW+21st+St%2C+Miami%2C+FL+33142" target="_blank" rel="noopener noreferrer">1895 NW 21st St, Miami, FL 33142</a>
+            </li>
+            <li class="contact__detail">
+              <span class="contact__label">Phone</span>
+              <a class="contact__value" href="tel:+13055481212">(305) 548-1212</a>
+            </li>
+            <li class="contact__detail">
+              <span class="contact__label">Email</span>
+              <a class="contact__value" href="mailto:pitacigars@att.net">pitacigars@att.net</a>
+            </li>
+            <li class="contact__detail">
+              <span class="contact__label">Hours</span>
+              <span class="contact__value">Mon&ndash;Fri 9AM&ndash;5PM &middot; Sat &amp; Sun Closed</span>
+            </li>
+          </ul>
+          <a href="https://www.instagram.com/pitacigars/" class="contact__social-link" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+              <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
+              <circle cx="12" cy="12" r="4.2" />
+              <circle cx="17.5" cy="6.5" r="1.15" fill="currentColor" stroke="none" />
+            </svg>
+            Follow us on Instagram
+          </a>
+        </div>
+      </div>
+    </section>

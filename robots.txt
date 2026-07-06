@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://jroddvlpr.github.io/Claude_Testing/sitemap.xml

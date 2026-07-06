@@ -1,0 +1,48 @@
+  <div class="age-gate" id="age-gate" role="dialog" aria-modal="true" aria-labelledby="age-gate-heading" aria-describedby="age-gate-desc">
+    <div class="age-gate__panel">
+      <img src="/assets/images/logo-small.webp" alt="Pita Cigars" class="age-gate__logo" width="250" height="180" />
+      <p class="eyebrow age-gate__eyebrow">Age Verification</p>
+      <h2 id="age-gate-heading" class="age-gate__heading">Are You 21 or Older?</h2>
+      <p id="age-gate-desc" class="age-gate__desc">
+        Pita Cigars sells tobacco products intended for adults 21 years of age or
+        older. Please confirm your age to enter this site.
+      </p>
+      <div class="age-gate__actions">
+        <button type="button" class="btn btn--primary age-gate__confirm">Yes, I'm 21 or Older</button>
+        <button type="button" class="btn btn--ghost age-gate__deny">No, I'm Under 21</button>
+      </div>
+      <p class="age-gate__disclaimer">
+        Must be 21 years or older to purchase tobacco products. By entering, you
+        confirm you are of legal smoking age in your jurisdiction.
+      </p>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var gate = document.getElementById('age-gate');
+      if (!gate) return;
+      // Refresh/reload should always re-show the gate.
+      var isReload = false;
+      try {
+        var navEntries = performance.getEntriesByType('navigation');
+        if (navEntries && navEntries.length) {
+          isReload = navEntries[0].type === 'reload';
+        } else if (performance.navigation) {
+          isReload = performance.navigation.type === 1;
+        }
+      } catch (e) {}
+      // Confirmation is remembered via window.name (survives same-tab
+      // navigation even when cookies/storage are blocked); sessionStorage
+      // is a secondary check.
+      var confirmed = false;
+      try { confirmed = !!window.name && window.name.indexOf('pita-age-ok') !== -1; } catch (e) {}
+      if (!confirmed) {
+        try { confirmed = sessionStorage.getItem('pitaAgeVerified') === 'true'; } catch (e) {}
+      }
+      if (!isReload && confirmed) {
+        gate.style.display = 'none';
+      } else {
+        document.documentElement.classList.add('age-gate-open');
+      }
+    })();
+  </script>

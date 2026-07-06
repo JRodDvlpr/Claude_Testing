@@ -1,0 +1,26 @@
+{% macro relatedCard(product) %}
+          <li class="product-card{{ ' product-card--box' if product.isBox }}" role="listitem">
+            <figure class="product-card__media">
+              <a href="/product/{{ product.slug }}/" class="product-card__media-link" aria-label="View {{ product.name }}{{ ' box' if product.isBox }} details" tabindex="-1">
+                <img src="{{ product.images[0].src }}" alt="{{ product.images[0].alt if product.isBox else 'Pita Cigars: ' ~ product.name }}" class="product-card__image" loading="lazy" width="{{ product.images[0].width }}" height="{{ product.images[0].height }}" />
+              </a>
+            </figure>
+            <div class="product-card__body">
+              <h3 class="product-card__name">{{ product.name }}</h3>
+              <p class="product-card__blend">{{ product.blend }}</p>
+              <p class="product-card__count">{{ 'Box of ' ~ product.quantity ~ ' Cigars' if product.isBox else 'Bundle of ' ~ product.quantity ~ ' Cigars' }}</p>
+              <div class="product-card__strength" aria-label="Strength: {{ product.strength }} of 5">
+                <span class="product-card__strength-dots" aria-hidden="true">{%- for i in range(0, 5) %}{% if i < product.strength %}<span class="strength-dot"></span>{% else %}<span class="strength-dot--empty strength-dot"></span>{% endif %}{% endfor %}</span>
+                <span class="product-card__strength-label">{{ product.strengthLabel | safe }} Strength</span>
+              </div>
+              <div class="product-card__notes" aria-label="Tasting notes">
+                {%- for note in product.notes %}
+                <span class="product-card__note">{{ note }}</span>
+                {%- endfor %}
+              </div>
+              <p class="product-card__price">{{ product.price }}</p>
+              <p class="product-card__price-note">Plus Tax</p>
+              <a href="/product/{{ product.slug }}/" class="btn btn--primary product-card__cta">View Details</a>
+            </div>
+          </li>
+{% endmacro %}
