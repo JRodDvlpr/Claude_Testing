@@ -41,8 +41,8 @@ module.exports = [
     blend: "Indonesian Wrapper",
     price: "$100.00",
     quantity: 25,
-    strength: 5,
-    strengthLabel: "Full",
+    strength: 4,
+    strengthLabel: "Medium &ndash; Full",
     desc: "Our Presidente Indonesian is one of our highest quality dark-wrapped cigars. This long-filler cigar will give you the smoke you&rsquo;re looking for: deep earth, dark cocoa, and a long, rounded finish. Our box sets come with twenty-five of the best Indonesian-wrapped presidentes you will find.",
     ogImage: "/assets/images/box-presidente-indonesian.jpg",
     images: [
@@ -107,8 +107,8 @@ module.exports = [
     blend: "Indonesian Wrapper",
     price: "$90.00",
     quantity: 25,
-    strength: 5,
-    strengthLabel: "Full",
+    strength: 4,
+    strengthLabel: "Medium &ndash; Full",
     desc: "The Robusto Sumatra&rsquo;s darker sibling, by the box: a rich Indonesian-grown wrapper laid over our aged Nicaraguan long-filler core, twenty-five to a box. Deeper earth, dark cocoa, and a rounded, medium-bodied finish from the first draw to the last.",
     ogImage: "/assets/images/box-robusto-indonesian.jpg",
     images: [
