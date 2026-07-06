@@ -1950,13 +1950,6 @@ a.contact__value:hover { color: var(--color-gold); }
   flex-wrap: wrap;
 }
 
-/* how-to-order hint under the single direct-order CTA */
-.pdp__order-note {
-  margin-top: var(--space-sm);
-  font-size: 0.8125rem;
-  color: var(--color-text-dim);
-}
-
 /* PDP story band (light) */
 .pdp-story {
   background: var(--color-white);
