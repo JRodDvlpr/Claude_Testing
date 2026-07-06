@@ -655,6 +655,7 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
   overflow: hidden;
   transition: transform var(--transition), box-shadow var(--transition);
   position: relative;
+  isolation: isolate;
 }
 
 .product-card:hover {
