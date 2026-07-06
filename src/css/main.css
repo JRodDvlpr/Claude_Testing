@@ -1058,25 +1058,20 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
 
 .bundle-card__pricing {
   display: flex;
-  align-items: center;
-  gap: var(--space-sm);
+  align-items: baseline;
+  gap: var(--space-xs);
   flex-wrap: wrap;
 }
 
-.bundle-card__price-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+/* Plain display-serif price — deliberately not a filled shape, so it never
+   reads as a button. Claret keeps it prominent on the cream card. */
+.bundle-card__price {
   font-family: var(--font-serif);
-  font-size: var(--text-lg);
+  font-size: var(--text-h3);
   font-weight: 600;
   letter-spacing: var(--tracking-snug);
-  color: var(--color-text-light);
-  background: var(--gradient-claret);
-  border-radius: var(--radius-pill);
-  padding: 0.5rem 1.25rem;
-  cursor: default;
-  user-select: none;
+  line-height: 1;
+  color: var(--color-claret);
 }
 
 .bundle-card__price-note {
