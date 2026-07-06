@@ -174,11 +174,11 @@ section.boxes-watermark {
   right: 8px;
   writing-mode: vertical-rl;
   font-family: var(--font-serif, Georgia, serif);
-  font-size: 3.4rem;
+  font-size: 4.75rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.14em;
   line-height: 1;
-  color: rgba(198, 162, 74, 0.16);
+  color: rgba(198, 162, 74, 0.34);
 }
 
 .product-card__wm::after {
