@@ -662,6 +662,19 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
   box-shadow: var(--shadow-card-lift);
 }
 
+/* Thin subtle keyline on the Premium Naked Bundles cards only, matching the
+   retailer cards on the homepage. Boxes cards keep their own gold-keyline
+   treatment (.product-card--box), and the Pita Bundles page uses a
+   different component (.bundle-card) entirely, so neither is affected. */
+.products__grid .product-card:not(.product-card--box) {
+  border: 1px solid var(--color-border);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.products__grid .product-card:not(.product-card--box):hover {
+  border-color: var(--color-gold);
+}
+
 .product-card__media {
   padding: var(--space-lg) var(--space-lg) 0;
 }

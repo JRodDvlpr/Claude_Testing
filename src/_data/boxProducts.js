@@ -8,8 +8,8 @@ module.exports = [
     blend: "Sumatra Shade Wrapper",
     price: "$100.00",
     quantity: 25,
-    strength: 2,
-    strengthLabel: "Mild &ndash; Medium",
+    strength: 3,
+    strengthLabel: "Medium",
     desc: "When you&rsquo;re ready to upgrade your smoke to the highest quality, you&rsquo;re going to want to get your hands on our Presidente. The only problem will be getting your hands off it. A golden Sumatra-shade wrapper over aged Nicaraguan long-filler lets you indulge in the luxury of a premium smoke without compromising on quality, and every box holds twenty-five of them.",
     ogImage: "/assets/images/box-presidente-sumatra.svg",
     images: [
@@ -41,8 +41,8 @@ module.exports = [
     blend: "Indonesian Wrapper",
     price: "$100.00",
     quantity: 25,
-    strength: 3,
-    strengthLabel: "Medium",
+    strength: 5,
+    strengthLabel: "Full",
     desc: "Our Presidente Indonesian is one of our highest quality dark-wrapped cigars. This long-filler cigar will give you the smoke you&rsquo;re looking for: deep earth, dark cocoa, and a long, rounded finish. Our box sets come with twenty-five of the best Indonesian-wrapped presidentes you will find.",
     ogImage: "/assets/images/box-presidente-indonesian.jpg",
     images: [
@@ -74,8 +74,8 @@ module.exports = [
     blend: "Sumatra Shade Wrapper",
     price: "$90.00",
     quantity: 25,
-    strength: 2,
-    strengthLabel: "Mild &ndash; Medium",
+    strength: 3,
+    strengthLabel: "Medium",
     desc: "The stout, slow-burning robusto our regulars reach for, dressed in a genuine Sumatra-shade wrapper and stacked twenty-five deep. Subtly sweet, gently spiced, and effortlessly smooth, this is a full box of the everyday hour.",
     ogImage: "/assets/images/box-robusto-sumatra.jpg",
     images: [
@@ -107,8 +107,8 @@ module.exports = [
     blend: "Indonesian Wrapper",
     price: "$90.00",
     quantity: 25,
-    strength: 3,
-    strengthLabel: "Medium",
+    strength: 5,
+    strengthLabel: "Full",
     desc: "The Robusto Sumatra&rsquo;s darker sibling, by the box: a rich Indonesian-grown wrapper laid over our aged Nicaraguan long-filler core, twenty-five to a box. Deeper earth, dark cocoa, and a rounded, medium-bodied finish from the first draw to the last.",
     ogImage: "/assets/images/box-robusto-indonesian.jpg",
     images: [
