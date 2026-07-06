@@ -728,12 +728,7 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
   justify-content: center;
 }
 
-.product-card__strength-dots {
-  display: flex;
-  gap: 5px;
-}
-
-/* plain-words strength under the dots, for newcomers */
+/* plain-words strength under the leaf meter, for newcomers */
 .product-card__strength-label {
   font-size: 0.6875rem;
   font-weight: 500;
@@ -763,17 +758,6 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
   border: 1px solid rgba(242, 237, 228, 0.26);
   border-radius: var(--radius-pill);
   padding: 0.3125rem 0.8125rem;
-}
-
-.strength-dot {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: var(--color-gold);
-}
-
-.strength-dot--empty {
-  background: transparent;
-  border: 1px solid var(--color-border);
 }
 
 .product-card__price {
@@ -957,6 +941,35 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
 }
 
 .bundles .section-lede { color: var(--color-text-secondary); }
+
+/* where-to-buy CTA under the bundle grid */
+.bundles__cta {
+  margin-top: var(--space-xl);
+  text-align: center;
+}
+
+.bundles__cta-note {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.bundles__cta-actions {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ghost button legibility on the cream bundles background */
+.bundles__cta .btn--ghost {
+  color: var(--color-text-secondary);
+  border-color: rgba(31, 41, 55, 0.35);
+}
+
+.bundles__cta .btn--ghost:hover {
+  background: rgba(31, 41, 55, 0.06);
+  border-color: var(--color-text-secondary);
+}
 
 .bundles__grid {
   display: grid;
@@ -1822,6 +1835,16 @@ a.contact__value:hover { color: var(--color-gold); }
   color: var(--color-ash); /* empty leaves: outline + veins only */
 }
 
+/* compact leaf meter for product cards (replaces the old strength dots) */
+.leaf-meter--card {
+  gap: 5px;
+}
+
+.leaf-meter--card .leaf {
+  width: 17px;
+  height: 21px;
+}
+
 .leaf--p1 { --leaf-fill: #C99E58; --leaf-outline: #96733C; --leaf-vein: rgba(20, 12, 4, 0.5); }
 .leaf--p2 { --leaf-fill: #A87E44; --leaf-outline: #7C5B2F; --leaf-vein: rgba(20, 12, 4, 0.5); }
 .leaf--p3 { --leaf-fill: #855D31; --leaf-outline: #61421F; --leaf-vein: rgba(15, 9, 3, 0.55); }
@@ -1925,6 +1948,13 @@ a.contact__value:hover { color: var(--color-gold); }
   display: flex;
   gap: var(--space-sm);
   flex-wrap: wrap;
+}
+
+/* how-to-order hint under the single direct-order CTA */
+.pdp__order-note {
+  margin-top: var(--space-sm);
+  font-size: 0.8125rem;
+  color: var(--color-text-dim);
 }
 
 /* PDP story band (light) */

@@ -10,7 +10,7 @@
               <p class="product-card__blend">{{ product.blend }}</p>
               <p class="product-card__count">{{ 'Box of ' ~ product.quantity ~ ' Cigars' if product.isBox else 'Bundle of ' ~ product.quantity ~ ' Cigars' }}</p>
               <div class="product-card__strength" aria-label="Strength: {{ product.strength }} of 5">
-                <span class="product-card__strength-dots" aria-hidden="true">{%- for i in range(0, 5) %}{% if i < product.strength %}<span class="strength-dot"></span>{% else %}<span class="strength-dot--empty strength-dot"></span>{% endif %}{% endfor %}</span>
+                <span class="leaf-meter leaf-meter--card" aria-hidden="true">{%- for i in range(0, 5) %}<svg class="leaf {{ 'leaf--p' ~ (i + 1) if i < product.strength else 'leaf--empty' }}" viewBox="0 0 24 30" aria-hidden="true" focusable="false"><use href="#leaf-icon"></use></svg>{%- endfor %}</span>
                 <span class="product-card__strength-label">{{ product.strengthLabel | safe }} Strength</span>
               </div>
               <div class="product-card__notes" aria-label="Tasting notes">
