@@ -8,27 +8,36 @@ eleventyExcludeFromCollections: true
 
 Factory and office: 1895 NW 21st St, Miami, FL 33142 · Phone: (305) 548-1212 · Email: pitacigars@att.net · Hours: Mon-Fri 9AM-5PM
 
-## Premium Cigar Bundles
+## Premium Naked Bundles
 
 Long-filler puros, aged and hand-rolled in Esteli, Nicaragua.
 
 {% for product in products -%}
 - [{{ product.name }}]({{ site.url }}/product/{{ product.slug }}/): {{ product.blend | plainText }}, {{ product.strengthLabel | plainText }} strength, bundle of {{ product.quantity }} cigars, {{ product.price }} plus tax. Tasting notes: {{ product.notes | join(", ") }}.
 {% endfor %}
-## Traditional Pita Bundles
+## Flor de Pita Bundles
 
 Short-filler fumas, Cuban-seed tobacco hand-rolled in Nicaragua, 25 cigars per paper-wrapped bundle. Details: {{ site.url }}/bundles/
 
 - Babies: 4.75 x 32, $20.00 plus tax
 - Small Fumas (Mediano): 6.25 x 44, $25.00 plus tax
+- Super Cazadores: 7.375 x 46, $30.00 plus tax
 - Gigantes Fumas: 8 x 46, $30.00 plus tax
 
+## Flor de Pita Boxes
+
+Long-filler cigars in 25-count boxes, aged and hand-rolled in Esteli, Nicaragua. Details: {{ site.url }}/boxes/
+
+{% for product in boxProducts -%}
+- [{{ product.name }}]({{ site.url }}/product/{{ product.slug }}/): {{ product.blend | plainText }}, {{ product.strengthLabel | plainText }} strength, box of {{ product.quantity }} cigars, {{ product.price }} plus tax. Tasting notes: {{ product.notes | join(", ") }}.
+{% endfor %}
 ## Pages
 
-- [Home]({{ site.url }}/): brand overview, craft process, testimonials
+- [Home]({{ site.url }}/): brand overview, craft process
 - [Our Story]({{ site.url }}/about/): the family history since 1968
-- [Products]({{ site.url }}/products/): catalog overview
-- [Premium Cigar Bundles]({{ site.url }}/premium-cigars/): full premium lineup
-- [Pita Bundles]({{ site.url }}/bundles/): traditional fumas
+- [Our Cigars]({{ site.url }}/products/): catalog overview
+- [Premium Naked Bundles]({{ site.url }}/premium-cigars/): full premium lineup
+- [Flor de Pita Bundles]({{ site.url }}/bundles/): traditional fumas
+- [Flor de Pita Boxes]({{ site.url }}/boxes/): 25-count boxes
 - [Retailers]({{ site.url }}/retailers/): where to buy (Florida, New Jersey, Connecticut)
 - [Contact]({{ site.url }}/contact/): visit the Miami factory

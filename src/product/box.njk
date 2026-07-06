@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
 pagination:
-  data: products
+  data: boxProducts
   size: 1
   alias: product
   addAllPagesToCollections: true
@@ -28,14 +28,14 @@ eleventyComputed:
     </svg>
 
     <!-- PRODUCT DETAIL -->
-    <section class="section pdp" aria-labelledby="pdp-heading">
+    <section class="section pdp pdp--box boxes-watermark" aria-labelledby="pdp-heading">
       <div class="container">
         <p class="pdp__breadcrumb">
           <a href="/">Home</a>
           <span class="pdp__breadcrumb-sep" aria-hidden="true">&rsaquo;</span>
           <a href="/products/">Cigars</a>
           <span class="pdp__breadcrumb-sep" aria-hidden="true">&rsaquo;</span>
-          <a href="/premium-cigars/">Premium Naked Bundles</a>
+          <a href="/boxes/">Flor de Pita Boxes</a>
           <span class="pdp__breadcrumb-sep" aria-hidden="true">&rsaquo;</span>
           <span class="pdp__breadcrumb-current">{{ product.name }}</span>
         </p>
@@ -57,17 +57,27 @@ eleventyComputed:
               </div>
             </div>
 {% else %}
-            <img src="{{ product.images[0].src }}" alt="{{ product.images[0].alt }}" class="pdp__image" width="{{ product.images[0].width }}" height="{{ product.images[0].height }}" fetchpriority="high" />
+            <div class="pdp-slider" aria-roledescription="carousel" aria-label="{{ product.name }} photos">
+              <div class="pdp-slider__viewport">
+                <div class="pdp-slider__track">
+                  <img src="{{ product.images[0].src }}" alt="{{ product.images[0].alt }}" class="pdp-slider__slide" width="{{ product.images[0].width }}" height="{{ product.images[0].height }}" fetchpriority="high" />
+                </div>
+              </div>
+              <div class="pdp-slider__controls">
+                <button type="button" class="pdp-slider__btn pdp-slider__btn--prev" aria-label="Previous photo">&#8249;</button>
+                <div class="pdp-slider__dots"></div>
+                <button type="button" class="pdp-slider__btn pdp-slider__btn--next" aria-label="Next photo">&#8250;</button>
+              </div>
+            </div>
 {% endif %}
           </div>
           <div class="pdp__info">
-            <p class="eyebrow">Handmade in Nicaragua</p>
+            <p class="eyebrow">Handmade in Nicaragua &middot; Est. 1968</p>
             <h1 class="pdp__name" id="pdp-heading">{{ product.name }}</h1>
             <p class="pdp__blend">{{ product.blend }}</p>
             <div class="pdp__meta">
               <div class="pdp__price-wrap">
                 <span class="pdp__price">{{ product.price }}</span>
-                <span class="pdp__count">Bundle of {{ product.quantity }} Cigars</span>
                 <span class="pdp__price-note">Plus Tax</span>
               </div>
               <span class="pdp__strength" aria-label="Strength: {{ product.strength }} of 5">
@@ -80,6 +90,7 @@ eleventyComputed:
               <span class="pdp__strength-label">{{ product.strengthLabel | safe }}</span>
             </span>
             </div>
+            <p class="pdp__box-count">Box of {{ product.quantity }} Cigars</p>
             <p class="pdp__desc">{{ product.desc | safe }}</p>
 
             <div class="pdp__specs">
@@ -122,8 +133,8 @@ eleventyComputed:
     <section class="section pdp-story" aria-labelledby="story-heading">
       <div class="container">
         <div class="pdp-story__inner">
-          <p class="eyebrow">The Blend</p>
-          <h2 class="section-heading" id="story-heading">Crafted Leaf by Leaf</h2>
+          <p class="eyebrow">The Box</p>
+          <h2 class="section-heading" id="story-heading">{{ product.storyHeading }}</h2>
           <div class="gold-rule gold-rule--center" role="presentation"></div>
           <div class="pdp-story__body">
 {% for para in product.story %}
@@ -138,12 +149,12 @@ eleventyComputed:
     <section class="section related" aria-labelledby="related-heading">
       <div class="container">
         <div class="section-header section-header--centered">
-          <p class="eyebrow">The Collection</p>
-          <h2 class="section-heading" id="related-heading">Explore More Blends</h2>
+          <p class="eyebrow">Flor de Pita Boxes</p>
+          <h2 class="section-heading" id="related-heading">Explore More Boxes</h2>
         </div>
         <ul class="related__grid" role="list">
 {% for relatedSlug in product.related %}
-{% for relatedProduct in products %}
+{% for relatedProduct in boxProducts %}
 {% if relatedProduct.slug == relatedSlug %}
 {{ relatedCard(relatedProduct) }}
 {% endif %}

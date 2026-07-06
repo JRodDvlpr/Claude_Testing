@@ -1,0 +1,37 @@
+---
+layout: layouts/base.njk
+title: "Flor de Pita Boxes | Pita Cigars"
+description: "Flor de Pita Boxes: hand-rolled Nicaraguan long-filler cigars in 25-count boxes. Presidente and Robusto, each in Sumatra and Indonesian wrappers."
+ogImage: "/assets/images/box-presidente-indonesian.jpg"
+sitemapPriority: "0.9"
+nav: products
+---
+{% from "partials/related-card.njk" import relatedCard %}
+<script type="application/ld+json">{{ boxProducts | itemListJsonLd | safe }}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"{{ site.url }}/"},{"@type":"ListItem","position":2,"name":"Cigars","item":"{{ site.url }}/products/"},{"@type":"ListItem","position":3,"name":"Flor de Pita Boxes","item":"{{ site.url }}/boxes/"}]}</script>
+<section class="section products section--page-top boxes-watermark" id="products" aria-labelledby="products-heading">
+      <div class="container">
+        <nav class="pdp__breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="pdp__breadcrumb-sep" aria-hidden="true">&rsaquo;</span>
+          <a href="/products/">Cigars</a>
+          <span class="pdp__breadcrumb-sep" aria-hidden="true">&rsaquo;</span>
+          <span class="pdp__breadcrumb-current">Flor de Pita Boxes</span>
+        </nav>
+        <div class="section-header section-header--centered">
+          <p class="eyebrow">Est. 1968 &middot; Boxes of 25</p>
+          <h2 class="section-heading" id="products-heading">Flor de Pita Boxes</h2>
+          <div class="gold-rule gold-rule--center" role="presentation"></div>
+          <p class="section-lede section-lede--dark">
+            Our long-filler cigars the way they were always meant to be kept:
+            twenty-five to a box, aged and hand-rolled in Est&eacute;l&iacute;.
+            Two vitolas, two wrappers, one family recipe since 1968.
+          </p>
+        </div>
+        <ul class="products__grid" role="list">
+{% for product in boxProducts %}
+{{ relatedCard(product) }}
+{% endfor %}
+        </ul>
+      </div>
+    </section>

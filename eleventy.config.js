@@ -56,13 +56,16 @@ function itemListJsonLd(products) {
 }
 
 function breadcrumbJsonLd(product) {
+  const parent = product.isBox
+    ? { name: "Flor de Pita Boxes", url: "/boxes/" }
+    : { name: "Premium Naked Bundles", url: "/premium-cigars/" };
   return JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `${site.url}/` },
-      { "@type": "ListItem", position: 2, name: "Products", item: `${site.url}/products/` },
-      { "@type": "ListItem", position: 3, name: "Premium Cigar Bundles", item: `${site.url}/premium-cigars/` },
+      { "@type": "ListItem", position: 2, name: "Cigars", item: `${site.url}/products/` },
+      { "@type": "ListItem", position: 3, name: parent.name, item: `${site.url}${parent.url}` },
       { "@type": "ListItem", position: 4, name: product.name, item: `${site.url}/product/${product.slug}/` },
     ],
   });

@@ -2,7 +2,7 @@
 :root {
   /* ── Dark Backgrounds (deep vintage navy — deepened for contrast) ── */
   --color-black:       #040B14;   /* footer, deepest */
-  --color-bg-deepest:  #081320;   /* hero, testimonials */
+  --color-bg-deepest:  #081320;   /* hero */
   --color-bg-dark:     #0C1B2C;   /* products section */
   --color-bg-card:     #122539;   /* card surfaces */
   --color-bg-surface:  #1A3149;   /* elevated elements */
