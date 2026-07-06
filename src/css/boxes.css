@@ -154,6 +154,45 @@ section.boxes-watermark {
   color: var(--color-gold-light, #E6CB7C);
 }
 
+/* Per-vitola card watermarks: the vitola name runs down the top-right edge
+   in the box-art serif, with a small FLOR DE PITA mark in the bottom-left —
+   the card-scale echo of the page's giant 1968 watermark. Purely decorative:
+   sits over the artwork at low opacity, never intercepts clicks. */
+.product-card__wm {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.product-card__wm::before {
+  content: attr(data-vitola);
+  position: absolute;
+  top: -0.32em;
+  right: 8px;
+  writing-mode: vertical-rl;
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 3.4rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  color: rgba(198, 162, 74, 0.16);
+}
+
+.product-card__wm::after {
+  content: "FLOR DE PITA";
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  color: rgba(198, 162, 74, 0.42);
+}
+
 /* --- Box PDP flourishes ---------------------------------------------------- */
 
 /* Frame the product artwork like a presentation box lid. */
