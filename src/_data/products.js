@@ -7,8 +7,8 @@ module.exports = [
     blend: "Habano Shade Wrapper",
     price: "$40.00",
     quantity: 25,
-    strength: 4,
-    strengthLabel: "Full",
+    strength: 3,
+    strengthLabel: "Medium",
     desc: "Hand-rolled in Nicaragua with an aged Nicaraguan filler beneath a dark, oily Habano Shade wrapper, this bold torpedo delivers a rich, full-bodied smoke. Its tapered head concentrates the draw for layered notes of espresso and cocoa over a foundation of pepper and aged cedar. A Nicaraguan puro built for the seasoned palate.",
     ogImage: "/assets/images/premium-torpedo-habano.jpg",
     images: [
