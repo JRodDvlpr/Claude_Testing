@@ -154,35 +154,6 @@ section.boxes-watermark {
   color: var(--color-gold-light, #E6CB7C);
 }
 
-/* Per-vitola card watermark: the vitola name runs down the top-right edge
-   in the box-art serif, the card-scale echo of the page's giant 1968
-   watermark. Sits behind the artwork and card body (negative z-index,
-   contained by .product-card's isolation: isolate) so it only shows in
-   the space around the photo, not stamped over it. Purely decorative,
-   never intercepts clicks. */
-.product-card__wm {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  overflow: hidden;
-  border-radius: inherit;
-}
-
-.product-card__wm::before {
-  content: attr(data-vitola);
-  position: absolute;
-  top: -0.32em;
-  right: 8px;
-  writing-mode: vertical-rl;
-  font-family: var(--font-serif, Georgia, serif);
-  font-size: 4.75rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  line-height: 1;
-  color: rgba(198, 162, 74, 0.34);
-}
-
 /* --- Box PDP flourishes ---------------------------------------------------- */
 
 /* Frame the product artwork like a presentation box lid. */

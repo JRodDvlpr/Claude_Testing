@@ -1,8 +1,5 @@
 {% macro relatedCard(product) %}
           <li class="product-card{{ ' product-card--box' if product.isBox }}" role="listitem">
-{%- if product.isBox %}
-            <span class="product-card__wm" data-vitola="{{ 'PRESIDENTE' if 'presidente' in product.slug else 'ROBUSTO' }}" aria-hidden="true"></span>
-{%- endif %}
             <figure class="product-card__media">
               <a href="/product/{{ product.slug }}/" class="product-card__media-link" aria-label="View {{ product.name }}{{ ' box' if product.isBox }} details" tabindex="-1">
                 <img src="{{ product.images[0].src }}" alt="{{ product.images[0].alt if product.isBox else 'Pita Cigars: ' ~ product.name }}" class="product-card__image" loading="lazy" width="{{ product.images[0].width }}" height="{{ product.images[0].height }}" />
