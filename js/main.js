@@ -204,12 +204,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // swipe on touch devices
     let touchX = null;
-    sTrack.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+    let touchY = null;
+    let touchIsHorizontal = false;
+    sTrack.addEventListener('touchstart', (e) => {
+      touchX = e.touches[0].clientX;
+      touchY = e.touches[0].clientY;
+      touchIsHorizontal = false;
+    }, { passive: true });
+    sTrack.addEventListener('touchmove', (e) => {
+      if (touchX === null) return;
+      const dx = e.touches[0].clientX - touchX;
+      const dy = e.touches[0].clientY - touchY;
+      // Once the drag is clearly horizontal, take over the gesture so the
+      // browser doesn't treat a right-swipe as "go back" mid-drag.
+      if (!touchIsHorizontal && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 10) {
+        touchIsHorizontal = true;
+      }
+      if (touchIsHorizontal) e.preventDefault();
+    }, { passive: false });
     sTrack.addEventListener('touchend', (e) => {
       if (touchX === null) return;
       const dx = e.changedTouches[0].clientX - touchX;
       if (Math.abs(dx) > 40) sGoTo(sCurrent + (dx < 0 ? 1 : -1));
       touchX = null;
+      touchY = null;
     }, { passive: true });
   });
 

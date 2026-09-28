@@ -1670,11 +1670,15 @@ a.contact__value:hover { color: var(--color-gold); }
 .pdp-slider__viewport {
   overflow: hidden;
   border-radius: var(--radius-md);
+  /* Claim horizontal drags for the carousel so mobile browsers don't
+     intercept a right-swipe as a back-navigation gesture. */
+  touch-action: pan-y;
 }
 
 .pdp-slider__track {
   display: flex;
   transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  touch-action: pan-y;
 }
 
 @media (prefers-reduced-motion: reduce) {
