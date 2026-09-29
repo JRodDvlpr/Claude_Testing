@@ -1,5 +1,5 @@
 # Pita Cigars — all crawlers welcome.
-# A plain-text site summary for AI assistants lives at /Claude_Testing/llms.txt
+# A plain-text site summary for AI assistants lives at /llms.txt
 
 User-agent: *
 Allow: /
@@ -26,4 +26,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://jroddvlpr.github.io/Claude_Testing/sitemap.xml
+Sitemap: https://www.pitacigars.com/sitemap.xml

@@ -1,0 +1,14 @@
+modules = ["nodejs-20"]
+
+# Replit serves the site at the domain root, so build without the
+# /Claude_Testing/ prefix that GitHub Pages needs.
+run = ["sh", "-c", "npm install && PATH_PREFIX=/ npm run dev"]
+
+[[ports]]
+localPort = 8080
+externalPort = 80
+
+[deployment]
+deploymentTarget = "static"
+build = ["sh", "-c", "npm ci && PATH_PREFIX=/ npm run build"]
+publicDir = "_site"

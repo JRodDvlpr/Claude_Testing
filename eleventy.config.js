@@ -123,7 +123,9 @@ module.exports = function (eleventyConfig) {
       includes: "_includes",
       data: "_data",
     },
-    pathPrefix: "/Claude_Testing/",
+    // GitHub Pages serves the site under /Claude_Testing/; hosts that serve
+    // it at the domain root (Replit, pitacigars.com) build with PATH_PREFIX=/
+    pathPrefix: process.env.PATH_PREFIX || "/Claude_Testing/",
     templateFormats: ["njk", "html"],
     htmlTemplateEngine: "njk",
     markdownTemplateEngine: "njk",
