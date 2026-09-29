@@ -1688,12 +1688,18 @@ a.contact__value:hover { color: var(--color-gold); }
 .pdp-slider__viewport {
   overflow: hidden;
   border-radius: var(--radius-md);
+  /* horizontal drags belong to the slider, so phones don't hijack a
+     right-swipe as browser back-navigation */
+  touch-action: pan-y;
+  overscroll-behavior-x: contain;
 }
 
 .pdp-slider__track {
   display: flex;
   transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
+
+.pdp-slider__track.is-dragging { transition: none; }
 
 @media (prefers-reduced-motion: reduce) {
   .pdp-slider__track { transition: none; }
@@ -1707,6 +1713,10 @@ a.contact__value:hover { color: var(--color-gold); }
   /* same upward bias as .product-card__image, for the 9:16 spec cards */
   object-position: center 25%;
   display: block;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
 }
 
 .pdp-slider__controls {

@@ -172,15 +172,51 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'ArrowRight') { e.preventDefault(); sGoTo(sCurrent + 1); }
     });
 
-    // swipe on touch devices
-    let touchX = null;
-    sTrack.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
-    sTrack.addEventListener('touchend', (e) => {
-      if (touchX === null) return;
-      const dx = e.changedTouches[0].clientX - touchX;
-      if (Math.abs(dx) > 40) sGoTo(sCurrent + (dx < 0 ? 1 : -1));
-      touchX = null;
-    }, { passive: true });
+    // swipe / drag: the photo follows the finger, then snaps to the next or previous one
+    const sViewport = slider.querySelector('.pdp-slider__viewport') || sTrack;
+    sSlides.forEach((sl) => { sl.draggable = false; });
+    let dragId = null;
+    let dragging = false;
+    let startX = 0;
+    let startY = 0;
+    let lastX = 0;
+
+    sViewport.addEventListener('pointerdown', (e) => {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      dragId = e.pointerId;
+      dragging = false;
+      startX = lastX = e.clientX;
+      startY = e.clientY;
+    });
+
+    sViewport.addEventListener('pointermove', (e) => {
+      if (e.pointerId !== dragId) return;
+      lastX = e.clientX;
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+      if (!dragging) {
+        if (Math.abs(dy) > 10 && Math.abs(dy) > Math.abs(dx)) { dragId = null; return; }
+        if (Math.abs(dx) < 8) return;
+        dragging = true;
+        sViewport.setPointerCapture?.(dragId);
+        sTrack.classList.add('is-dragging');
+      }
+      sTrack.style.transform = `translateX(calc(${-sCurrent * 100}% + ${dx}px))`;
+    });
+
+    // pointercancel counts too: phones send it when they grab the gesture mid-swipe
+    const endDrag = (e) => {
+      if (e.pointerId !== dragId) return;
+      dragId = null;
+      if (!dragging) return;
+      dragging = false;
+      sTrack.classList.remove('is-dragging');
+      const dx = lastX - startX;
+      const threshold = Math.min(50, sViewport.offsetWidth * 0.15);
+      sGoTo(Math.abs(dx) > threshold ? sCurrent + (dx < 0 ? 1 : -1) : sCurrent);
+    };
+    sViewport.addEventListener('pointerup', endDrag);
+    sViewport.addEventListener('pointercancel', endDrag);
   });
 
   // ── 6. Scroll Reveal ───────────────────────────────────────
