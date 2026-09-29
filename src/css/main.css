@@ -904,6 +904,9 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
   transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
+/* portrait box shot: keep the whole open box in the landscape crop */
+.category-card__image--box { object-position: center 72%; }
+
 .category-card:hover .category-card__image {
   transform: scale(1.04);
 }
