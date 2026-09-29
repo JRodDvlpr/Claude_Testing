@@ -97,19 +97,23 @@ document.addEventListener('DOMContentLoaded', () => {
   // same top-right corner it was opened from.
   const toggle = document.querySelector('.nav-toggle');
   const menu   = document.querySelector('.nav-menu');
+  const iconSvg = (d) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="${d}"/></svg>`;
+  const MENU_ICON  = iconSvg('M4 7h16M4 12h16M8 17h12');
+  const CLOSE_ICON = iconSvg('M6 6l12 12M18 6L6 18');
+  const setMenuOpen = (open) => {
+    if (!toggle || !menu) return;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    toggle.innerHTML = open ? CLOSE_ICON : MENU_ICON;
+    menu.classList.toggle('is-open', open);
+  };
   if (toggle && menu) {
-    const setOpen = (open) => {
-      toggle.setAttribute('aria-expanded', String(open));
-      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-      toggle.innerHTML = open ? '&#10005;' : '&#9776;';
-      menu.classList.toggle('is-open', open);
-    };
     toggle.addEventListener('click', () => {
-      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+      setMenuOpen(toggle.getAttribute('aria-expanded') !== 'true');
     });
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && menu.classList.contains('is-open')) {
-        setOpen(false);
+        setMenuOpen(false);
       }
     });
   }
@@ -122,12 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!target) return;
       e.preventDefault();
       window.scrollTo({ top: target.offsetTop - navHeight, behavior: 'smooth' });
-      if (menu?.classList.contains('is-open')) {
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Open menu');
-        toggle.innerHTML = '&#9776;';
-        menu.classList.remove('is-open');
-      }
+      if (menu?.classList.contains('is-open')) setMenuOpen(false);
     });
   });
 
@@ -225,6 +224,27 @@ document.addEventListener('DOMContentLoaded', () => {
     sViewport.addEventListener('pointerup', endDrag);
     sViewport.addEventListener('pointercancel', endDrag);
   });
+
+  // ── 5b. Phone Order Bar ────────────────────────────────────
+  // Slides up once the price has scrolled under the header, and hides
+  // while the page's own order button is on screen.
+  const orderBar   = document.querySelector('.pdp-orderbar');
+  const pdpMeta    = document.querySelector('.pdp__meta');
+  const pdpActions = document.querySelector('.pdp__actions');
+  if (orderBar && pdpMeta && pdpActions && 'IntersectionObserver' in window) {
+    document.body.classList.add('has-orderbar');
+    let pastPrice = false;
+    let actionsInView = false;
+    const updateBar = () => orderBar.classList.toggle('is-visible', pastPrice && !actionsInView);
+    new IntersectionObserver(([entry]) => {
+      pastPrice = !entry.isIntersecting && entry.boundingClientRect.top < navHeight;
+      updateBar();
+    }, { rootMargin: `-${navHeight}px 0px 0px 0px` }).observe(pdpMeta);
+    new IntersectionObserver(([entry]) => {
+      actionsInView = entry.isIntersecting;
+      updateBar();
+    }).observe(pdpActions);
+  }
 
   // ── 6. Scroll Reveal ───────────────────────────────────────
   const revealEls = document.querySelectorAll(

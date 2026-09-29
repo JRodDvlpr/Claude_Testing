@@ -23,6 +23,7 @@
   /* ── Claret / Oxblood (vintage tobacco-label red — secondary accent) ── */
   --color-claret:      #8A2433;
   --color-claret-light:#A9333F;
+  --color-claret-on-dark: #D4707C; /* claret text on navy (5.7:1) */
 
   /* ── Text ── */
   --color-text-primary:   #14212E;   /* body text on cream — near-black, strong */

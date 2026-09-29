@@ -113,7 +113,7 @@ html.age-gate-open body {
   display: block;
 }
 
-.age-gate__eyebrow {
+.age-gate .age-gate__eyebrow {
   color: var(--color-gold);
 }
 
@@ -144,7 +144,7 @@ html.age-gate-open body {
 
 .age-gate__disclaimer {
   font-size: var(--text-sm);
-  color: var(--color-text-muted);
+  color: var(--color-text-dim);
   line-height: 1.5;
 }
 
@@ -359,8 +359,7 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
 
 .nav-toggle {
   display: none;
-  color: var(--color-text-light);
-  font-size: 1.25rem;
+  color: var(--color-gold);
   /* stays clickable above the full-screen .nav-menu.is-open overlay */
   position: relative;
   z-index: 5;
@@ -368,9 +367,10 @@ h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-snug); }
   line-height: 1;
 }
 
-.nav-toggle[aria-expanded="true"] {
-  color: var(--color-gold);
-  font-size: 1.5rem;
+.nav-toggle svg {
+  display: block;
+  width: 26px;
+  height: 26px;
 }
 
 /* ============================================================
@@ -1684,6 +1684,27 @@ a.contact__value:hover { color: var(--color-gold); }
 
 .pdp__media { display: flex; flex-direction: column; gap: var(--space-md); }
 
+.pdp__info .eyebrow { color: var(--color-claret-on-dark); }
+
+/* side-by-side layout: the photo stays in view while the details scroll,
+   sized so the whole photo plus its arrows fit the window */
+@media (min-width: 769px) {
+  .pdp__media {
+    position: sticky;
+    top: calc(var(--nav-height) + var(--space-md));
+  }
+  .pdp-slider {
+    width: min(100%, max(320px, calc((100vh - var(--nav-height) - 120px) * 0.75)));
+    margin-inline: auto;
+  }
+  .pdp__image {
+    width: auto;
+    max-width: 100%;
+    max-height: calc(100vh - var(--nav-height) - 64px);
+    margin-inline: auto;
+  }
+}
+
 /* product photo slider (main photo + additional views) */
 .pdp-slider__viewport {
   overflow: hidden;
@@ -1986,6 +2007,55 @@ a.contact__value:hover { color: var(--color-gold); }
   flex-wrap: wrap;
 }
 
+/* phone-only order bar pinned to the bottom of product pages;
+   stays below the header (z 100) so the open menu covers it */
+.pdp-orderbar { display: none; }
+
+@media (max-width: 768px) {
+  .pdp-orderbar {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 90;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    padding: 0.75rem var(--space-md) calc(0.75rem + env(safe-area-inset-bottom));
+    background: rgba(6, 15, 26, 0.94);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--color-gold-dim);
+    transform: translateY(100%);
+    visibility: hidden;
+    transition: transform 0.3s ease, visibility 0s linear 0.3s;
+  }
+  .pdp-orderbar.is-visible {
+    transform: none;
+    visibility: visible;
+    transition: transform 0.3s ease;
+  }
+  .pdp-orderbar__price {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--color-gold);
+  }
+  .pdp-orderbar__note {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-text-dim);
+  }
+  .pdp-orderbar .btn {
+    padding: 0.8rem 1.3rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+  /* keep the bar from covering the last lines of the footer */
+  .has-orderbar .site-footer { padding-bottom: 80px; }
+}
+
 /* PDP story band (light) */
 .pdp-story {
   background: var(--color-white);
@@ -2159,8 +2229,13 @@ a.contact__value:hover { color: var(--color-gold); }
   .craft__steps     { text-align: left; }
   .craft__collage   { order: 1; gap: 6px; }
 
-  .pdp__grid        { grid-template-columns: 1fr; }
+  .pdp__grid        { grid-template-columns: 1fr; gap: var(--space-md); }
   .pdp__specs       { grid-template-columns: 1fr; }
+  .pdp              { padding-top: calc(var(--nav-height) + var(--space-sm)); }
+  .pdp__breadcrumb  { margin-bottom: var(--space-sm); }
+  .pdp-slider__slide { aspect-ratio: 4 / 5; }
+
+  .hero__scroll-indicator { display: none; }
   .related__grid    { grid-template-columns: 1fr; }
   .footer__grid     { grid-template-columns: 1fr; gap: var(--space-xl); }
   .footer__nav      { grid-template-columns: repeat(2, 1fr); }

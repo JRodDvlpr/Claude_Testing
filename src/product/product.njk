@@ -58,7 +58,7 @@ eleventyComputed:
             <div class="pdp__meta">
               <div class="pdp__price-wrap">
                 <span class="pdp__price">{{ product.price }}</span>
-                <span class="pdp__count">Bundle of {{ product.quantity }} Cigars</span>
+                <span class="pdp__count">{{ product.quantity }} per bundle</span>
                 <span class="pdp__price-note">Plus Tax</span>
               </div>
               <span class="pdp__strength" aria-label="Strength: {{ product.strength }} of 5">
@@ -107,6 +107,14 @@ eleventyComputed:
         </div>
       </div>
     </section>
+
+    <div class="pdp-orderbar">
+      <div>
+        <span class="pdp-orderbar__price">{{ product.price }}</span>
+        <span class="pdp-orderbar__note">{{ product.quantity }} per bundle &middot; Plus tax</span>
+      </div>
+      <a href="/contact/" class="btn btn--primary">Contact Us to Order</a>
+    </div>
 
     <!-- STORY -->
     <section class="section pdp-story" aria-labelledby="story-heading">
