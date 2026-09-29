@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── 4. Smooth Scroll with Nav Offset ──────────────────────
   const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 80;
-  document.querySelectorAll('a[href^="#"]:not(.skip-link)').forEach(anchor => {
+  document.querySelectorAll('a[href^="#"]:not([href="#"]):not(.skip-link)').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
       const target = document.querySelector(anchor.getAttribute('href'));
       if (!target) return;
