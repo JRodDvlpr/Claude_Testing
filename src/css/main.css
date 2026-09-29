@@ -1739,9 +1739,14 @@ a.contact__value:hover { color: var(--color-gold); }
   transition: border-color var(--transition), background var(--transition);
 }
 
-.pdp-slider__btn:hover {
+.pdp-slider__btn:hover:not([aria-disabled="true"]) {
   border-color: var(--color-gold-dim);
   background: var(--color-gold-subtle);
+}
+
+.pdp-slider__btn[aria-disabled="true"] {
+  opacity: 0.35;
+  cursor: default;
 }
 
 .pdp-slider__dots {

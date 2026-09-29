@@ -142,15 +142,19 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     let sCurrent = 0;
+    const sLast = sSlides.length - 1;
+    const sPrevBtn = slider.querySelector('.pdp-slider__btn--prev');
+    const sNextBtn = slider.querySelector('.pdp-slider__btn--next');
 
+    // stops at the first and last photo instead of wrapping around
     function sGoTo(index) {
-      sCurrent = (index + sSlides.length) % sSlides.length;
+      sCurrent = Math.max(0, Math.min(index, sLast));
       sTrack.style.transform = `translateX(-${sCurrent * 100}%)`;
       sSlides.forEach((sl, i) => sl.setAttribute('aria-hidden', String(i !== sCurrent)));
       sDots.forEach((d, i) => d.setAttribute('aria-current', String(i === sCurrent)));
+      sPrevBtn?.setAttribute('aria-disabled', String(sCurrent === 0));
+      sNextBtn?.setAttribute('aria-disabled', String(sCurrent === sLast));
     }
-
-    sSlides.forEach((sl, i) => sl.setAttribute('aria-hidden', String(i !== 0)));
 
     const sDots = sSlides.map((_, i) => {
       const btn = document.createElement('button');
@@ -163,8 +167,9 @@ document.addEventListener('DOMContentLoaded', () => {
       return btn;
     });
 
-    slider.querySelector('.pdp-slider__btn--prev')?.addEventListener('click', () => sGoTo(sCurrent - 1));
-    slider.querySelector('.pdp-slider__btn--next')?.addEventListener('click', () => sGoTo(sCurrent + 1));
+    sGoTo(0);
+    sPrevBtn?.addEventListener('click', () => sGoTo(sCurrent - 1));
+    sNextBtn?.addEventListener('click', () => sGoTo(sCurrent + 1));
 
     // arrow keys work while focus is anywhere inside the slider
     slider.addEventListener('keydown', (e) => {
@@ -201,7 +206,9 @@ document.addEventListener('DOMContentLoaded', () => {
         sViewport.setPointerCapture?.(dragId);
         sTrack.classList.add('is-dragging');
       }
-      sTrack.style.transform = `translateX(calc(${-sCurrent * 100}% + ${dx}px))`;
+      // resist dragging past the first or last photo
+      const atEdge = (sCurrent === 0 && dx > 0) || (sCurrent === sLast && dx < 0);
+      sTrack.style.transform = `translateX(calc(${-sCurrent * 100}% + ${atEdge ? dx * 0.3 : dx}px))`;
     });
 
     // pointercancel counts too: phones send it when they grab the gesture mid-swipe
